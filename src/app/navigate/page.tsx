@@ -6,6 +6,7 @@ import { useRadarStore } from '@/lib/radarStore';
 import { useSettingsStore } from '@/lib/settingsStore';
 import { searchPlaces, getRouteWithWaypoints, findRadarsAlongRoute, SearchResult, RouteData } from '@/lib/routing';
 import { Radar } from '@/lib/types';
+import { useCustomPlacesStore } from '@/lib/customPlacesStore';
 
 const MapView = dynamic(() => import('@/components/Map'), { ssr: false });
 
@@ -18,6 +19,7 @@ interface Waypoint {
 export default function NavigatePage() {
   const { radars, loadRadars } = useRadarStore();
   const { isDark, loadSettings } = useSettingsStore();
+  const { places: customPlaces, loadPlaces: loadCustomPlaces } = useCustomPlacesStore();
   const [waypoints, setWaypoints] = useState<Waypoint[]>([
     { label: '1st Destination', query: '', result: null },
   ]);
@@ -36,7 +38,8 @@ export default function NavigatePage() {
   useEffect(() => {
     loadRadars();
     loadSettings();
-  }, [loadRadars, loadSettings]);
+    loadCustomPlaces();
+  }, [loadRadars, loadSettings, loadCustomPlaces]);
 
   // Get current position once
   useEffect(() => {
@@ -67,10 +70,24 @@ export default function NavigatePage() {
     searchTimer.current = setTimeout(async () => {
       setSearching(true);
       try {
-        const res = await searchPlaces(q);
-        setResults(res);
+        // Search custom places first (instant, local)
+        const qLower = q.toLowerCase();
+        const customMatches: SearchResult[] = customPlaces
+          .filter(p => p.name.toLowerCase().includes(qLower))
+          .map(p => ({ displayName: p.name, lat: p.latitude, lon: p.longitude }));
+
+        // Then search OSM
+        const osmResults = await searchPlaces(q);
+
+        // Custom places first, then OSM results
+        setResults([...customMatches, ...osmResults]);
       } catch {
-        setResults([]);
+        // Still show custom matches on network error
+        const qLower = q.toLowerCase();
+        const customMatches: SearchResult[] = customPlaces
+          .filter(p => p.name.toLowerCase().includes(qLower))
+          .map(p => ({ displayName: p.name, lat: p.latitude, lon: p.longitude }));
+        setResults(customMatches);
       }
       setSearching(false);
     }, 400);

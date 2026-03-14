@@ -1,16 +1,72 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSettingsStore } from '@/lib/settingsStore';
+import { useCustomPlacesStore } from '@/lib/customPlacesStore';
+import { parseGoogleMapsInput, isInUAE, CustomPlace } from '@/lib/customPlaces';
+import { reverseGeocode } from '@/lib/routing';
 
 export default function SettingsPage() {
   const settings = useSettingsStore();
+  const { places: customPlaces, loadPlaces, addPlace, removePlace } = useCustomPlacesStore();
+  const [linkInput, setLinkInput] = useState('');
+  const [nameInput, setNameInput] = useState('');
+  const [addError, setAddError] = useState('');
+  const [addSuccess, setAddSuccess] = useState('');
+  const [adding, setAdding] = useState(false);
 
   useEffect(() => {
     settings.loadSettings();
+    loadPlaces();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const isDark = settings.isDark();
+
+  async function handleAddPlace() {
+    setAddError('');
+    setAddSuccess('');
+
+    if (!linkInput.trim()) {
+      setAddError('Paste a Google Maps link or coordinates');
+      return;
+    }
+
+    const coords = parseGoogleMapsInput(linkInput);
+    if (!coords) {
+      setAddError('Could not extract coordinates. Paste a Google Maps link (e.g. https://maps.google.com/.../@25.123,55.456,...) or raw coordinates (e.g. 25.123, 55.456)');
+      return;
+    }
+
+    if (!isInUAE(coords.lat, coords.lng)) {
+      setAddError('Location is outside UAE');
+      return;
+    }
+
+    setAdding(true);
+
+    // Get a name — use provided name or reverse geocode
+    let placeName = nameInput.trim();
+    if (!placeName) {
+      const address = await reverseGeocode(coords.lat, coords.lng);
+      placeName = address ? address.split(',')[0] : `Place ${coords.lat.toFixed(4)}, ${coords.lng.toFixed(4)}`;
+    }
+
+    const place: CustomPlace = {
+      id: `cp_${Date.now()}`,
+      name: placeName,
+      latitude: coords.lat,
+      longitude: coords.lng,
+      addedAt: new Date().toISOString(),
+    };
+
+    addPlace(place);
+    setLinkInput('');
+    setNameInput('');
+    setAddSuccess(`Added: ${placeName}`);
+    setAdding(false);
+
+    setTimeout(() => setAddSuccess(''), 3000);
+  }
 
   return (
     <div className={`min-h-[100dvh] ${isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
@@ -122,6 +178,76 @@ export default function SettingsPage() {
             <span className="text-sm font-medium">Speed unit</span>
             <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>km/h</span>
           </div>
+        </Section>
+
+        {/* Custom Places */}
+        <Section title="Add Custom Places" isDark={isDark}>
+          <p className={`text-xs mb-3 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+            Paste a Google Maps link or coordinates to add a place. These will appear in search results when planning a route.
+          </p>
+
+          <input
+            type="text"
+            value={nameInput}
+            onChange={(e) => setNameInput(e.target.value)}
+            placeholder="Place name (optional)"
+            className={`w-full rounded-xl px-3 py-2.5 text-sm mb-2 ${
+              isDark ? 'bg-gray-700 text-white placeholder-gray-400' : 'bg-gray-100 text-gray-900 placeholder-gray-500'
+            }`}
+          />
+
+          <textarea
+            value={linkInput}
+            onChange={(e) => { setLinkInput(e.target.value); setAddError(''); }}
+            placeholder="Paste Google Maps link or coordinates (e.g. 25.123, 55.456)"
+            rows={3}
+            className={`w-full rounded-xl px-3 py-2.5 text-sm resize-none ${
+              isDark ? 'bg-gray-700 text-white placeholder-gray-400' : 'bg-gray-100 text-gray-900 placeholder-gray-500'
+            }`}
+          />
+
+          {addError && <p className="text-red-500 text-xs mt-2">{addError}</p>}
+          {addSuccess && <p className="text-green-500 text-xs mt-2">{addSuccess}</p>}
+
+          <button
+            onClick={handleAddPlace}
+            disabled={adding || !linkInput.trim()}
+            className="w-full mt-3 py-2.5 bg-blue-600 text-white rounded-xl text-sm font-medium disabled:opacity-40 active:bg-blue-700"
+          >
+            {adding ? 'Adding...' : 'Add Place'}
+          </button>
+
+          {/* Existing custom places */}
+          {customPlaces.length > 0 && (
+            <div className="mt-4">
+              <h3 className={`text-xs font-semibold mb-2 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                Saved Places ({customPlaces.length})
+              </h3>
+              <div className="space-y-1">
+                {customPlaces.map((p) => (
+                  <div
+                    key={p.id}
+                    className={`flex items-center justify-between px-3 py-2 rounded-lg ${
+                      isDark ? 'bg-gray-700' : 'bg-gray-50'
+                    }`}
+                  >
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium truncate">{p.name}</p>
+                      <p className={`text-xs truncate ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                        {p.latitude.toFixed(5)}, {p.longitude.toFixed(5)}
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => removePlace(p.id)}
+                      className="text-red-400 text-xs font-medium ml-2 px-2 py-1 active:text-red-600 flex-shrink-0"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </Section>
 
         {/* Navigation links */}
