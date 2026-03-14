@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { Radar } from '@/lib/types';
+import { useSettingsStore } from '@/lib/settingsStore';
 
 interface Props {
   radars: Radar[];
@@ -23,19 +24,28 @@ export default function AdminMap({ radars, selectedId, onRadarClick, onMapClick,
   const radarsRef = useRef(radars);
   const onRadarClickRef = useRef(onRadarClick);
   const onRadarMoveRef = useRef(onRadarMove);
+  const currentStyleRef = useRef('');
   const [tracking, setTracking] = useState(false);
   const [userPos, setUserPos] = useState<{ lat: number; lng: number } | null>(null);
+
+  const isDark = useSettingsStore((s) => s.isDark());
 
   radarsRef.current = radars;
   onRadarClickRef.current = onRadarClick;
   onRadarMoveRef.current = onRadarMove;
 
+  const mapStyle = isDark
+    ? 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json'
+    : 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json';
+
   useEffect(() => {
     if (!mapContainer.current || mapRef.current) return;
 
+    currentStyleRef.current = mapStyle;
+
     const map = new maplibregl.Map({
       container: mapContainer.current,
-      style: 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json',
+      style: mapStyle,
       center: [55.2708, 25.2048],
       zoom: 10,
       attributionControl: false,
@@ -133,6 +143,14 @@ export default function AdminMap({ radars, selectedId, onRadarClick, onMapClick,
       }
     };
   }, [tracking]);
+
+  // Switch map style when dark mode changes
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || currentStyleRef.current === mapStyle) return;
+    currentStyleRef.current = mapStyle;
+    map.setStyle(mapStyle);
+  }, [mapStyle]);
 
   // Render radar markers
   useEffect(() => {

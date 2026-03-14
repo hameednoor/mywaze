@@ -1,3 +1,5 @@
+import { useSettingsStore } from './settingsStore';
+
 let audioCtx: AudioContext | null = null;
 
 function getAudioContext(): AudioContext {
@@ -17,13 +19,19 @@ export function initAudio(): void {
 
 /** Play a beep using Web Audio API oscillator */
 export function playBeep(frequencyHz: number, durationMs: number): void {
+  const settings = useSettingsStore.getState();
+  if (!settings.soundEnabled) return;
+
   const ctx = getAudioContext();
   const oscillator = ctx.createOscillator();
   const gainNode = ctx.createGain();
 
   oscillator.type = 'sine';
   oscillator.frequency.setValueAtTime(frequencyHz, ctx.currentTime);
-  gainNode.gain.setValueAtTime(1.0, ctx.currentTime);
+
+  // Apply volume from settings (0-100 -> 0-1)
+  const volume = settings.volume / 100;
+  gainNode.gain.setValueAtTime(volume, ctx.currentTime);
 
   oscillator.connect(gainNode);
   gainNode.connect(ctx.destination);
@@ -50,19 +58,25 @@ export function getBeepParams(distance: number): {
 /** Speak a message using Web Speech API */
 export function speak(text: string, lang: string = 'en-US'): void {
   if (typeof window === 'undefined' || !window.speechSynthesis) return;
+
+  const settings = useSettingsStore.getState();
+  if (!settings.voiceEnabled) return;
+
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = lang;
   utterance.rate = 0.95;
-  utterance.volume = 1.0;
+  utterance.volume = settings.volume / 100;
   window.speechSynthesis.speak(utterance);
 }
 
-/** Speak the radar voice alert at 500m */
+/** Speak the radar voice alert at alert distance */
 export function speakRadarAlert(
   direction: 'FRONT_FACING' | 'REAR_FACING',
   speedLimit: number
 ): void {
+  const settings = useSettingsStore.getState();
+  const distanceM = settings.alertDistance;
   const dirText = direction === 'REAR_FACING' ? 'Rear-facing radar' : 'Radar';
   const speedText = speedLimit > 0 ? ` Speed limit ${speedLimit} kilometers per hour.` : '';
-  speak(`${dirText} ahead in 500 meters.${speedText}`);
+  speak(`${dirText} ahead in ${distanceM} meters.${speedText}`);
 }

@@ -1,10 +1,9 @@
 import { Radar, GPSPosition, RadarAlert, AlertZone } from './types';
 import { haversineDistance, isRadarAhead } from './geo';
+import { useSettingsStore } from './settingsStore';
 
-const AWARENESS_DISTANCE = 1000; // 1km
-const ALERT_DISTANCE = 500;      // Voice alert trigger
-const COUNTDOWN_DISTANCE = 200;  // Beep start
-const BOUNDING_BOX_KM = 2;      // Only check radars within 2km
+const BOUNDING_BOX_KM = 3;      // Only check radars within 3km
+const COUNTDOWN_DISTANCE = 200;  // Beep start distance (fixed)
 
 /** Convert km to approximate degrees for bounding box filter */
 function kmToDeg(km: number): number {
@@ -16,6 +15,10 @@ export function detectRadars(
   position: GPSPosition,
   radars: Radar[]
 ): RadarAlert | null {
+  const settings = useSettingsStore.getState();
+  const alertDistance = settings.alertDistance;       // Voice alert trigger (configurable)
+  const awarenessDistance = alertDistance * 2;         // Awareness zone = 2x alert distance
+
   const degBuffer = kmToDeg(BOUNDING_BOX_KM);
 
   // Bounding box filter for performance
@@ -44,12 +47,12 @@ export function detectRadars(
       continue;
     }
 
-    if (distance > AWARENESS_DISTANCE) continue;
+    if (distance > awarenessDistance) continue;
 
     let zone: AlertZone = 'none';
     if (distance <= COUNTDOWN_DISTANCE) zone = 'countdown';
-    else if (distance <= ALERT_DISTANCE) zone = 'alert';
-    else if (distance <= AWARENESS_DISTANCE) zone = 'awareness';
+    else if (distance <= alertDistance) zone = 'alert';
+    else if (distance <= awarenessDistance) zone = 'awareness';
 
     if (!closest || distance < closest.distance) {
       closest = { radar, distance, zone };
