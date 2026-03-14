@@ -4,24 +4,34 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import { useRadarStore } from '@/lib/radarStore';
 import { useSettingsStore } from '@/lib/settingsStore';
-import { searchPlaces, getRoute, findRadarsAlongRoute, SearchResult, RouteData } from '@/lib/routing';
+import { searchPlaces, getRouteWithWaypoints, findRadarsAlongRoute, SearchResult, RouteData } from '@/lib/routing';
 import { Radar } from '@/lib/types';
 
 const MapView = dynamic(() => import('@/components/Map'), { ssr: false });
 
+interface Waypoint {
+  label: string;
+  query: string;
+  result: SearchResult | null;
+}
+
 export default function NavigatePage() {
   const { radars, loadRadars } = useRadarStore();
   const { isDark, loadSettings } = useSettingsStore();
-  const [query, setQuery] = useState('');
+  const [waypoints, setWaypoints] = useState<Waypoint[]>([
+    { label: '1st Destination', query: '', result: null },
+  ]);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [results, setResults] = useState<SearchResult[]>([]);
   const [searching, setSearching] = useState(false);
-  const [destination, setDestination] = useState<SearchResult | null>(null);
   const [route, setRoute] = useState<RouteData | null>(null);
   const [routeRadars, setRouteRadars] = useState<Radar[]>([]);
   const [calculating, setCalculating] = useState(false);
   const [userPos, setUserPos] = useState<{ lat: number; lng: number } | null>(null);
   const [error, setError] = useState('');
   const searchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const dark = isDark();
 
   useEffect(() => {
     loadRadars();
@@ -38,12 +48,19 @@ export default function NavigatePage() {
     );
   }, []);
 
-  const dark = isDark();
-
   // Debounced search
-  const handleSearch = useCallback((q: string) => {
-    setQuery(q);
+  const handleSearch = useCallback((q: string, index: number) => {
+    // Update waypoint query
+    setWaypoints(prev => {
+      const updated = [...prev];
+      updated[index] = { ...updated[index], query: q, result: null };
+      return updated;
+    });
+    setActiveIndex(index);
     setError('');
+    setRoute(null);
+    setRouteRadars([]);
+
     if (searchTimer.current) clearTimeout(searchTimer.current);
     if (!q.trim()) { setResults([]); return; }
 
@@ -59,11 +76,40 @@ export default function NavigatePage() {
     }, 400);
   }, []);
 
-  async function selectDestination(result: SearchResult) {
-    setDestination(result);
+  function selectResult(result: SearchResult, index: number) {
+    setWaypoints(prev => {
+      const updated = [...prev];
+      updated[index] = { ...updated[index], query: result.displayName.split(',')[0], result };
+      return updated;
+    });
     setResults([]);
-    setQuery(result.displayName.split(',')[0]);
+    setActiveIndex(null);
+  }
 
+  function addWaypoint() {
+    if (waypoints.length >= 3) return;
+    const labels = ['1st Destination', '2nd Destination', '3rd Destination'];
+    setWaypoints(prev => [...prev, { label: labels[prev.length], query: '', result: null }]);
+  }
+
+  function removeWaypoint(index: number) {
+    if (waypoints.length <= 1) return;
+    setWaypoints(prev => {
+      const updated = prev.filter((_, i) => i !== index);
+      // Re-label
+      const labels = ['1st Destination', '2nd Destination', '3rd Destination'];
+      return updated.map((w, i) => ({ ...w, label: labels[i] }));
+    });
+    setRoute(null);
+    setRouteRadars([]);
+  }
+
+  async function calculateRoute() {
+    const filledWaypoints = waypoints.filter(w => w.result !== null);
+    if (filledWaypoints.length === 0) {
+      setError('Enter at least one destination');
+      return;
+    }
     if (!userPos) {
       setError('Waiting for GPS location...');
       return;
@@ -71,7 +117,10 @@ export default function NavigatePage() {
 
     setCalculating(true);
     setError('');
-    const routeData = await getRoute(userPos.lat, userPos.lng, result.lat, result.lon);
+
+    const points = filledWaypoints.map(w => ({ lat: w.result!.lat, lng: w.result!.lon }));
+    const routeData = await getRouteWithWaypoints(userPos.lat, userPos.lng, points);
+
     if (routeData) {
       setRoute(routeData);
       const radarsOnRoute = findRadarsAlongRoute(routeData, radars);
@@ -82,69 +131,114 @@ export default function NavigatePage() {
     setCalculating(false);
   }
 
-  function clearRoute() {
+  function clearAll() {
+    setWaypoints([{ label: '1st Destination', query: '', result: null }]);
     setRoute(null);
     setRouteRadars([]);
-    setDestination(null);
-    setQuery('');
+    setResults([]);
     setError('');
+    setActiveIndex(null);
   }
+
+  // Last filled waypoint for destination marker on map
+  const lastWaypoint = [...waypoints].reverse().find(w => w.result);
 
   return (
     <div className={`h-[100dvh] flex flex-col overflow-hidden ${dark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
       {/* Top bar */}
-      <div className={`${dark ? 'bg-gray-800' : 'bg-gray-900'} text-white px-4 py-3 flex-shrink-0 z-20`}
+      <div
+        className={`${dark ? 'bg-gray-800' : 'bg-gray-900'} text-white px-4 py-3 flex-shrink-0 z-20`}
         style={{ paddingTop: 'max(12px, env(safe-area-inset-top, 12px))' }}
       >
         <div className="flex items-center gap-3 mb-3">
-          <a href="/" className="text-blue-400 hover:text-blue-300 text-sm">&larr; Map</a>
+          <a href="/" className="text-blue-400 text-sm">&larr; Map</a>
           <h1 className="text-lg font-bold flex-1">Route Planner</h1>
-          {route && (
-            <button onClick={clearRoute} className="text-red-400 text-sm font-medium">Clear</button>
+          {(route || waypoints.some(w => w.query)) && (
+            <button onClick={clearAll} className="text-red-400 text-sm font-medium">Clear</button>
           )}
         </div>
 
-        {/* Search box */}
-        <div className="relative">
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => handleSearch(e.target.value)}
-            placeholder="Search destination..."
-            className={`w-full rounded-xl px-4 py-2.5 text-sm ${
-              dark ? 'bg-gray-700 text-white placeholder-gray-400' : 'bg-white text-gray-900 placeholder-gray-500'
-            }`}
-          />
-          {searching && (
-            <div className="absolute right-3 top-1/2 -translate-y-1/2">
-              <div className="w-4 h-4 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
+        {/* Waypoint inputs */}
+        <div className="space-y-2">
+          {waypoints.map((wp, i) => (
+            <div key={i} className="relative">
+              <div className="flex items-center gap-2">
+                {/* Stop number indicator */}
+                <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${
+                  wp.result ? 'bg-blue-600 text-white' : (dark ? 'bg-gray-600 text-gray-300' : 'bg-gray-500 text-white')
+                }`}>
+                  {i + 1}
+                </div>
+
+                <input
+                  type="text"
+                  value={wp.query}
+                  onChange={(e) => handleSearch(e.target.value, i)}
+                  onFocus={() => setActiveIndex(i)}
+                  placeholder={wp.label}
+                  className={`flex-1 rounded-xl px-3 py-2.5 text-sm ${
+                    dark ? 'bg-gray-700 text-white placeholder-gray-400' : 'bg-white text-gray-900 placeholder-gray-500'
+                  } ${wp.result ? 'border-2 border-blue-500' : ''}`}
+                />
+
+                {/* Remove button (only if more than 1 waypoint) */}
+                {waypoints.length > 1 && (
+                  <button
+                    onClick={() => removeWaypoint(i)}
+                    className="w-8 h-8 flex items-center justify-center text-gray-400 active:text-red-400 flex-shrink-0"
+                  >
+                    &times;
+                  </button>
+                )}
+              </div>
+
+              {/* Search results for this input */}
+              {activeIndex === i && results.length > 0 && (
+                <div className={`absolute left-8 right-0 mt-1 rounded-xl overflow-hidden shadow-lg max-h-[35vh] overflow-y-auto z-30 ${
+                  dark ? 'bg-gray-700' : 'bg-white'
+                }`}>
+                  {results.map((r, ri) => (
+                    <button
+                      key={ri}
+                      onClick={() => selectResult(r, i)}
+                      className={`w-full text-left px-4 py-3 text-sm border-b last:border-b-0 transition-colors ${
+                        dark
+                          ? 'border-gray-600 active:bg-gray-600 text-white'
+                          : 'border-gray-100 active:bg-gray-50 text-gray-900'
+                      }`}
+                    >
+                      <p className="font-medium truncate">{r.displayName.split(',')[0]}</p>
+                      <p className={`text-xs truncate ${dark ? 'text-gray-400' : 'text-gray-500'}`}>
+                        {r.displayName.split(',').slice(1).join(',').trim()}
+                      </p>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
-          )}
+          ))}
         </div>
 
-        {/* Search results dropdown */}
-        {results.length > 0 && (
-          <div className={`mt-1 rounded-xl overflow-hidden shadow-lg max-h-[40vh] overflow-y-auto ${
-            dark ? 'bg-gray-700' : 'bg-white'
-          }`}>
-            {results.map((r, i) => (
-              <button
-                key={i}
-                onClick={() => selectDestination(r)}
-                className={`w-full text-left px-4 py-3 text-sm border-b last:border-b-0 transition-colors ${
-                  dark
-                    ? 'border-gray-600 hover:bg-gray-600 text-white'
-                    : 'border-gray-100 hover:bg-gray-50 text-gray-900'
-                }`}
-              >
-                <p className="font-medium truncate">{r.displayName.split(',')[0]}</p>
-                <p className={`text-xs truncate ${dark ? 'text-gray-400' : 'text-gray-500'}`}>
-                  {r.displayName.split(',').slice(1).join(',').trim()}
-                </p>
-              </button>
-            ))}
-          </div>
-        )}
+        {/* Add waypoint + Calculate buttons */}
+        <div className="flex gap-2 mt-3">
+          {waypoints.length < 3 && (
+            <button
+              onClick={addWaypoint}
+              className={`px-3 py-2 rounded-xl text-sm font-medium ${
+                dark ? 'bg-gray-700 text-gray-300 active:bg-gray-600' : 'bg-gray-700 text-white active:bg-gray-600'
+              }`}
+            >
+              + Add Stop
+            </button>
+          )}
+          <button
+            onClick={calculateRoute}
+            disabled={calculating || !waypoints.some(w => w.result)}
+            className="flex-1 bg-blue-600 text-white py-2 rounded-xl text-sm font-medium disabled:opacity-40 active:bg-blue-700"
+          >
+            {calculating ? 'Calculating...' : 'Calculate Route'}
+          </button>
+        </div>
       </div>
 
       {/* Route info bar */}
@@ -152,7 +246,15 @@ export default function NavigatePage() {
         <div className={`${dark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border-b px-4 py-3 flex-shrink-0 z-10`}>
           <div className="flex items-center gap-4">
             <div className="flex-1">
-              <p className="text-sm font-medium truncate">{destination?.displayName.split(',')[0]}</p>
+              {/* Show all stops */}
+              <div className="flex items-center gap-1 flex-wrap">
+                {waypoints.filter(w => w.result).map((w, i, arr) => (
+                  <span key={i} className="text-sm">
+                    <span className="font-medium">{w.query}</span>
+                    {i < arr.length - 1 && <span className={`mx-1 ${dark ? 'text-gray-500' : 'text-gray-400'}`}>&rarr;</span>}
+                  </span>
+                ))}
+              </div>
               <div className="flex gap-4 mt-1">
                 <span className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-500'}`}>
                   {route.distanceKm.toFixed(1)} km
@@ -169,7 +271,7 @@ export default function NavigatePage() {
             </div>
             <a
               href={`/?route=${encodeURIComponent(JSON.stringify({ coordinates: route.coordinates, geometry: route.geometry }))}&routeRadars=${encodeURIComponent(JSON.stringify(routeRadars.map(r => r.id)))}`}
-              className="bg-blue-600 text-white px-4 py-2 rounded-xl text-sm font-medium active:bg-blue-700"
+              className="bg-green-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold active:bg-green-700"
             >
               Start
             </a>
@@ -199,7 +301,7 @@ export default function NavigatePage() {
           radars={radars}
           route={route ?? undefined}
           routeRadarIds={routeRadars.map(r => r.id)}
-          destination={destination ? { lat: destination.lat, lng: destination.lon, name: destination.displayName.split(',')[0] } : undefined}
+          destination={lastWaypoint ? { lat: lastWaypoint.result!.lat, lng: lastWaypoint.result!.lon, name: lastWaypoint.query } : undefined}
         />
       </div>
     </div>

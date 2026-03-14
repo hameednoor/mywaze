@@ -37,7 +37,21 @@ export async function getRoute(
   endLat: number,
   endLng: number
 ): Promise<RouteData | null> {
-  const url = `https://router.project-osrm.org/route/v1/driving/${startLng},${startLat};${endLng},${endLat}?overview=full&geometries=geojson`;
+  return getRouteWithWaypoints(startLat, startLng, [{ lat: endLat, lng: endLng }]);
+}
+
+/** Get route with multiple waypoints via OSRM */
+export async function getRouteWithWaypoints(
+  startLat: number,
+  startLng: number,
+  waypoints: { lat: number; lng: number }[]
+): Promise<RouteData | null> {
+  if (waypoints.length === 0) return null;
+
+  // Build coordinate string: start;wp1;wp2;...;wpN
+  const points = [`${startLng},${startLat}`, ...waypoints.map(w => `${w.lng},${w.lat}`)];
+  const url = `https://router.project-osrm.org/route/v1/driving/${points.join(';')}?overview=full&geometries=geojson`;
+
   try {
     const res = await fetch(url);
     if (!res.ok) return null;
