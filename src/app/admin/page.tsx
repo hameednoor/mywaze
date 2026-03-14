@@ -10,7 +10,68 @@ const AdminMap = dynamic(() => import('@/components/AdminMap'), { ssr: false });
 const EMIRATES: Emirate[] = ['Abu Dhabi', 'Dubai', 'Sharjah', 'Ajman', 'Umm Al Quwain', 'Ras Al Khaimah', 'Fujairah'];
 const RADAR_TYPES: RadarType[] = ['FIXED', 'MOBILE', 'AVERAGE_SPEED', 'RED_LIGHT'];
 
+const ADMIN_PIN = '2580';
+const PIN_STORAGE_KEY = 'mywaze_admin_auth';
+
 export default function AdminPage() {
+  const [authenticated, setAuthenticated] = useState(false);
+  const [pin, setPin] = useState('');
+  const [pinError, setPinError] = useState(false);
+
+  // Check if already authenticated this session
+  useEffect(() => {
+    if (sessionStorage.getItem(PIN_STORAGE_KEY) === 'true') {
+      setAuthenticated(true);
+    }
+  }, []);
+
+  function handlePinSubmit() {
+    if (pin === ADMIN_PIN) {
+      setAuthenticated(true);
+      sessionStorage.setItem(PIN_STORAGE_KEY, 'true');
+      setPinError(false);
+    } else {
+      setPinError(true);
+      setPin('');
+    }
+  }
+
+  if (!authenticated) {
+    return (
+      <div className="h-[100dvh] flex items-center justify-center bg-gray-900">
+        <div className="bg-gray-800 rounded-2xl p-8 w-72 text-center shadow-xl">
+          <h1 className="text-white text-lg font-bold mb-1">Admin Access</h1>
+          <p className="text-gray-400 text-xs mb-6">Enter 4-digit PIN</p>
+          <input
+            type="password"
+            inputMode="numeric"
+            maxLength={4}
+            pattern="[0-9]*"
+            value={pin}
+            onChange={(e) => { setPin(e.target.value.replace(/\D/g, '').slice(0, 4)); setPinError(false); }}
+            onKeyDown={(e) => { if (e.key === 'Enter' && pin.length === 4) handlePinSubmit(); }}
+            className="w-full text-center text-2xl tracking-[0.5em] bg-gray-700 text-white border-2 border-gray-600 rounded-xl py-3 focus:border-blue-500 focus:outline-none"
+            autoFocus
+            placeholder="____"
+          />
+          {pinError && <p className="text-red-400 text-xs mt-2">Wrong PIN</p>}
+          <button
+            onClick={handlePinSubmit}
+            disabled={pin.length !== 4}
+            className="w-full mt-4 py-3 bg-blue-600 text-white rounded-xl text-sm font-medium disabled:opacity-40 active:bg-blue-700"
+          >
+            Unlock
+          </button>
+          <a href="/" className="block mt-4 text-xs text-blue-400">Back to Map</a>
+        </div>
+      </div>
+    );
+  }
+
+  return <AdminPanel />;
+}
+
+function AdminPanel() {
   const { radars, loadRadars, addRadar, updateRadar, deleteRadar } = useRadarStore();
   const [selected, setSelected] = useState<Radar | null>(null);
   const [adding, setAdding] = useState(false);
