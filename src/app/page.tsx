@@ -1,65 +1,88 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import { useEffect, useState, useCallback } from 'react';
+import dynamic from 'next/dynamic';
+import { useGPS } from '@/lib/useGPS';
+import { useRadarStore } from '@/lib/radarStore';
+import { detectRadars } from '@/lib/radarDetection';
+import { initAudio } from '@/lib/audio';
+import { RadarAlert } from '@/lib/types';
+import RadarAlertOverlay from '@/components/RadarAlertOverlay';
+import SpeedDisplay from '@/components/SpeedDisplay';
+
+// Dynamic import for MapLibre (no SSR)
+const MapView = dynamic(() => import('@/components/Map'), { ssr: false });
+
+export default function HomePage() {
+  const { position, error: gpsError } = useGPS();
+  const { radars, loadRadars } = useRadarStore();
+  const [alert, setAlert] = useState<RadarAlert | null>(null);
+  const [audioReady, setAudioReady] = useState(false);
+
+  useEffect(() => {
+    loadRadars();
+  }, [loadRadars]);
+
+  // Radar detection loop
+  useEffect(() => {
+    if (!position) return;
+    const result = detectRadars(position, radars);
+    setAlert(result);
+  }, [position, radars]);
+
+  // Unlock audio on first user interaction
+  const handleUserGesture = useCallback(() => {
+    if (!audioReady) {
+      initAudio();
+      setAudioReady(true);
+    }
+  }, [audioReady]);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div
+      className="h-[100dvh] w-screen relative overflow-hidden"
+      onClick={handleUserGesture}
+      onTouchStart={handleUserGesture}
+    >
+      {/* Map */}
+      <MapView position={position} radars={radars} />
+
+      {/* Radar alert overlays (side bars + distance popup) */}
+      <RadarAlertOverlay alert={alert} />
+
+      {/* Speed display */}
+      <SpeedDisplay speedMs={position?.speed ?? null} nearestAlert={alert} />
+
+      {/* GPS error banner */}
+      {gpsError && (
+        <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-red-500 text-white px-4 py-2 rounded-xl text-sm shadow-lg">
+          GPS: {gpsError}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      )}
+
+      {/* Audio unlock prompt */}
+      {!audioReady && (
+        <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-blue-600 text-white px-4 py-2 rounded-xl text-sm shadow-lg cursor-pointer animate-pulse">
+          Tap anywhere to enable radar alerts
         </div>
-      </main>
+      )}
+
+      {/* Admin link */}
+      <a
+        href="/admin"
+        className="fixed z-30 bg-white/90 backdrop-blur-sm text-gray-700 px-3 py-2 rounded-lg text-xs font-medium shadow active:bg-white transition-colors"
+        style={{ top: 'max(16px, env(safe-area-inset-top, 16px))', right: 'max(16px, env(safe-area-inset-right, 16px))' }}
+      >
+        Admin
+      </a>
+
+      {/* Radar count badge */}
+      <div
+        className="fixed z-30 bg-black/70 backdrop-blur-sm text-white px-3 py-2 rounded-xl text-xs"
+        style={{ bottom: 'max(16px, env(safe-area-inset-bottom, 16px))', right: 'max(16px, env(safe-area-inset-right, 16px))' }}
+      >
+        {radars.filter((r) => r.status === 'ACTIVE').length} radars loaded
+      </div>
     </div>
   );
 }
