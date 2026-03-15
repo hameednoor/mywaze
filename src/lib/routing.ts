@@ -106,6 +106,22 @@ export function distanceToRoute(lat: number, lng: number, route: RouteData): num
   return minDist;
 }
 
+/** Get the nearest road name using OSRM */
+export async function getNearestRoad(lat: number, lng: number): Promise<string> {
+  try {
+    const url = `https://router.project-osrm.org/nearest/v1/driving/${lng},${lat}?number=1`;
+    const res = await fetch(url);
+    if (!res.ok) return '';
+    const data = await res.json();
+    if (data.waypoints && data.waypoints.length > 0) {
+      return data.waypoints[0].name || '';
+    }
+    return '';
+  } catch {
+    return '';
+  }
+}
+
 /** Reverse geocode a coordinate to get an address */
 export async function reverseGeocode(lat: number, lng: number): Promise<string> {
   try {

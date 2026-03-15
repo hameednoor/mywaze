@@ -9,7 +9,7 @@ import { usePlacesStore, SavedPlace } from '@/lib/placesStore';
 import { detectRadars } from '@/lib/radarDetection';
 import { initAudio } from '@/lib/audio';
 import { RadarAlert } from '@/lib/types';
-import { RouteData, distanceToRoute, getRouteWithWaypoints, findRadarsAlongRoute } from '@/lib/routing';
+import { RouteData, distanceToRoute, getRouteWithWaypoints, findRadarsAlongRoute, getNearestRoad } from '@/lib/routing';
 import RadarAlertOverlay from '@/components/RadarAlertOverlay';
 import SpeedDisplay from '@/components/SpeedDisplay';
 
@@ -27,8 +27,10 @@ export default function HomePage() {
   const [routeRadarIds, setRouteRadarIds] = useState<string[]>([]);
   const [destinations, setDestinations] = useState<{ lat: number; lng: number }[]>([]);
   const [rerouting, setRerouting] = useState(false);
+  const [currentRoad, setCurrentRoad] = useState('');
   const reroutingRef = useRef(false);
   const lastRerouteRef = useRef(0);
+  const lastRoadFetchRef = useRef(0);
   const wakeLockRef = useRef<WakeLockSentinel | null>(null);
 
   const dark = isDark();
@@ -95,6 +97,17 @@ export default function HomePage() {
     setAlert(result);
   }, [position, radars]);
 
+  // Current road name detection (throttled to every 5 seconds)
+  useEffect(() => {
+    if (!position || !position.speed || position.speed < 2) return; // Only when moving
+    if (Date.now() - lastRoadFetchRef.current < 5000) return;
+    lastRoadFetchRef.current = Date.now();
+
+    getNearestRoad(position.latitude, position.longitude).then((name) => {
+      if (name) setCurrentRoad(name);
+    });
+  }, [position]);
+
   // Deviation detection + auto-reroute
   useEffect(() => {
     if (!position || !route || destinations.length === 0) return;
@@ -151,6 +164,16 @@ export default function HomePage() {
         savedPlaces={places}
         onPlaceClick={handlePlaceClick}
       />
+
+      {/* Current road name bar */}
+      {currentRoad && position?.speed && position.speed >= 2 && (
+        <div
+          className="fixed left-4 right-20 z-30 bg-black/80 backdrop-blur-sm text-white rounded-xl px-4 py-2"
+          style={{ top: 'max(12px, env(safe-area-inset-top, 12px))' }}
+        >
+          <p className="text-sm font-medium truncate">{currentRoad}</p>
+        </div>
+      )}
 
       {/* Radar alert overlays (side bars + distance popup) */}
       <RadarAlertOverlay alert={alert} />
