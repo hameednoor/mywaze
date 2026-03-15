@@ -184,7 +184,6 @@ export default function AdminMap({ radars, selectedId, addMode, onRadarClick, on
         ? '#9CA3AF'
         : isFront ? '#00C853' : '#FF1744';
       const size = isSelected ? 24 : 18;
-      const heading = radar.headingDegrees || 0;
       const borderColor = isSelected ? '#2563EB' : 'white';
 
       const el = document.createElement('div');
@@ -192,15 +191,13 @@ export default function AdminMap({ radars, selectedId, addMode, onRadarClick, on
         width: ${size}px; height: ${size}px;
         cursor: pointer;
         transition: all 0.2s;
-        transform: rotate(${heading}deg);
       `;
       el.innerHTML = `
         <svg width="${size}" height="${size}" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2 L12 18 M12 2 L6 10 M12 2 L18 10" fill="none" stroke="${borderColor}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M12 2 L12 18 M12 2 L6 10 M12 2 L18 10" fill="none" stroke="${color}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="12" r="9" fill="${color}" stroke="${borderColor}" stroke-width="2.5"/>
         </svg>
       `;
-      el.title = `${radar.roadName || 'Radar'} — ${radar.speedLimit}km/h (${radar.direction}) heading:${heading}°`;
+      el.title = `${radar.roadName || 'Radar'} — ${radar.speedLimit}km/h (${radar.direction})`;
       el.addEventListener('click', (e) => {
         e.stopPropagation();
         onRadarClickRef.current(radar);

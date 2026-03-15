@@ -432,24 +432,18 @@ function addMapLayers(map: maplibregl.Map) {
     data: { type: 'FeatureCollection', features: [] },
   });
 
-  // Create radar arrow images (triangles pointing up, rotated by heading)
-  createRadarArrowImage(map, 'radar-arrow-red', '#EF4444');
-  createRadarArrowImage(map, 'radar-arrow-green', '#22C55E');
-
   map.addLayer({
     id: RADARS_LAYER,
-    type: 'symbol',
+    type: 'circle',
     source: RADARS_SOURCE,
-    layout: {
-      'icon-image': ['case',
-        ['==', ['get', 'direction'], 'FRONT_FACING'], 'radar-arrow-green',
-        'radar-arrow-red'
+    paint: {
+      'circle-radius': 6,
+      'circle-color': ['case',
+        ['==', ['get', 'direction'], 'FRONT_FACING'], '#22C55E',
+        '#EF4444'
       ],
-      'icon-size': 0.5,
-      'icon-rotate': ['get', 'heading'],
-      'icon-allow-overlap': true,
-      'icon-ignore-placement': true,
-      'icon-rotation-alignment': 'map',
+      'circle-stroke-width': 2,
+      'circle-stroke-color': '#FFFFFF',
     },
   });
 
@@ -460,65 +454,20 @@ function addMapLayers(map: maplibregl.Map) {
     data: { type: 'FeatureCollection', features: [] },
   });
 
-  createRadarArrowImage(map, 'radar-arrow-route', '#FBBF24');
-
   map.addLayer({
     id: ROUTE_RADARS_LAYER,
-    type: 'symbol',
+    type: 'circle',
     source: ROUTE_RADARS_SOURCE,
-    layout: {
-      'icon-image': 'radar-arrow-route',
-      'icon-size': 0.7,
-      'icon-rotate': ['get', 'heading'],
-      'icon-allow-overlap': true,
-      'icon-ignore-placement': true,
-      'icon-rotation-alignment': 'map',
+    paint: {
+      'circle-radius': 8,
+      'circle-color': '#FBBF24',
+      'circle-stroke-width': 2,
+      'circle-stroke-color': '#FFFFFF',
     },
   });
 
   // UAE highway shields placed along real road geometry
   addHighwayShields(map);
-}
-
-/** Create a radar arrow image (arrow pointing up) */
-function createRadarArrowImage(map: maplibregl.Map, imageId: string, color: string) {
-  if (map.hasImage(imageId)) return;
-  const size = 40;
-  const canvas = document.createElement('canvas');
-  canvas.width = size;
-  canvas.height = size;
-  const ctx = canvas.getContext('2d')!;
-  const cx = size / 2;
-
-  // Draw arrow: vertical line + arrowhead
-  // White border (thicker stroke underneath)
-  ctx.lineCap = 'round';
-  ctx.lineJoin = 'round';
-  ctx.strokeStyle = '#FFFFFF';
-  ctx.lineWidth = 6;
-  ctx.beginPath();
-  ctx.moveTo(cx, size - 4);   // bottom of shaft
-  ctx.lineTo(cx, 6);           // top of shaft
-  ctx.moveTo(cx, 4);           // arrowhead tip
-  ctx.lineTo(8, 16);           // left wing
-  ctx.moveTo(cx, 4);
-  ctx.lineTo(size - 8, 16);   // right wing
-  ctx.stroke();
-
-  // Colored arrow on top
-  ctx.strokeStyle = color;
-  ctx.lineWidth = 3.5;
-  ctx.beginPath();
-  ctx.moveTo(cx, size - 4);
-  ctx.lineTo(cx, 6);
-  ctx.moveTo(cx, 4);
-  ctx.lineTo(8, 16);
-  ctx.moveTo(cx, 4);
-  ctx.lineTo(size - 8, 16);
-  ctx.stroke();
-
-  const imageData = ctx.getImageData(0, 0, size, size);
-  map.addImage(imageId, imageData, { sdf: false });
 }
 
 /** Create UAE-style highway shield image (blue rounded rect, white text) */
