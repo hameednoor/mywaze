@@ -8,11 +8,14 @@ interface AuthUser {
   picture: string;
 }
 
+const STORAGE_KEY = 'mywaze_user';
+const AUTH_KEY = 'mywaze_auth';
+
 interface AuthState {
   user: AuthUser | null;
-  checked: boolean; // has auth been checked on load
-  allowed: boolean; // is user in allowed_users table
-  isOwner: boolean; // is user the app owner
+  checked: boolean;
+  allowed: boolean;
+  isOwner: boolean;
   setUser: (user: AuthUser | null) => void;
   setAllowed: (allowed: boolean) => void;
   setIsOwner: (isOwner: boolean) => void;
@@ -29,23 +32,42 @@ export const useAuthStore = create<AuthState>((set) => ({
   setUser: (user) => {
     set({ user });
     if (user) {
-      localStorage.setItem('mywaze_user', JSON.stringify(user));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
     } else {
-      localStorage.removeItem('mywaze_user');
+      localStorage.removeItem(STORAGE_KEY);
     }
   },
-  setAllowed: (allowed) => set({ allowed }),
-  setIsOwner: (isOwner) => set({ isOwner }),
+  setAllowed: (allowed) => {
+    set({ allowed });
+    try {
+      const auth = JSON.parse(localStorage.getItem(AUTH_KEY) || '{}');
+      localStorage.setItem(AUTH_KEY, JSON.stringify({ ...auth, allowed }));
+    } catch { /* ignore */ }
+  },
+  setIsOwner: (isOwner) => {
+    set({ isOwner });
+    try {
+      const auth = JSON.parse(localStorage.getItem(AUTH_KEY) || '{}');
+      localStorage.setItem(AUTH_KEY, JSON.stringify({ ...auth, isOwner }));
+    } catch { /* ignore */ }
+  },
   setChecked: (checked) => set({ checked }),
   signOut: () => {
-    localStorage.removeItem('mywaze_user');
-    set({ user: null, allowed: false, isOwner: false });
+    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(AUTH_KEY);
+    set({ user: null, allowed: false, isOwner: false, checked: true });
   },
   loadFromStorage: () => {
     try {
-      const stored = localStorage.getItem('mywaze_user');
+      const stored = localStorage.getItem(STORAGE_KEY);
+      const auth = JSON.parse(localStorage.getItem(AUTH_KEY) || '{}');
       if (stored) {
-        set({ user: JSON.parse(stored) });
+        set({
+          user: JSON.parse(stored),
+          allowed: auth.allowed || false,
+          isOwner: auth.isOwner || false,
+          checked: !!(auth.allowed), // skip loading if already approved
+        });
       }
     } catch { /* ignore */ }
   },
