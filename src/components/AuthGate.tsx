@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useCallback, useRef } from 'react';
+import { useEffect, useCallback, useRef, useState } from 'react';
 import { useAuthStore } from '@/lib/authStore';
 import Script from 'next/script';
 
@@ -138,28 +138,75 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
 
   // User signed in but not allowed
   if (!allowed) {
-    return (
-      <div className="h-[100dvh] w-screen flex items-center justify-center bg-gray-900 text-white">
-        <div className="text-center px-6 max-w-sm">
-          <div className="text-5xl mb-4">🔒</div>
-          <h1 className="text-xl font-bold mb-2">Access Required</h1>
-          <p className="text-sm text-gray-400 mb-2">
-            Signed in as <span className="text-white font-medium">{user.email}</span>
-          </p>
-          <p className="text-sm text-gray-400 mb-6">
-            You don&apos;t have access yet. Contact the app owner to get access.
-          </p>
-          <button
-            onClick={signOut}
-            className="px-6 py-2.5 bg-gray-700 text-white rounded-xl text-sm font-medium active:bg-gray-600"
-          >
-            Sign out
-          </button>
-        </div>
-      </div>
-    );
+    return <AccessRequestScreen user={user} signOut={signOut} />;
   }
 
   // Allowed — render app
   return <>{children}</>;
+}
+
+function AccessRequestScreen({ user, signOut }: { user: { email: string; name: string }; signOut: () => void }) {
+  const [requesting, setRequesting] = useState(false);
+  const [requested, setRequested] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleRequest = async () => {
+    setRequesting(true);
+    setError('');
+    try {
+      const res = await fetch('/api/auth/request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: user.email, name: user.name }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setRequested(true);
+      } else {
+        setError(data.error || 'Failed to send request');
+      }
+    } catch {
+      setError('Failed to send request');
+    }
+    setRequesting(false);
+  };
+
+  return (
+    <div className="h-[100dvh] w-screen flex items-center justify-center bg-gray-900 text-white">
+      <div className="text-center px-6 max-w-sm">
+        <div className="text-5xl mb-4">🔒</div>
+        <h1 className="text-xl font-bold mb-2">Access Required</h1>
+        <p className="text-sm text-gray-400 mb-2">
+          Signed in as <span className="text-white font-medium">{user.email}</span>
+        </p>
+        {requested ? (
+          <div className="mt-6">
+            <div className="text-3xl mb-3">✅</div>
+            <p className="text-sm text-green-400 font-medium">Request sent!</p>
+            <p className="text-xs text-gray-400 mt-2">The app owner has been notified. You&apos;ll get access once approved.</p>
+          </div>
+        ) : (
+          <>
+            <p className="text-sm text-gray-400 mb-6">
+              You don&apos;t have access yet. Request access and the owner will be notified.
+            </p>
+            <button
+              onClick={handleRequest}
+              disabled={requesting}
+              className="w-full px-6 py-2.5 bg-blue-600 text-white rounded-xl text-sm font-medium active:bg-blue-700 disabled:opacity-40 mb-3"
+            >
+              {requesting ? 'Sending...' : 'Request Access'}
+            </button>
+            {error && <p className="text-xs text-red-400 mb-3">{error}</p>}
+          </>
+        )}
+        <button
+          onClick={signOut}
+          className="px-6 py-2.5 bg-gray-700 text-white rounded-xl text-sm font-medium active:bg-gray-600 mt-2"
+        >
+          Sign out
+        </button>
+      </div>
+    </div>
+  );
 }
