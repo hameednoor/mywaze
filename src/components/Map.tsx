@@ -126,16 +126,36 @@ export default function MapView({ position, radars, onMapReady, route, routeRada
     const map = mapRef.current;
     if (!map || !position) return;
 
+    const heading = position.heading ?? 0;
+
     if (!userMarkerRef.current) {
       const el = document.createElement('div');
       el.className = 'user-marker';
+      el.style.cssText = 'width: 40px; height: 40px; position: relative;';
       el.innerHTML = `
         <div style="
-          width: 20px; height: 20px;
+          width: 40px; height: 40px;
+          position: absolute; top: 0; left: 0;
+          transform: rotate(${heading}deg);
+          transition: transform 0.5s ease;
+        " class="user-arrow">
+          <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="arrow-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="rgba(0,0,0,0.3)"/>
+              </filter>
+            </defs>
+            <polygon points="20,4 32,32 20,26 8,32" fill="#2563EB" stroke="white" stroke-width="2" stroke-linejoin="round" filter="url(#arrow-shadow)"/>
+          </svg>
+        </div>
+        <div style="
+          width: 8px; height: 8px;
           background: #2563EB;
-          border: 3px solid white;
+          border: 2px solid white;
           border-radius: 50%;
-          box-shadow: 0 0 10px rgba(37,99,235,0.5);
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
         "></div>
       `;
       userMarkerRef.current = new maplibregl.Marker({ element: el })
@@ -143,6 +163,8 @@ export default function MapView({ position, radars, onMapReady, route, routeRada
         .addTo(map);
     } else {
       userMarkerRef.current.setLngLat([position.longitude, position.latitude]);
+      const arrow = userMarkerRef.current.getElement().querySelector('.user-arrow') as HTMLElement;
+      if (arrow) arrow.style.transform = `rotate(${heading}deg)`;
     }
 
     if (followUserRef.current) {
