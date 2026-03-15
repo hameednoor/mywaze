@@ -6,8 +6,8 @@ import { useGPS } from '@/lib/useGPS';
 import { useRadarStore } from '@/lib/radarStore';
 import { useSettingsStore } from '@/lib/settingsStore';
 import { usePlacesStore, SavedPlace } from '@/lib/placesStore';
-import { detectRadars } from '@/lib/radarDetection';
-import { initAudio } from '@/lib/audio';
+import { detectRadars, findNextRadarOnRoad } from '@/lib/radarDetection';
+import { initAudio, speakNextRadar } from '@/lib/audio';
 import { RadarAlert } from '@/lib/types';
 import { RouteData, distanceToRoute, getRouteWithWaypoints, findRadarsAlongRoute } from '@/lib/routing';
 import RadarAlertOverlay from '@/components/RadarAlertOverlay';
@@ -30,6 +30,7 @@ export default function HomePage() {
   const reroutingRef = useRef(false);
   const lastRerouteRef = useRef(0);
   const wakeLockRef = useRef<WakeLockSentinel | null>(null);
+  const prevAlertRadarIdRef = useRef<string | null>(null);
 
   const dark = isDark();
 
@@ -94,6 +95,26 @@ export default function HomePage() {
     const result = detectRadars(position, radars);
     setAlert(result);
   }, [position, radars]);
+
+  // Announce next radar after passing one
+  useEffect(() => {
+    if (!position) return;
+    const currentId = alert?.radar.id ?? null;
+    const prevId = prevAlertRadarIdRef.current;
+
+    // Radar changed or cleared — we passed the previous one
+    if (prevId && prevId !== currentId) {
+      const passedRadar = radars.find(r => r.id === prevId);
+      if (passedRadar) {
+        const next = findNextRadarOnRoad(position, radars, passedRadar);
+        if (next) {
+          speakNextRadar(next.distance);
+        }
+      }
+    }
+
+    prevAlertRadarIdRef.current = currentId;
+  }, [alert, position, radars]);
 
   // Deviation detection + auto-reroute
   useEffect(() => {

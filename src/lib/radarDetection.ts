@@ -61,3 +61,39 @@ export function detectRadars(
 
   return closest;
 }
+
+/** Find the next radar ahead on the same road after passing one */
+export function findNextRadarOnRoad(
+  position: GPSPosition,
+  radars: Radar[],
+  passedRadar: Radar
+): { radar: Radar; distance: number } | null {
+  const roadName = passedRadar.roadName?.trim();
+  if (!roadName) return null;
+
+  let closest: { radar: Radar; distance: number } | null = null;
+
+  for (const radar of radars) {
+    if (radar.status !== 'ACTIVE') continue;
+    if (radar.id === passedRadar.id) continue;
+    // Same road only
+    if (radar.roadName?.trim() !== roadName) continue;
+
+    // Must be ahead
+    if (!isRadarAhead(
+      position.latitude, position.longitude, position.heading,
+      radar.latitude, radar.longitude
+    )) continue;
+
+    const dist = haversineDistance(
+      position.latitude, position.longitude,
+      radar.latitude, radar.longitude
+    );
+
+    if (!closest || dist < closest.distance) {
+      closest = { radar, distance: dist };
+    }
+  }
+
+  return closest;
+}
