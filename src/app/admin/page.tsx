@@ -79,6 +79,7 @@ function AdminPanel() {
   const [newLng, setNewLng] = useState(0);
   const [panelOpen, setPanelOpen] = useState(false);
   const [showList, setShowList] = useState(false);
+  const [addMode, setAddMode] = useState(false);
 
   // Filters
   const [filterEmirate, setFilterEmirate] = useState<string>('');
@@ -101,6 +102,7 @@ function AdminPanel() {
     setSelected(null);
     setPanelOpen(true);
     setShowList(false);
+    setAddMode(false);
   }
 
   function handleAddRadar(data: Partial<Radar>) {
@@ -165,9 +167,17 @@ function AdminPanel() {
           {EMIRATES.map((e) => <option key={e} value={e}>{e}</option>)}
         </select>
 
+        {/* Add mode toggle */}
+        <button
+          onClick={() => { setAddMode(!addMode); if (!addMode) { setPanelOpen(false); setSelected(null); setAdding(false); setShowList(false); } }}
+          className={`px-2 py-1 rounded text-xs font-medium ${addMode ? 'bg-green-600 animate-pulse' : 'bg-gray-700 hover:bg-gray-600'}`}
+        >
+          + Add
+        </button>
+
         {/* List toggle */}
         <button
-          onClick={() => { setShowList(!showList); if (!showList) { setPanelOpen(false); setSelected(null); setAdding(false); } }}
+          onClick={() => { setShowList(!showList); if (!showList) { setPanelOpen(false); setSelected(null); setAdding(false); setAddMode(false); } }}
           className={`px-2 py-1 rounded text-xs font-medium ${showList ? 'bg-blue-600' : 'bg-gray-700 hover:bg-gray-600'}`}
         >
           List
@@ -178,10 +188,18 @@ function AdminPanel() {
 
       {/* Main content */}
       <div className="flex-1 relative overflow-hidden">
+        {/* Add mode banner */}
+        {addMode && (
+          <div className="absolute top-0 left-0 right-0 z-30 bg-green-600 text-white text-center py-2 text-sm font-medium">
+            Tap on the map to place a new radar
+          </div>
+        )}
+
         {/* Full-screen map */}
         <AdminMap
           radars={filteredRadars}
           selectedId={selected?.id ?? null}
+          addMode={addMode}
           onRadarClick={handleRadarClick}
           onMapClick={handleMapClick}
           onRadarMove={(radar, lat, lng) => {
@@ -238,7 +256,12 @@ function AdminPanel() {
 
                   <div className="bg-gray-50 rounded-lg px-3 py-2 text-xs text-gray-500">
                     <span>Lat: {selected.latitude.toFixed(6)}, Lng: {selected.longitude.toFixed(6)}</span>
-                    <span className="block text-gray-400 mt-0.5">Drag marker on map to move</span>
+                    <button
+                      onClick={() => setPanelOpen(false)}
+                      className="block text-blue-500 font-medium mt-0.5 hover:text-blue-700"
+                    >
+                      Drag marker to move &rarr;
+                    </button>
                   </div>
 
                   {/* Two-column grid for compact fields */}

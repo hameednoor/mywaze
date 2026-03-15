@@ -9,12 +9,13 @@ import { useSettingsStore } from '@/lib/settingsStore';
 interface Props {
   radars: Radar[];
   selectedId: string | null;
+  addMode?: boolean;
   onRadarClick: (radar: Radar) => void;
   onMapClick: (lat: number, lng: number) => void;
   onRadarMove?: (radar: Radar, lat: number, lng: number) => void;
 }
 
-export default function AdminMap({ radars, selectedId, onRadarClick, onMapClick, onRadarMove }: Props) {
+export default function AdminMap({ radars, selectedId, addMode, onRadarClick, onMapClick, onRadarMove }: Props) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const markersRef = useRef<maplibregl.Marker[]>([]);
@@ -24,6 +25,7 @@ export default function AdminMap({ radars, selectedId, onRadarClick, onMapClick,
   const radarsRef = useRef(radars);
   const onRadarClickRef = useRef(onRadarClick);
   const onRadarMoveRef = useRef(onRadarMove);
+  const addModeRef = useRef(addMode);
   const currentStyleRef = useRef('');
   const [tracking, setTracking] = useState(false);
   const [userPos, setUserPos] = useState<{ lat: number; lng: number } | null>(null);
@@ -33,6 +35,7 @@ export default function AdminMap({ radars, selectedId, onRadarClick, onMapClick,
   radarsRef.current = radars;
   onRadarClickRef.current = onRadarClick;
   onRadarMoveRef.current = onRadarMove;
+  addModeRef.current = addMode;
 
   const mapStyle = isDark
     ? 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json'
@@ -70,6 +73,13 @@ export default function AdminMap({ radars, selectedId, onRadarClick, onMapClick,
     // Right-click to add radar
     map.on('contextmenu', (e) => {
       onMapClick(e.lngLat.lat, e.lngLat.lng);
+    });
+
+    // Left-click to add radar when in add mode
+    map.on('click', (e) => {
+      if (addModeRef.current) {
+        onMapClick(e.lngLat.lat, e.lngLat.lng);
+      }
     });
 
     mapRef.current = map;
@@ -144,6 +154,13 @@ export default function AdminMap({ radars, selectedId, onRadarClick, onMapClick,
     };
   }, [tracking]);
 
+  // Change cursor in add mode
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    map.getCanvas().style.cursor = addMode ? 'crosshair' : '';
+  }, [addMode]);
+
   // Switch map style when dark mode changes
   useEffect(() => {
     const map = mapRef.current;
@@ -166,20 +183,24 @@ export default function AdminMap({ radars, selectedId, onRadarClick, onMapClick,
       const color = radar.status !== 'ACTIVE'
         ? '#9CA3AF'
         : isFront ? '#00C853' : '#FF1744';
-      const size = isSelected ? 18 : 14;
-      const border = isSelected ? '3px solid #2563EB' : '2px solid white';
+      const size = isSelected ? 24 : 18;
+      const heading = radar.headingDegrees || 0;
+      const borderColor = isSelected ? '#2563EB' : 'white';
 
       const el = document.createElement('div');
       el.style.cssText = `
         width: ${size}px; height: ${size}px;
-        background: ${color};
-        border: ${border};
-        border-radius: 50%;
         cursor: pointer;
-        box-shadow: 0 0 8px ${color}80;
         transition: all 0.2s;
+        transform: rotate(${heading}deg);
       `;
-      el.title = `${radar.roadName || 'Radar'} — ${radar.speedLimit}km/h (${radar.direction})`;
+      el.innerHTML = `
+        <svg width="${size}" height="${size}" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2 L12 18 M12 2 L6 10 M12 2 L18 10" fill="none" stroke="${borderColor}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 2 L12 18 M12 2 L6 10 M12 2 L18 10" fill="none" stroke="${color}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      `;
+      el.title = `${radar.roadName || 'Radar'} — ${radar.speedLimit}km/h (${radar.direction}) heading:${heading}°`;
       el.addEventListener('click', (e) => {
         e.stopPropagation();
         onRadarClickRef.current(radar);

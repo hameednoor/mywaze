@@ -480,7 +480,7 @@ function addMapLayers(map: maplibregl.Map) {
   addHighwayShields(map);
 }
 
-/** Create a radar arrow image (triangle pointing up) */
+/** Create a radar arrow image (arrow pointing up) */
 function createRadarArrowImage(map: maplibregl.Map, imageId: string, color: string) {
   if (map.hasImage(imageId)) return;
   const size = 40;
@@ -488,24 +488,34 @@ function createRadarArrowImage(map: maplibregl.Map, imageId: string, color: stri
   canvas.width = size;
   canvas.height = size;
   const ctx = canvas.getContext('2d')!;
+  const cx = size / 2;
 
-  // White border triangle (slightly larger)
+  // Draw arrow: vertical line + arrowhead
+  // White border (thicker stroke underneath)
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  ctx.strokeStyle = '#FFFFFF';
+  ctx.lineWidth = 6;
   ctx.beginPath();
-  ctx.moveTo(size / 2, 2);
-  ctx.lineTo(size - 4, size - 4);
-  ctx.lineTo(4, size - 4);
-  ctx.closePath();
-  ctx.fillStyle = '#FFFFFF';
-  ctx.fill();
+  ctx.moveTo(cx, size - 4);   // bottom of shaft
+  ctx.lineTo(cx, 6);           // top of shaft
+  ctx.moveTo(cx, 4);           // arrowhead tip
+  ctx.lineTo(8, 16);           // left wing
+  ctx.moveTo(cx, 4);
+  ctx.lineTo(size - 8, 16);   // right wing
+  ctx.stroke();
 
-  // Colored triangle
+  // Colored arrow on top
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 3.5;
   ctx.beginPath();
-  ctx.moveTo(size / 2, 6);
-  ctx.lineTo(size - 8, size - 7);
-  ctx.lineTo(8, size - 7);
-  ctx.closePath();
-  ctx.fillStyle = color;
-  ctx.fill();
+  ctx.moveTo(cx, size - 4);
+  ctx.lineTo(cx, 6);
+  ctx.moveTo(cx, 4);
+  ctx.lineTo(8, 16);
+  ctx.moveTo(cx, 4);
+  ctx.lineTo(size - 8, 16);
+  ctx.stroke();
 
   const imageData = ctx.getImageData(0, 0, size, size);
   map.addImage(imageId, imageData, { sdf: false });
