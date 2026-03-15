@@ -2,6 +2,11 @@
 
 import { create } from 'zustand';
 import { CustomPlace } from './customPlaces';
+import { useAuthStore } from './authStore';
+
+function getUserEmail(): string {
+  return useAuthStore.getState().user?.email || '';
+}
 
 interface CustomPlacesStore {
   places: CustomPlace[];
@@ -14,7 +19,10 @@ export const useCustomPlacesStore = create<CustomPlacesStore>((set, get) => ({
   places: [],
 
   loadPlaces: () => {
-    fetch('/api/places')
+    const email = getUserEmail();
+    fetch('/api/places', {
+      headers: { 'x-user-email': email },
+    })
       .then((res) => res.json())
       .then((data: CustomPlace[]) => {
         if (Array.isArray(data)) {
@@ -25,13 +33,14 @@ export const useCustomPlacesStore = create<CustomPlacesStore>((set, get) => ({
   },
 
   addPlace: (place) => {
+    const email = getUserEmail();
     // Optimistic update
     const updated = [...get().places, place];
     set({ places: updated });
 
     fetch('/api/places', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'x-user-email': email },
       body: JSON.stringify(place),
     }).catch(() => { /* ignore */ });
   },
