@@ -248,10 +248,10 @@ export default function HomePage() {
             </button>
           ) : (
             <div
-              className="fixed left-3 right-3 z-30 bg-black/85 backdrop-blur-sm text-white rounded-2xl px-4 py-3 flex items-center gap-3"
+              className="fixed left-3 right-3 z-30 bg-black/85 backdrop-blur-sm text-white rounded-2xl px-4 py-3 flex items-center gap-2"
               style={{ bottom: 'max(56px, calc(env(safe-area-inset-bottom, 0px) + 56px))' }}
             >
-              <div className="flex-1" onClick={() => setNavBarOpen(false)}>
+              <div className="flex-1">
                 <p className="text-xs text-gray-300">
                   {rerouting ? 'Rerouting...' : 'Navigating'}
                   {route.distanceKm ? ` · ${route.distanceKm.toFixed(1)} km` : ''}
@@ -278,6 +278,15 @@ export default function HomePage() {
                 className="text-xs text-red-400 font-medium px-3 py-1.5 bg-white/10 rounded-lg"
               >
                 Cancel
+              </button>
+              <button
+                onClick={() => setNavBarOpen(false)}
+                className="w-7 h-7 flex items-center justify-center rounded-full bg-white/15 text-gray-300 active:bg-white/25"
+                title="Minimize"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
               </button>
             </div>
           )}
