@@ -69,7 +69,7 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className={`min-h-[100dvh] ${isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+    <div className={`min-h-[100dvh] scrollable-page ${isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
       {/* Top bar */}
       <div className={`${isDark ? 'bg-gray-800' : 'bg-gray-900'} text-white px-4 py-3 flex items-center gap-3 sticky top-0 z-20`}
         style={{ paddingTop: 'max(12px, env(safe-area-inset-top, 12px))' }}
