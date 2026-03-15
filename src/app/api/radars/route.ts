@@ -61,6 +61,7 @@ function dbToRadar(row: any) {
     headingDegrees: row.heading_degrees || 0,
     lastVerified: row.last_verified,
     notes: row.notes || '',
+    source: row.source || 'osm',
   };
 }
 
@@ -79,6 +80,7 @@ function radarToDb(radar: any) {
     heading_degrees: radar.headingDegrees || 0,
     last_verified: radar.lastVerified || null,
     notes: radar.notes || '',
+    source: radar.source || 'manual',
   };
 }
 

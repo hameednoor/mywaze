@@ -131,6 +131,7 @@ function AdminPanel() {
       headingDegrees: data.headingDegrees || 0,
       lastVerified: null,
       notes: data.notes || '',
+      source: 'manual',
     };
     addRadar(radar);
     setAdding(false);

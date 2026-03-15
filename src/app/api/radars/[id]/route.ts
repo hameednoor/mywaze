@@ -19,6 +19,7 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
       status: body.status,
       heading_degrees: body.headingDegrees || 0,
       notes: body.notes || '',
+      source: 'manual', // Any manual edit protects from auto-refresh
     })
     .eq('id', id);
 

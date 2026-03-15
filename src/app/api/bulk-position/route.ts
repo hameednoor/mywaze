@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
   for (let i = 0; i < updates.length; i += batchSize) {
     const batch = updates.slice(i, i + batchSize);
     const promises = batch.map((u) =>
-      supabase.from('radars').update({ latitude: u.lat, longitude: u.lon }).eq('id', u.id)
+      supabase.from('radars').update({ latitude: u.lat, longitude: u.lon, source: 'manual' }).eq('id', u.id)
     );
     const results = await Promise.all(promises);
     updated += results.filter((r) => !r.error).length;

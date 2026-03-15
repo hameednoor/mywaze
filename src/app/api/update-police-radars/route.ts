@@ -14,6 +14,7 @@ interface DBRadar {
   longitude: number;
   road_name: string;
   emirate: string;
+  source: string;
 }
 
 // Speed limit corridors (same as in refresh-radars)
@@ -127,7 +128,7 @@ export async function POST() {
     while (true) {
       const { data } = await supabase
         .from('radars')
-        .select('id, latitude, longitude, road_name, emirate')
+        .select('id, latitude, longitude, road_name, emirate, source')
         .range(from, from + pageSize - 1);
       if (!data || data.length === 0) break;
       existingRadars.push(...(data as DBRadar[]));
@@ -136,19 +137,48 @@ export async function POST() {
     }
 
     // 3. Compare police radars against existing:
+    //    - Manual radars (source='manual') are NEVER modified — skip them
     //    - Exact match (<5m): skip (already correct)
     //    - Close match (5-200m): correct position to police record (police = truth)
     //    - No match (>200m): add as new radar
     const newRadars: { lat: number; lon: number; emirate: string; speedLimit: number }[] = [];
     const corrections: { id: string; oldLat: number; oldLon: number; newLat: number; newLon: number; road: string; emirate: string }[] = [];
     let exactCount = 0;
+    let manualSkipped = 0;
     const matchedExistingIds = new Set<string>();
+
+    // Separate manual radars — they are protected
+    const manualRadars = existingRadars.filter(er => er.source === 'manual');
+    const autoRadars = existingRadars.filter(er => er.source !== 'manual');
+
+    // Mark all manual radars as matched so they're not flagged as "not in police records"
+    for (const mr of manualRadars) {
+      matchedExistingIds.add(mr.id);
+    }
 
     for (const pr of policeRadars) {
       let bestMatch: DBRadar | null = null;
       let bestDist = Infinity;
 
-      for (const er of existingRadars) {
+      // Check against manual radars first (to count proximity but never modify)
+      for (const mr of manualRadars) {
+        const dist = haversine(pr.lat, pr.lon, mr.latitude, mr.longitude);
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestMatch = mr;
+        }
+      }
+
+      // If close to a manual radar, skip — don't modify it
+      if (bestDist < 200 && bestMatch) {
+        manualSkipped++;
+        continue;
+      }
+
+      // Now check against auto (non-manual) radars
+      bestMatch = null;
+      bestDist = Infinity;
+      for (const er of autoRadars) {
         const dist = haversine(pr.lat, pr.lon, er.latitude, er.longitude);
         if (dist < bestDist) {
           bestDist = dist;
@@ -212,6 +242,7 @@ export async function POST() {
       heading_degrees: 0,
       last_verified: null,
       notes: 'police_record',
+      source: 'police',
     }));
 
     for (let i = 0; i < toInsert.length; i += batchSize) {
@@ -234,6 +265,7 @@ export async function POST() {
       success: true,
       policeTotal: policeRadars.length,
       existingCount: existingRadars.length,
+      manualProtected: manualSkipped,
       exactMatch: exactCount,
       positionsCorrected: corrected,
       newRadarsAdded: inserted,

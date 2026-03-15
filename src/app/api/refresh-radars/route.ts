@@ -129,6 +129,7 @@ export async function GET(request: Request) {
       id: string; latitude: number; longitude: number; road_name: string;
       emirate: string; direction: string; speed_limit: number; radar_type: string;
       status: string; heading_degrees: number; last_verified: string | null; notes: string;
+      source: string;
     }[] = [];
 
     for (const el of elements) {
@@ -163,6 +164,7 @@ export async function GET(request: Request) {
         heading_degrees: 0,
         last_verified: null,
         notes: '',
+        source: 'osm',
       });
     }
 

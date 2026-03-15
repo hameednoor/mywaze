@@ -2,6 +2,7 @@ export type RadarDirection = 'FRONT_FACING' | 'REAR_FACING';
 export type RadarType = 'FIXED' | 'MOBILE' | 'AVERAGE_SPEED' | 'RED_LIGHT';
 export type RadarStatus = 'ACTIVE' | 'INACTIVE' | 'UNDER_MAINTENANCE';
 export type Emirate = 'Abu Dhabi' | 'Dubai' | 'Sharjah' | 'Ajman' | 'Umm Al Quwain' | 'Ras Al Khaimah' | 'Fujairah';
+export type RadarSource = 'manual' | 'osm' | 'police';
 
 export interface Radar {
   id: string;
@@ -16,6 +17,7 @@ export interface Radar {
   headingDegrees: number;
   lastVerified: string | null;
   notes: string;
+  source: RadarSource;
 }
 
 export type AlertZone = 'none' | 'awareness' | 'alert' | 'countdown' | 'clear';
