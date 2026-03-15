@@ -22,13 +22,13 @@ interface MapProps {
 
 const RADARS_SOURCE = 'radars-source';
 const RADARS_LAYER = 'radars-layer';
-const RADARS_BORDER_LAYER = 'radars-border-layer';
+// Border layers removed — using arrow symbols now
 const ROUTE_SOURCE = 'route-source';
 const ROUTE_LAYER = 'route-layer';
 const ROUTE_CASING_LAYER = 'route-casing-layer';
 const ROUTE_RADARS_SOURCE = 'route-radars-source';
 const ROUTE_RADARS_LAYER = 'route-radars-layer';
-const ROUTE_RADARS_BORDER_LAYER = 'route-radars-border-layer';
+// Route radars border layer removed — using arrow symbols now
 
 const LIGHT_STYLE = 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json';
 const DARK_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
@@ -432,28 +432,24 @@ function addMapLayers(map: maplibregl.Map) {
     data: { type: 'FeatureCollection', features: [] },
   });
 
-  map.addLayer({
-    id: RADARS_BORDER_LAYER,
-    type: 'circle',
-    source: RADARS_SOURCE,
-    paint: {
-      'circle-radius': 9,
-      'circle-color': '#FFFFFF',
-      'circle-opacity': 1,
-    },
-  });
+  // Create radar arrow images (triangles pointing up, rotated by heading)
+  createRadarArrowImage(map, 'radar-arrow-red', '#EF4444');
+  createRadarArrowImage(map, 'radar-arrow-green', '#22C55E');
 
   map.addLayer({
     id: RADARS_LAYER,
-    type: 'circle',
+    type: 'symbol',
     source: RADARS_SOURCE,
-    paint: {
-      'circle-radius': 7,
-      'circle-color': ['case',
-        ['==', ['get', 'direction'], 'FRONT_FACING'], '#22C55E',
-        '#EF4444'
+    layout: {
+      'icon-image': ['case',
+        ['==', ['get', 'direction'], 'FRONT_FACING'], 'radar-arrow-green',
+        'radar-arrow-red'
       ],
-      'circle-opacity': 1,
+      'icon-size': 0.5,
+      'icon-rotate': ['get', 'heading'],
+      'icon-allow-overlap': true,
+      'icon-ignore-placement': true,
+      'icon-rotation-alignment': 'map',
     },
   });
 
@@ -464,32 +460,55 @@ function addMapLayers(map: maplibregl.Map) {
     data: { type: 'FeatureCollection', features: [] },
   });
 
-  map.addLayer({
-    id: ROUTE_RADARS_BORDER_LAYER,
-    type: 'circle',
-    source: ROUTE_RADARS_SOURCE,
-    paint: {
-      'circle-radius': 14,
-      'circle-color': '#FBBF24',
-      'circle-opacity': 0.5,
-    },
-  });
+  createRadarArrowImage(map, 'radar-arrow-route', '#FBBF24');
 
   map.addLayer({
     id: ROUTE_RADARS_LAYER,
-    type: 'circle',
+    type: 'symbol',
     source: ROUTE_RADARS_SOURCE,
-    paint: {
-      'circle-radius': 10,
-      'circle-color': '#EF4444',
-      'circle-opacity': 1,
-      'circle-stroke-width': 2,
-      'circle-stroke-color': '#FBBF24',
+    layout: {
+      'icon-image': 'radar-arrow-route',
+      'icon-size': 0.7,
+      'icon-rotate': ['get', 'heading'],
+      'icon-allow-overlap': true,
+      'icon-ignore-placement': true,
+      'icon-rotation-alignment': 'map',
     },
   });
 
   // UAE highway shields placed along real road geometry
   addHighwayShields(map);
+}
+
+/** Create a radar arrow image (triangle pointing up) */
+function createRadarArrowImage(map: maplibregl.Map, imageId: string, color: string) {
+  if (map.hasImage(imageId)) return;
+  const size = 40;
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext('2d')!;
+
+  // White border triangle (slightly larger)
+  ctx.beginPath();
+  ctx.moveTo(size / 2, 2);
+  ctx.lineTo(size - 4, size - 4);
+  ctx.lineTo(4, size - 4);
+  ctx.closePath();
+  ctx.fillStyle = '#FFFFFF';
+  ctx.fill();
+
+  // Colored triangle
+  ctx.beginPath();
+  ctx.moveTo(size / 2, 6);
+  ctx.lineTo(size - 8, size - 7);
+  ctx.lineTo(8, size - 7);
+  ctx.closePath();
+  ctx.fillStyle = color;
+  ctx.fill();
+
+  const imageData = ctx.getImageData(0, 0, size, size);
+  map.addImage(imageId, imageData, { sdf: false });
 }
 
 /** Create UAE-style highway shield image (blue rounded rect, white text) */
@@ -598,6 +617,7 @@ function updateRadarSource(map: maplibregl.Map, radars: Radar[]) {
         direction: r.direction,
         speedLimit: r.speedLimit,
         roadName: r.roadName || 'Radar',
+        heading: r.headingDegrees || 0,
       },
     }));
 
@@ -638,6 +658,7 @@ function updateRouteRadarSource(map: maplibregl.Map, radars: Radar[], routeRadar
         id: r.id,
         direction: r.direction,
         speedLimit: r.speedLimit,
+        heading: r.headingDegrees || 0,
       },
     }));
 
