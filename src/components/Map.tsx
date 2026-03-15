@@ -20,6 +20,38 @@ interface MapProps {
   onPlaceClick?: (place: SavedPlace) => void;
 }
 
+// UAE highway shield placement points — multiple points per highway for visibility at all zoom levels
+const UAE_HIGHWAY_SHIELDS: { name: string; points: [number, number][] }[] = [
+  // E11 Sheikh Zayed Road (multiple placements along its length)
+  { name: 'E11', points: [[54.75,24.43],[55.0,24.5],[55.12,25.0],[55.19,25.12],[55.27,25.21],[55.47,25.45],[55.5,25.7]] },
+  // E11 West (Abu Dhabi - Ruwais)
+  { name: 'E11', points: [[54.5,24.35],[54.41,23.9],[54.4,23.6]] },
+  // E311
+  { name: 'E311', points: [[55.6,24.4],[55.38,24.95],[55.32,25.25],[55.43,25.45]] },
+  // E611
+  { name: 'E611', points: [[55.15,24.98],[55.35,25.08],[55.6,25.2]] },
+  // E44
+  { name: 'E44', points: [[55.5,25.12],[55.85,25.07],[56.0,25.04]] },
+  // E66
+  { name: 'E66', points: [[55.45,25.1],[55.6,25.0],[55.75,24.75]] },
+  // E88
+  { name: 'E88', points: [[55.55,25.33],[55.8,25.33],[56.15,25.2]] },
+  // E22
+  { name: 'E22', points: [[54.75,24.3],[55.15,24.22],[55.5,24.21]] },
+  // E99
+  { name: 'E99', points: [[55.7,25.5],[56.05,25.3]] },
+  // E10
+  { name: 'E10', points: [[54.58,24.59]] },
+  // E12
+  { name: 'E12', points: [[54.65,24.53]] },
+  // E20
+  { name: 'E20', points: [[54.5,24.53]] },
+  // E30
+  { name: 'E30', points: [[54.55,24.38]] },
+  // E102
+  { name: 'E102', points: [[55.38,25.15]] },
+];
+
 const RADARS_SOURCE = 'radars-source';
 const RADARS_LAYER = 'radars-layer';
 const RADARS_BORDER_LAYER = 'radars-border-layer';
@@ -464,6 +496,94 @@ function addMapLayers(map: maplibregl.Map) {
       'circle-stroke-width': 2,
       'circle-stroke-color': '#FBBF24',
     },
+  });
+
+  // UAE highway shields
+  addHighwayShields(map);
+}
+
+/** Create UAE-style highway shield image (blue rounded rect, white text) */
+function createShieldImage(map: maplibregl.Map, name: string): string {
+  const imageId = `shield-${name}`;
+  if (map.hasImage(imageId)) return imageId;
+
+  const scale = 2; // Retina
+  const fontSize = 13 * scale;
+  const padX = 8 * scale;
+  const padY = 5 * scale;
+  const radius = 4 * scale;
+  const borderW = 1.5 * scale;
+
+  // Measure text
+  const measureCanvas = document.createElement('canvas');
+  const measureCtx = measureCanvas.getContext('2d')!;
+  measureCtx.font = `bold ${fontSize}px Arial, sans-serif`;
+  const textWidth = measureCtx.measureText(name).width;
+
+  const w = Math.ceil(textWidth + padX * 2);
+  const h = Math.ceil(fontSize + padY * 2);
+
+  const canvas = document.createElement('canvas');
+  canvas.width = w;
+  canvas.height = h;
+  const ctx = canvas.getContext('2d')!;
+
+  // Blue background with rounded corners
+  ctx.beginPath();
+  ctx.roundRect(borderW, borderW, w - borderW * 2, h - borderW * 2, radius);
+  ctx.fillStyle = '#005BAC'; // Official UAE highway blue
+  ctx.fill();
+
+  // White border
+  ctx.strokeStyle = '#FFFFFF';
+  ctx.lineWidth = borderW;
+  ctx.stroke();
+
+  // White text centered
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = `bold ${fontSize}px Arial, sans-serif`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(name, w / 2, h / 2);
+
+  const imageData = ctx.getImageData(0, 0, w, h);
+  map.addImage(imageId, { width: w, height: h, data: new Uint8Array(imageData.data.buffer) }, { pixelRatio: scale });
+  return imageId;
+}
+
+/** Add highway shield markers to the map */
+function addHighwayShields(map: maplibregl.Map) {
+  // Create shield images for each unique highway name
+  const uniqueNames = [...new Set(UAE_HIGHWAY_SHIELDS.map(h => h.name))];
+  for (const name of uniqueNames) {
+    createShieldImage(map, name);
+  }
+
+  // Create point features for all shield placements
+  const features = UAE_HIGHWAY_SHIELDS.flatMap(hw =>
+    hw.points.map(([lng, lat]) => ({
+      type: 'Feature' as const,
+      geometry: { type: 'Point' as const, coordinates: [lng, lat] },
+      properties: { name: hw.name, icon: `shield-${hw.name}` },
+    }))
+  );
+
+  map.addSource('highway-shields', {
+    type: 'geojson',
+    data: { type: 'FeatureCollection', features },
+  });
+
+  map.addLayer({
+    id: 'highway-shields-layer',
+    type: 'symbol',
+    source: 'highway-shields',
+    layout: {
+      'icon-image': ['get', 'icon'],
+      'icon-size': 1,
+      'icon-allow-overlap': true,
+      'icon-ignore-placement': true,
+    },
+    minzoom: 7,
   });
 }
 
