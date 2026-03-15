@@ -242,7 +242,7 @@ function AdminPanel() {
           <span className="flex-1">
             Navigating · {route.distanceKm?.toFixed(1)} km · {routeRadarIds.length} radar{routeRadarIds.length !== 1 ? 's' : ''}
           </span>
-          <button onClick={clearRoute} className="text-red-400 font-medium px-2 py-0.5 bg-white/10 rounded">
+          <button onClick={() => { if (confirm('Cancel navigation?')) clearRoute(); }} className="text-red-400 font-medium px-2 py-0.5 bg-white/10 rounded">
             Cancel
           </button>
         </div>

@@ -274,7 +274,7 @@ export default function HomePage() {
                 {radarVisibility === 'all' ? 'All' : radarVisibility === 'route' ? 'Route' : 'Hidden'}
               </button>
               <button
-                onClick={() => { clearRoute(); setNavBarOpen(false); }}
+                onClick={() => { if (confirm('Cancel navigation?')) { clearRoute(); setNavBarOpen(false); } }}
                 className="text-xs text-red-400 font-medium px-3 py-1.5 bg-white/10 rounded-lg"
               >
                 Cancel
