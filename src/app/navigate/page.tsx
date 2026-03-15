@@ -290,6 +290,7 @@ export default function NavigatePage() {
                 store.setRoute({ coordinates: route.coordinates, geometry: route.geometry, distanceKm: route.distanceKm, durationMin: route.durationMin });
                 store.setRouteRadarIds(routeRadars.map(r => r.id));
                 store.setDestinations(waypoints.filter(w => w.result).map(w => ({ lat: w.result!.lat, lng: w.result!.lon })));
+                store.setRadarVisibility('route');
                 window.location.href = '/';
               }}
               className="bg-green-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold active:bg-green-700"

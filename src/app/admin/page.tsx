@@ -74,7 +74,7 @@ export default function AdminPage() {
 
 function AdminPanel() {
   const { radars, loadRadars, addRadar, updateRadar, deleteRadar } = useRadarStore();
-  const { route, routeRadarIds, showAllRadars, toggleShowAllRadars, clearRoute, loadFromStorage } = useRouteStore();
+  const { route, routeRadarIds, radarVisibility, cycleRadarVisibility, clearRoute, loadFromStorage } = useRouteStore();
   const [selected, setSelected] = useState<Radar | null>(null);
   const [adding, setAdding] = useState(false);
   const [newLat, setNewLat] = useState(0);
@@ -96,8 +96,9 @@ function AdminPanel() {
   }, [loadRadars, loadFromStorage]);
 
   const filteredRadars = radars.filter((r) => {
-    // Route filter: when route active and not showing all, only show route radars
-    if (route && routeRadarIds.length > 0 && !showAllRadars) {
+    // Visibility filter
+    if (radarVisibility === 'none') return false;
+    if (radarVisibility === 'route' && route && routeRadarIds.length > 0) {
       if (!routeRadarIds.includes(r.id)) return false;
     }
     if (filterEmirate && r.emirate !== filterEmirate) return false;
@@ -195,15 +196,17 @@ function AdminPanel() {
           List
         </button>
 
-        {/* Route radar toggle */}
-        {route && routeRadarIds.length > 0 && (
-          <button
-            onClick={toggleShowAllRadars}
-            className={`px-2 py-1 rounded text-xs font-medium ${showAllRadars ? 'bg-gray-700 hover:bg-gray-600' : 'bg-blue-600'}`}
-          >
-            {showAllRadars ? 'All' : 'Route'}
-          </button>
-        )}
+        {/* Radar visibility toggle */}
+        <button
+          onClick={cycleRadarVisibility}
+          className={`px-2 py-1 rounded text-xs font-medium ${
+            radarVisibility === 'all' ? 'bg-gray-700 hover:bg-gray-600'
+            : radarVisibility === 'route' ? 'bg-blue-600'
+            : 'bg-red-600'
+          }`}
+        >
+          {radarVisibility === 'all' ? 'All' : radarVisibility === 'route' ? 'Route' : 'Hidden'}
+        </button>
 
         {/* Fix Headings */}
         <button

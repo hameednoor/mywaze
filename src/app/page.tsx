@@ -24,7 +24,7 @@ export default function HomePage() {
   const { places, loadPlaces } = usePlacesStore();
   const [alert, setAlert] = useState<RadarAlert | null>(null);
   const [audioReady, setAudioReady] = useState(false);
-  const { route, routeRadarIds, destinations, showAllRadars, setRoute, setRouteRadarIds, setDestinations, toggleShowAllRadars, clearRoute, loadFromStorage } = useRouteStore();
+  const { route, routeRadarIds, destinations, radarVisibility, setRoute, setRouteRadarIds, setDestinations, cycleRadarVisibility, clearRoute, loadFromStorage } = useRouteStore();
   const [rerouting, setRerouting] = useState(false);
   const reroutingRef = useRef(false);
   const lastRerouteRef = useRef(0);
@@ -33,10 +33,12 @@ export default function HomePage() {
 
   const dark = isDark();
 
-  // When a route is active and showAllRadars is off, only show route radars
-  const visibleRadars = (route && routeRadarIds.length > 0 && !showAllRadars)
-    ? radars.filter(r => routeRadarIds.includes(r.id))
-    : radars;
+  // Filter radars based on visibility setting
+  const visibleRadars = radarVisibility === 'none'
+    ? []
+    : radarVisibility === 'route' && route && routeRadarIds.length > 0
+      ? radars.filter(r => routeRadarIds.includes(r.id))
+      : radars;
 
   useEffect(() => {
     loadRadars();
@@ -249,10 +251,14 @@ export default function HomePage() {
             )}
           </div>
           <button
-            onClick={toggleShowAllRadars}
-            className={`text-xs font-medium px-3 py-1.5 rounded-lg ${showAllRadars ? 'bg-white/20 text-white' : 'bg-white/10 text-blue-400'}`}
+            onClick={cycleRadarVisibility}
+            className={`text-xs font-medium px-3 py-1.5 rounded-lg ${
+              radarVisibility === 'all' ? 'bg-white/20 text-white'
+              : radarVisibility === 'route' ? 'bg-blue-500/30 text-blue-300'
+              : 'bg-red-500/30 text-red-300'
+            }`}
           >
-            {showAllRadars ? 'All' : 'Route'}
+            {radarVisibility === 'all' ? 'All' : radarVisibility === 'route' ? 'Route' : 'Hidden'}
           </button>
           <button
             onClick={() => { clearRoute(); }}
@@ -263,13 +269,14 @@ export default function HomePage() {
         </div>
       )}
 
-      {/* Radar count badge */}
-      <div
-        className="fixed z-30 bg-black/70 backdrop-blur-sm text-white px-3 py-2 rounded-xl text-xs"
+      {/* Radar count badge — tap to toggle visibility */}
+      <button
+        onClick={cycleRadarVisibility}
+        className="fixed z-30 bg-black/70 backdrop-blur-sm text-white px-3 py-2 rounded-xl text-xs active:bg-black/90"
         style={{ bottom: 'max(16px, env(safe-area-inset-bottom, 16px))', right: 'max(16px, env(safe-area-inset-right, 16px))' }}
       >
-        {visibleRadars.filter((r) => r.status === 'ACTIVE').length} radars{route && !showAllRadars ? ' on route' : ''}
-      </div>
+        {radarVisibility === 'none' ? 'Radars hidden' : `${visibleRadars.filter((r) => r.status === 'ACTIVE').length} radars${radarVisibility === 'route' ? ' on route' : ''}`}
+      </button>
     </div>
   );
 }
