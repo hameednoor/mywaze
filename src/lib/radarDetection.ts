@@ -1,5 +1,5 @@
 import { Radar, GPSPosition, RadarAlert, AlertZone } from './types';
-import { haversineDistance, isRadarAhead } from './geo';
+import { haversineDistance, isRadarAhead, isRadarForMyDirection } from './geo';
 import { useSettingsStore } from './settingsStore';
 
 const BOUNDING_BOX_KM = 3;      // Only check radars within 3km
@@ -39,11 +39,14 @@ export function detectRadars(
       radar.longitude
     );
 
-    // Only alert for radars ahead of us
+    // Only alert for radars ahead of us AND on our side of the road
     if (!isRadarAhead(
       position.latitude, position.longitude, position.heading,
       radar.latitude, radar.longitude
     )) {
+      continue;
+    }
+    if (!isRadarForMyDirection(position.heading, radar.headingDegrees, radar.direction)) {
       continue;
     }
 
@@ -79,11 +82,12 @@ export function findNextRadarOnRoad(
     // Same road only
     if (radar.roadName?.trim() !== roadName) continue;
 
-    // Must be ahead
+    // Must be ahead AND on our side of the road
     if (!isRadarAhead(
       position.latitude, position.longitude, position.heading,
       radar.latitude, radar.longitude
     )) continue;
+    if (!isRadarForMyDirection(position.heading, radar.headingDegrees, radar.direction)) continue;
 
     const dist = haversineDistance(
       position.latitude, position.longitude,

@@ -44,3 +44,31 @@ export function isRadarAhead(
   const angleDiff = diff > 180 ? 360 - diff : diff;
   return angleDiff < 90; // Within 90 degrees of heading = ahead
 }
+
+/** Check if a radar is monitoring the user's side of the road.
+ *  Uses radar headingDegrees to determine which traffic direction it covers.
+ *  - REAR_FACING: radar heading ≈ user heading (both same direction)
+ *  - FRONT_FACING: radar heading ≈ opposite of user heading
+ *  - No heading (0): returns true (allow, fall back to isRadarAhead)
+ */
+export function isRadarForMyDirection(
+  userHeading: number | null,
+  radarHeadingDeg: number,
+  radarDirection: 'FRONT_FACING' | 'REAR_FACING'
+): boolean {
+  // No user heading or no radar heading data — can't determine, allow it
+  if (userHeading === null || radarHeadingDeg === 0) return true;
+
+  if (radarDirection === 'REAR_FACING') {
+    // Rear-facing radar monitors traffic going in the same direction as its heading
+    const diff = Math.abs(radarHeadingDeg - userHeading);
+    const angleDiff = diff > 180 ? 360 - diff : diff;
+    return angleDiff < 60;
+  } else {
+    // Front-facing radar monitors traffic coming toward it (opposite direction)
+    const opposite = (radarHeadingDeg + 180) % 360;
+    const diff = Math.abs(opposite - userHeading);
+    const angleDiff = diff > 180 ? 360 - diff : diff;
+    return angleDiff < 60;
+  }
+}
