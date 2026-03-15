@@ -95,6 +95,17 @@ export function findRadarsAlongRoute(
   return routeRadars;
 }
 
+/** Minimum distance in meters from a point to a route polyline */
+export function distanceToRoute(lat: number, lng: number, route: RouteData): number {
+  let minDist = Infinity;
+  for (const coord of route.coordinates) {
+    const dist = haversineDistance(lat, lng, coord[1], coord[0]);
+    if (dist < minDist) minDist = dist;
+    if (dist < 10) return dist; // Close enough, skip rest
+  }
+  return minDist;
+}
+
 /** Reverse geocode a coordinate to get an address */
 export async function reverseGeocode(lat: number, lng: number): Promise<string> {
   try {

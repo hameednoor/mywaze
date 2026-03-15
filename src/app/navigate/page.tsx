@@ -284,7 +284,7 @@ export default function NavigatePage() {
               </div>
             </div>
             <a
-              href={`/?route=${encodeURIComponent(JSON.stringify({ coordinates: route.coordinates, geometry: route.geometry }))}&routeRadars=${encodeURIComponent(JSON.stringify(routeRadars.map(r => r.id)))}`}
+              href={`/?route=${encodeURIComponent(JSON.stringify({ coordinates: route.coordinates, geometry: route.geometry, distanceKm: route.distanceKm, durationMin: route.durationMin }))}&routeRadars=${encodeURIComponent(JSON.stringify(routeRadars.map(r => r.id)))}&destinations=${encodeURIComponent(JSON.stringify(waypoints.filter(w => w.result).map(w => ({ lat: w.result!.lat, lng: w.result!.lon }))))}`}
               className="bg-green-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold active:bg-green-700"
             >
               Start

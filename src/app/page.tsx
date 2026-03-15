@@ -9,7 +9,7 @@ import { usePlacesStore, SavedPlace } from '@/lib/placesStore';
 import { detectRadars } from '@/lib/radarDetection';
 import { initAudio } from '@/lib/audio';
 import { RadarAlert } from '@/lib/types';
-import { RouteData } from '@/lib/routing';
+import { RouteData, distanceToRoute, getRouteWithWaypoints, findRadarsAlongRoute } from '@/lib/routing';
 import RadarAlertOverlay from '@/components/RadarAlertOverlay';
 import SpeedDisplay from '@/components/SpeedDisplay';
 
@@ -25,6 +25,10 @@ export default function HomePage() {
   const [audioReady, setAudioReady] = useState(false);
   const [route, setRoute] = useState<RouteData | undefined>(undefined);
   const [routeRadarIds, setRouteRadarIds] = useState<string[]>([]);
+  const [destinations, setDestinations] = useState<{ lat: number; lng: number }[]>([]);
+  const [rerouting, setRerouting] = useState(false);
+  const reroutingRef = useRef(false);
+  const lastRerouteRef = useRef(0);
   const wakeLockRef = useRef<WakeLockSentinel | null>(null);
 
   const dark = isDark();
@@ -41,12 +45,16 @@ export default function HomePage() {
       const params = new URLSearchParams(window.location.search);
       const routeParam = params.get('route');
       const routeRadarsParam = params.get('routeRadars');
+      const destParam = params.get('destinations');
       if (routeParam) {
         const parsed = JSON.parse(routeParam);
         setRoute(parsed);
       }
       if (routeRadarsParam) {
         setRouteRadarIds(JSON.parse(routeRadarsParam));
+      }
+      if (destParam) {
+        setDestinations(JSON.parse(destParam));
       }
     } catch { /* ignore */ }
   }, []);
@@ -86,6 +94,35 @@ export default function HomePage() {
     const result = detectRadars(position, radars);
     setAlert(result);
   }, [position, radars]);
+
+  // Deviation detection + auto-reroute
+  useEffect(() => {
+    if (!position || !route || destinations.length === 0) return;
+    if (reroutingRef.current) return;
+    // Throttle: don't reroute more than once every 10 seconds
+    if (Date.now() - lastRerouteRef.current < 10000) return;
+
+    const dist = distanceToRoute(position.latitude, position.longitude, route);
+    if (dist <= 100) return; // Still on route
+
+    // Off route — recalculate
+    reroutingRef.current = true;
+    setRerouting(true);
+    lastRerouteRef.current = Date.now();
+
+    getRouteWithWaypoints(position.latitude, position.longitude, destinations).then((newRoute) => {
+      if (newRoute) {
+        setRoute(newRoute);
+        const newRadars = findRadarsAlongRoute(newRoute, radars);
+        setRouteRadarIds(newRadars.map(r => r.id));
+      }
+      reroutingRef.current = false;
+      setRerouting(false);
+    }).catch(() => {
+      reroutingRef.current = false;
+      setRerouting(false);
+    });
+  }, [position, route, destinations, radars]);
 
   // Unlock audio on first user interaction
   const handleUserGesture = useCallback(() => {
@@ -194,7 +231,11 @@ export default function HomePage() {
           style={{ top: 'max(70px, calc(env(safe-area-inset-top, 0px) + 70px))' }}
         >
           <div className="flex-1">
-            <p className="text-xs text-gray-300">Navigating</p>
+            <p className="text-xs text-gray-300">
+              {rerouting ? 'Rerouting...' : 'Navigating'}
+              {route.distanceKm ? ` · ${route.distanceKm.toFixed(1)} km` : ''}
+              {route.durationMin ? ` · ${Math.round(route.durationMin)} min` : ''}
+            </p>
             {routeRadarIds.length > 0 && (
               <p className="text-xs text-red-400 font-medium">
                 {routeRadarIds.length} radar{routeRadarIds.length !== 1 ? 's' : ''} on route
@@ -202,7 +243,7 @@ export default function HomePage() {
             )}
           </div>
           <button
-            onClick={() => { setRoute(undefined); setRouteRadarIds([]); window.history.replaceState({}, '', '/'); }}
+            onClick={() => { setRoute(undefined); setRouteRadarIds([]); setDestinations([]); window.history.replaceState({}, '', '/'); }}
             className="text-xs text-red-400 font-medium px-3 py-1.5 bg-white/10 rounded-lg"
           >
             End
