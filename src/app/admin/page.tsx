@@ -10,7 +10,7 @@ const AdminMap = dynamic(() => import('@/components/AdminMap'), { ssr: false });
 const EMIRATES: Emirate[] = ['Abu Dhabi', 'Dubai', 'Sharjah', 'Ajman', 'Umm Al Quwain', 'Ras Al Khaimah', 'Fujairah'];
 const RADAR_TYPES: RadarType[] = ['FIXED', 'MOBILE', 'AVERAGE_SPEED', 'RED_LIGHT'];
 
-const ADMIN_PIN = '2580';
+const ADMIN_PIN = '0000';
 const PIN_STORAGE_KEY = 'mywaze_admin_auth';
 
 export default function AdminPage() {
