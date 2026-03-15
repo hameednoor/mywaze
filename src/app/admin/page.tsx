@@ -139,7 +139,7 @@ function AdminPanel() {
   function handleRadarClick(radar: Radar) {
     setSelected(radar);
     setAdding(false);
-    setPanelOpen(true);
+    setPanelOpen(false);
     setShowList(false);
   }
 
@@ -240,6 +240,24 @@ function AdminPanel() {
             if (selected?.id === radar.id) setSelected(updated);
           }}
         />
+
+        {/* Edit button when radar selected but panel closed */}
+        {selected && !panelOpen && !showList && (
+          <div className="absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-2">
+            <button
+              onClick={() => { setPanelOpen(true); setAdding(false); }}
+              className="px-6 py-2.5 bg-blue-600 text-white rounded-full text-sm font-medium shadow-lg active:bg-blue-700"
+            >
+              Edit Radar
+            </button>
+            <button
+              onClick={() => setSelected(null)}
+              className="px-4 py-2.5 bg-gray-700 text-white rounded-full text-sm shadow-lg active:bg-gray-600"
+            >
+              Deselect
+            </button>
+          </div>
+        )}
 
         {/* Bottom sheet - radar detail / add form */}
         {panelOpen && (
@@ -407,8 +425,8 @@ function AdminPanel() {
                   <div className="flex gap-2 pt-1">
                     <button
                       onClick={closePanel}
-                      className="flex-1 py-2.5 border rounded-lg text-sm text-gray-600 active:bg-gray-100"
-                    >Close</button>
+                      className="flex-1 py-2 bg-green-600 text-white rounded-lg text-sm font-medium active:bg-green-700"
+                    >Save</button>
                     <button
                       onClick={() => {
                         if (confirm('Delete this radar?')) {
@@ -416,7 +434,7 @@ function AdminPanel() {
                           closePanel();
                         }
                       }}
-                      className="py-2.5 px-5 bg-red-500 text-white rounded-lg text-sm font-medium active:bg-red-600"
+                      className="py-2 px-4 bg-red-500 text-white rounded-lg text-xs font-medium active:bg-red-600"
                     >Delete</button>
                   </div>
                 </div>
