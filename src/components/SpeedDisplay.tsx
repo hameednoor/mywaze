@@ -9,25 +9,27 @@ interface Props {
 }
 
 export default function SpeedDisplay({ speedMs, nearestAlert }: Props) {
-  const [large, setLarge] = useState(false);
+  const [sizeIndex, setSizeIndex] = useState(0); // 0=small, 1=medium, 2=large
   const speedKmh = speedMs !== null ? Math.round(speedMs * 3.6) : 0;
   const speedLimit = nearestAlert?.radar.speedLimit ?? null;
 
   const overSpeed = speedLimit !== null && speedKmh > speedLimit;
   const wayOver = speedLimit !== null && speedKmh > speedLimit + 20;
 
-  // Sizes
-  const outer = large ? 120 : 72;
-  const ring = large ? 8 : 5;
-  const limitSize = large ? 32 : 18;
-  const speedSize = large ? 28 : 16;
-  const unitSize = large ? 11 : 8;
+  // 3 sizes: small, medium, large
+  const sizes = [
+    { outer: 72, ring: 5, limitSize: 18, speedSize: 16, unitSize: 8 },
+    { outer: 120, ring: 8, limitSize: 32, speedSize: 28, unitSize: 11 },
+    { outer: 160, ring: 10, limitSize: 42, speedSize: 36, unitSize: 14 },
+  ];
+  const { outer, ring, limitSize, speedSize, unitSize } = sizes[sizeIndex];
+  const cycleSize = () => setSizeIndex((sizeIndex + 1) % 3);
 
   return (
     <div className="fixed bottom-4 left-4 z-30 flex flex-col items-start gap-2" style={{ bottom: 'max(16px, env(safe-area-inset-bottom, 16px))', left: 'max(16px, env(safe-area-inset-left, 16px))' }}>
       {/* Waze-style round speed widget */}
       <div
-        onClick={() => setLarge(!large)}
+        onClick={cycleSize}
         style={{
           width: outer,
           height: outer,
@@ -79,7 +81,7 @@ export default function SpeedDisplay({ speedMs, nearestAlert }: Props) {
                 width: '60%',
                 height: 1,
                 background: '#4B5563',
-                margin: large ? '3px 0' : '2px 0',
+                margin: sizeIndex > 0 ? '3px 0' : '2px 0',
               }}
             />
           )}
@@ -113,26 +115,26 @@ export default function SpeedDisplay({ speedMs, nearestAlert }: Props) {
 
       {/* Size toggle arrow */}
       <button
-        onClick={() => setLarge(!large)}
+        onClick={cycleSize}
         style={{
-          width: large ? 28 : 22,
-          height: large ? 28 : 22,
+          width: 22,
+          height: 22,
           borderRadius: '50%',
           background: 'rgba(0,0,0,0.6)',
           border: '1px solid #4B5563',
           color: '#9CA3AF',
-          fontSize: large ? 14 : 10,
+          fontSize: 10,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           cursor: 'pointer',
           alignSelf: 'center',
           transition: 'all 0.3s ease',
-          marginLeft: large ? (outer / 2 - 14) : (outer / 2 - 11),
+          marginLeft: outer / 2 - 11,
         }}
-        title={large ? 'Make smaller' : 'Make larger'}
+        title="Change size"
       >
-        {large ? '▾' : '▴'}
+        {sizeIndex === 2 ? '▾' : '▴'}
       </button>
     </div>
   );
