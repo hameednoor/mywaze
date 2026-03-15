@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import PWAInstall from "@/components/PWAInstall";
+import AuthGate from "@/components/AuthGate";
 
 export const metadata: Metadata = {
   title: "MyWaze - UAE Radar Navigator",
@@ -24,7 +25,9 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icon-192.png" />
       </head>
       <body className="antialiased">
-        {children}
+        <AuthGate>
+          {children}
+        </AuthGate>
         <PWAInstall />
       </body>
     </html>

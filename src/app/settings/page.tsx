@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useSettingsStore } from '@/lib/settingsStore';
 import { useCustomPlacesStore } from '@/lib/customPlacesStore';
+import { useAuthStore } from '@/lib/authStore';
 import { parseGoogleMapsInput, isInUAE, CustomPlace } from '@/lib/customPlaces';
 import { reverseGeocode } from '@/lib/routing';
 
@@ -18,6 +19,26 @@ export default function SettingsPage() {
   const [policeResult, setPoliceResult] = useState<string | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [policeDetails, setPoliceDetails] = useState<any>(null);
+  const { user, isOwner, signOut } = useAuthStore();
+  const [allowedUsers, setAllowedUsers] = useState<{ email: string; name: string; is_active: boolean; created_at: string }[]>([]);
+  const [newUserEmail, setNewUserEmail] = useState('');
+  const [newUserName, setNewUserName] = useState('');
+  const [userMsg, setUserMsg] = useState('');
+  const [loadingUsers, setLoadingUsers] = useState(false);
+
+  const loadAllowedUsers = async () => {
+    if (!user?.email) return;
+    setLoadingUsers(true);
+    try {
+      const res = await fetch('/api/auth/users', {
+        headers: { 'x-user-email': user.email },
+      });
+      if (res.ok) {
+        setAllowedUsers(await res.json());
+      }
+    } catch { /* ignore */ }
+    setLoadingUsers(false);
+  };
 
   useEffect(() => {
     settings.loadSettings();
@@ -338,6 +359,137 @@ export default function SettingsPage() {
             </div>
           )}
         </Section>
+
+        {/* Account */}
+        <Section title="Account" isDark={isDark}>
+          {user && (
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                {user.picture && (
+                  <img src={user.picture} alt="" className="w-8 h-8 rounded-full" referrerPolicy="no-referrer" />
+                )}
+                <div>
+                  <p className="text-sm font-medium">{user.name}</p>
+                  <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>{user.email}</p>
+                </div>
+              </div>
+              <button
+                onClick={signOut}
+                className="text-red-400 text-xs font-medium px-3 py-1.5 bg-red-400/10 rounded-lg active:bg-red-400/20"
+              >
+                Sign out
+              </button>
+            </div>
+          )}
+        </Section>
+
+        {/* Access Control — owner only */}
+        {isOwner && (
+          <Section title="Access Control" isDark={isDark}>
+            <p className={`text-xs mb-3 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+              Manage who can access the app. Add users by their Google email.
+            </p>
+
+            <div className="flex gap-2 mb-2">
+              <input
+                type="email"
+                value={newUserEmail}
+                onChange={(e) => setNewUserEmail(e.target.value)}
+                placeholder="Google email"
+                className={`flex-1 rounded-xl px-3 py-2 text-sm ${
+                  isDark ? 'bg-gray-700 text-white placeholder-gray-400' : 'bg-gray-100 text-gray-900 placeholder-gray-500'
+                }`}
+              />
+              <input
+                type="text"
+                value={newUserName}
+                onChange={(e) => setNewUserName(e.target.value)}
+                placeholder="Name"
+                className={`w-28 rounded-xl px-3 py-2 text-sm ${
+                  isDark ? 'bg-gray-700 text-white placeholder-gray-400' : 'bg-gray-100 text-gray-900 placeholder-gray-500'
+                }`}
+              />
+            </div>
+            <button
+              onClick={async () => {
+                if (!newUserEmail.trim()) return;
+                const res = await fetch('/api/auth/users', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json', 'x-user-email': user?.email || '' },
+                  body: JSON.stringify({ email: newUserEmail, name: newUserName }),
+                });
+                if (res.ok) {
+                  setUserMsg(`Added: ${newUserEmail}`);
+                  setNewUserEmail('');
+                  setNewUserName('');
+                  loadAllowedUsers();
+                } else {
+                  setUserMsg('Failed to add user');
+                }
+                setTimeout(() => setUserMsg(''), 3000);
+              }}
+              disabled={!newUserEmail.trim()}
+              className="w-full py-2 bg-blue-600 text-white rounded-xl text-sm font-medium disabled:opacity-40 active:bg-blue-700 mb-2"
+            >
+              Grant Access
+            </button>
+            {userMsg && <p className="text-xs text-green-500 mb-2">{userMsg}</p>}
+
+            {/* Load and show existing users */}
+            {!loadingUsers && allowedUsers.length === 0 && (
+              <button
+                onClick={loadAllowedUsers}
+                className={`text-xs ${isDark ? 'text-blue-400' : 'text-blue-600'} font-medium`}
+              >
+                Load user list
+              </button>
+            )}
+            {loadingUsers && <p className="text-xs text-gray-400">Loading...</p>}
+            {allowedUsers.length > 0 && (
+              <div className="space-y-1 mt-2">
+                <h3 className={`text-xs font-semibold ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                  Authorized Users ({allowedUsers.filter(u => u.is_active).length})
+                </h3>
+                {allowedUsers.map((u) => (
+                  <div
+                    key={u.email}
+                    className={`flex items-center justify-between px-3 py-2 rounded-lg ${
+                      isDark ? 'bg-gray-700' : 'bg-gray-50'
+                    } ${!u.is_active ? 'opacity-40' : ''}`}
+                  >
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium truncate">{u.name || u.email}</p>
+                      <p className={`text-xs truncate ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>{u.email}</p>
+                    </div>
+                    <button
+                      onClick={async () => {
+                        if (u.is_active) {
+                          await fetch('/api/auth/users', {
+                            method: 'DELETE',
+                            headers: { 'Content-Type': 'application/json', 'x-user-email': user?.email || '' },
+                            body: JSON.stringify({ email: u.email }),
+                          });
+                        } else {
+                          await fetch('/api/auth/users', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json', 'x-user-email': user?.email || '' },
+                            body: JSON.stringify({ email: u.email, name: u.name }),
+                          });
+                        }
+                        loadAllowedUsers();
+                      }}
+                      className={`text-xs font-medium ml-2 px-2 py-1 rounded flex-shrink-0 ${
+                        u.is_active ? 'text-red-400 active:text-red-600' : 'text-green-400 active:text-green-600'
+                      }`}
+                    >
+                      {u.is_active ? 'Revoke' : 'Restore'}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+          </Section>
+        )}
 
         {/* Navigation links */}
         <Section title="Quick Links" isDark={isDark}>
