@@ -5,6 +5,7 @@ import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { Radar } from '@/lib/types';
 import { useSettingsStore } from '@/lib/settingsStore';
+import { useRouteStore } from '@/lib/routeStore';
 
 interface Props {
   radars: Radar[];
@@ -31,6 +32,7 @@ export default function AdminMap({ radars, selectedId, addMode, onRadarClick, on
   const [userPos, setUserPos] = useState<{ lat: number; lng: number } | null>(null);
 
   const isDark = useSettingsStore((s) => s.isDark());
+  const route = useRouteStore((s) => s.route);
 
   radarsRef.current = radars;
   onRadarClickRef.current = onRadarClick;
@@ -80,6 +82,28 @@ export default function AdminMap({ radars, selectedId, addMode, onRadarClick, on
       if (addModeRef.current) {
         onMapClick(e.lngLat.lat, e.lngLat.lng);
       }
+    });
+
+    // Route layers
+    map.on('load', () => {
+      map.addSource('admin-route', {
+        type: 'geojson',
+        data: { type: 'FeatureCollection', features: [] },
+      });
+      map.addLayer({
+        id: 'admin-route-casing',
+        type: 'line',
+        source: 'admin-route',
+        paint: { 'line-color': '#1E40AF', 'line-width': 8, 'line-opacity': 0.4 },
+        layout: { 'line-join': 'round', 'line-cap': 'round' },
+      });
+      map.addLayer({
+        id: 'admin-route-line',
+        type: 'line',
+        source: 'admin-route',
+        paint: { 'line-color': '#3B82F6', 'line-width': 5, 'line-opacity': 0.9 },
+        layout: { 'line-join': 'round', 'line-cap': 'round' },
+      });
     });
 
     mapRef.current = map;
@@ -167,7 +191,49 @@ export default function AdminMap({ radars, selectedId, addMode, onRadarClick, on
     if (!map || currentStyleRef.current === mapStyle) return;
     currentStyleRef.current = mapStyle;
     map.setStyle(mapStyle);
-  }, [mapStyle]);
+    // Re-add route layers after style loads
+    map.once('styledata', () => {
+      if (!map.getSource('admin-route')) {
+        map.addSource('admin-route', {
+          type: 'geojson',
+          data: route ? { type: 'Feature', geometry: route.geometry, properties: {} } : { type: 'FeatureCollection', features: [] },
+        });
+        map.addLayer({
+          id: 'admin-route-casing',
+          type: 'line',
+          source: 'admin-route',
+          paint: { 'line-color': '#1E40AF', 'line-width': 8, 'line-opacity': 0.4 },
+          layout: { 'line-join': 'round', 'line-cap': 'round' },
+        });
+        map.addLayer({
+          id: 'admin-route-line',
+          type: 'line',
+          source: 'admin-route',
+          paint: { 'line-color': '#3B82F6', 'line-width': 5, 'line-opacity': 0.9 },
+          layout: { 'line-join': 'round', 'line-cap': 'round' },
+        });
+      }
+    });
+  }, [mapStyle, route]);
+
+  // Update route on map
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    const source = map.getSource('admin-route') as maplibregl.GeoJSONSource | undefined;
+    if (!source) {
+      // Source not ready yet, retry after load
+      const onLoad = () => {
+        const s = map.getSource('admin-route') as maplibregl.GeoJSONSource | undefined;
+        if (s) {
+          s.setData(route ? { type: 'Feature', geometry: route.geometry, properties: {} } : { type: 'FeatureCollection', features: [] });
+        }
+      };
+      map.once('load', onLoad);
+      return;
+    }
+    source.setData(route ? { type: 'Feature', geometry: route.geometry, properties: {} } : { type: 'FeatureCollection', features: [] });
+  }, [route]);
 
   // Render radar markers
   useEffect(() => {

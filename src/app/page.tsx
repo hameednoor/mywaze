@@ -9,7 +9,8 @@ import { usePlacesStore, SavedPlace } from '@/lib/placesStore';
 import { detectRadars, findNextRadarOnRoad } from '@/lib/radarDetection';
 import { initAudio, speakNextRadar } from '@/lib/audio';
 import { RadarAlert } from '@/lib/types';
-import { RouteData, distanceToRoute, getRouteWithWaypoints, findRadarsAlongRoute } from '@/lib/routing';
+import { distanceToRoute, getRouteWithWaypoints, findRadarsAlongRoute } from '@/lib/routing';
+import { useRouteStore } from '@/lib/routeStore';
 import RadarAlertOverlay from '@/components/RadarAlertOverlay';
 import SpeedDisplay from '@/components/SpeedDisplay';
 
@@ -23,9 +24,7 @@ export default function HomePage() {
   const { places, loadPlaces } = usePlacesStore();
   const [alert, setAlert] = useState<RadarAlert | null>(null);
   const [audioReady, setAudioReady] = useState(false);
-  const [route, setRoute] = useState<RouteData | undefined>(undefined);
-  const [routeRadarIds, setRouteRadarIds] = useState<string[]>([]);
-  const [destinations, setDestinations] = useState<{ lat: number; lng: number }[]>([]);
+  const { route, routeRadarIds, destinations, setRoute, setRouteRadarIds, setDestinations, clearRoute } = useRouteStore();
   const [rerouting, setRerouting] = useState(false);
   const reroutingRef = useRef(false);
   const lastRerouteRef = useRef(0);
@@ -40,24 +39,11 @@ export default function HomePage() {
     loadPlaces();
   }, [loadRadars, loadSettings, loadPlaces]);
 
-  // Parse route from URL params (from navigate page)
+  // Clean URL params on mount (route now lives in store)
   useEffect(() => {
-    try {
-      const params = new URLSearchParams(window.location.search);
-      const routeParam = params.get('route');
-      const routeRadarsParam = params.get('routeRadars');
-      const destParam = params.get('destinations');
-      if (routeParam) {
-        const parsed = JSON.parse(routeParam);
-        setRoute(parsed);
-      }
-      if (routeRadarsParam) {
-        setRouteRadarIds(JSON.parse(routeRadarsParam));
-      }
-      if (destParam) {
-        setDestinations(JSON.parse(destParam));
-      }
-    } catch { /* ignore */ }
+    if (window.location.search) {
+      window.history.replaceState({}, '', '/');
+    }
   }, []);
 
   // Wake Lock
@@ -264,7 +250,7 @@ export default function HomePage() {
             )}
           </div>
           <button
-            onClick={() => { setRoute(undefined); setRouteRadarIds([]); setDestinations([]); window.history.replaceState({}, '', '/'); }}
+            onClick={() => { clearRoute(); window.history.replaceState({}, '', '/'); }}
             className="text-xs text-red-400 font-medium px-3 py-1.5 bg-white/10 rounded-lg"
           >
             End

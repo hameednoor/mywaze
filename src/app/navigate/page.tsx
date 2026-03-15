@@ -7,6 +7,7 @@ import { useSettingsStore } from '@/lib/settingsStore';
 import { searchPlaces, getRouteWithWaypoints, findRadarsAlongRoute, SearchResult, RouteData } from '@/lib/routing';
 import { Radar } from '@/lib/types';
 import { useCustomPlacesStore } from '@/lib/customPlacesStore';
+import { useRouteStore } from '@/lib/routeStore';
 
 const MapView = dynamic(() => import('@/components/Map'), { ssr: false });
 
@@ -283,12 +284,18 @@ export default function NavigatePage() {
                 )}
               </div>
             </div>
-            <a
-              href={`/?route=${encodeURIComponent(JSON.stringify({ coordinates: route.coordinates, geometry: route.geometry, distanceKm: route.distanceKm, durationMin: route.durationMin }))}&routeRadars=${encodeURIComponent(JSON.stringify(routeRadars.map(r => r.id)))}&destinations=${encodeURIComponent(JSON.stringify(waypoints.filter(w => w.result).map(w => ({ lat: w.result!.lat, lng: w.result!.lon }))))}`}
+            <button
+              onClick={() => {
+                const store = useRouteStore.getState();
+                store.setRoute({ coordinates: route.coordinates, geometry: route.geometry, distanceKm: route.distanceKm, durationMin: route.durationMin });
+                store.setRouteRadarIds(routeRadars.map(r => r.id));
+                store.setDestinations(waypoints.filter(w => w.result).map(w => ({ lat: w.result!.lat, lng: w.result!.lon })));
+                window.location.href = '/';
+              }}
               className="bg-green-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold active:bg-green-700"
             >
               Start
-            </a>
+            </button>
           </div>
         </div>
       )}
