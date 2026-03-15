@@ -18,29 +18,7 @@ interface MapProps {
   waypoints?: { lat: number; lng: number; name: string; index: number }[];
   savedPlaces?: SavedPlace[];
   onPlaceClick?: (place: SavedPlace) => void;
-  onRoadName?: (name: string) => void;
 }
-
-// Major UAE highways for persistent labels
-const UAE_HIGHWAYS: { name: string; coordinates: [number, number][] }[] = [
-  { name: 'E11', coordinates: [[54.6543,24.4539],[54.9,24.42],[55.0,24.5],[55.05,24.7],[55.08,24.85],[55.1,24.95],[55.12,25.0],[55.15,25.05],[55.17,25.08],[55.19,25.12],[55.24,25.18],[55.27,25.21],[55.31,25.25]] },
-  { name: 'E11', coordinates: [[55.31,25.25],[55.36,25.3],[55.4,25.35],[55.44,25.4],[55.47,25.45],[55.52,25.55],[55.52,25.65],[55.5,25.75],[55.49,25.8]] },
-  { name: 'E11', coordinates: [[54.6543,24.4539],[54.5,24.35],[54.45,24.15],[54.41,23.9],[54.4,23.6]] },
-  { name: 'E311', coordinates: [[55.75,24.2],[55.6,24.4],[55.45,24.7],[55.38,24.95],[55.35,25.05],[55.3,25.15],[55.32,25.25],[55.4,25.35],[55.43,25.45],[55.4,25.55],[55.39,25.6]] },
-  { name: 'E611', coordinates: [[55.15,24.98],[55.25,25.03],[55.35,25.08],[55.45,25.12],[55.6,25.2]] },
-  { name: 'E44', coordinates: [[55.4,25.15],[55.7,25.1],[56.0,25.04],[56.13,24.8]] },
-  { name: 'E66', coordinates: [[55.35,25.18],[55.6,25.0],[55.75,24.75],[55.77,24.22]] },
-  { name: 'E88', coordinates: [[55.45,25.31],[55.7,25.35],[55.95,25.3],[56.33,25.13]] },
-  { name: 'E22', coordinates: [[54.6,24.35],[55.0,24.25],[55.3,24.2],[55.77,24.22]] },
-  { name: 'E99', coordinates: [[55.55,25.6],[56.05,25.3],[56.2,25.15]] },
-  { name: 'E10', coordinates: [[54.62,24.52],[54.55,24.66]] },
-  { name: 'E12', coordinates: [[54.5,24.45],[54.8,24.62]] },
-  { name: 'E20', coordinates: [[54.42,24.48],[54.6,24.58]] },
-  { name: 'E30', coordinates: [[54.5,24.35],[54.63,24.42]] },
-  { name: 'Sheikh Zayed Rd', coordinates: [[55.12,25.0],[55.19,25.12],[55.27,25.21]] },
-  { name: 'Al Khail Rd', coordinates: [[55.17,25.07],[55.24,25.15],[55.3,25.23]] },
-  { name: 'Hessa St', coordinates: [[55.16,25.09],[55.2,25.17]] },
-];
 
 const RADARS_SOURCE = 'radars-source';
 const RADARS_LAYER = 'radars-layer';
@@ -55,7 +33,7 @@ const ROUTE_RADARS_BORDER_LAYER = 'route-radars-border-layer';
 const LIGHT_STYLE = 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json';
 const DARK_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
 
-export default function MapView({ position, radars, onMapReady, route, routeRadarIds, destination, waypoints, savedPlaces, onPlaceClick, onRoadName }: MapProps) {
+export default function MapView({ position, radars, onMapReady, route, routeRadarIds, destination, waypoints, savedPlaces, onPlaceClick }: MapProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const userMarkerRef = useRef<maplibregl.Marker | null>(null);
@@ -486,41 +464,6 @@ function addMapLayers(map: maplibregl.Map) {
       'circle-stroke-width': 2,
       'circle-stroke-color': '#FBBF24',
     },
-  });
-
-  // Highway labels — always visible
-  const hwFeatures = UAE_HIGHWAYS.map((hw) => ({
-    type: 'Feature' as const,
-    geometry: { type: 'LineString' as const, coordinates: hw.coordinates },
-    properties: { name: hw.name },
-  }));
-
-  map.addSource('highway-labels-source', {
-    type: 'geojson',
-    data: { type: 'FeatureCollection', features: hwFeatures },
-  });
-
-  map.addLayer({
-    id: 'highway-labels',
-    type: 'symbol',
-    source: 'highway-labels-source',
-    layout: {
-      'symbol-placement': 'line',
-      'text-field': ['get', 'name'],
-      'text-size': 14,
-      'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
-      'text-allow-overlap': false,
-      'text-ignore-placement': false,
-      'text-max-angle': 30,
-      'symbol-spacing': 300,
-      'text-keep-upright': true,
-    },
-    paint: {
-      'text-color': '#1E40AF',
-      'text-halo-color': '#FFFFFF',
-      'text-halo-width': 2,
-    },
-    minzoom: 7,
   });
 }
 
