@@ -428,8 +428,8 @@ function addMapLayers(map: maplibregl.Map) {
     paint: {
       'circle-radius': 7,
       'circle-color': ['case',
-        ['==', ['get', 'direction'], 'FRONT_FACING'], '#EF4444',
-        '#22C55E'
+        ['==', ['get', 'direction'], 'FRONT_FACING'], '#22C55E',
+        '#EF4444'
       ],
       'circle-opacity': 1,
     },
