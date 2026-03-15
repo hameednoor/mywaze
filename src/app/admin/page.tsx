@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import { useRadarStore } from '@/lib/radarStore';
+import { useRouteStore } from '@/lib/routeStore';
 import { Radar, RadarDirection, RadarType, RadarStatus, Emirate } from '@/lib/types';
 
 const AdminMap = dynamic(() => import('@/components/AdminMap'), { ssr: false });
@@ -73,6 +74,7 @@ export default function AdminPage() {
 
 function AdminPanel() {
   const { radars, loadRadars, addRadar, updateRadar, deleteRadar } = useRadarStore();
+  const { route, routeRadarIds, showAllRadars, toggleShowAllRadars } = useRouteStore();
   const [selected, setSelected] = useState<Radar | null>(null);
   const [adding, setAdding] = useState(false);
   const [newLat, setNewLat] = useState(0);
@@ -92,6 +94,10 @@ function AdminPanel() {
   }, [loadRadars]);
 
   const filteredRadars = radars.filter((r) => {
+    // Route filter: when route active and not showing all, only show route radars
+    if (route && routeRadarIds.length > 0 && !showAllRadars) {
+      if (!routeRadarIds.includes(r.id)) return false;
+    }
     if (filterEmirate && r.emirate !== filterEmirate) return false;
     if (filterDirection && r.direction !== filterDirection) return false;
     return true;
@@ -184,6 +190,16 @@ function AdminPanel() {
         >
           List
         </button>
+
+        {/* Route radar toggle */}
+        {route && routeRadarIds.length > 0 && (
+          <button
+            onClick={toggleShowAllRadars}
+            className={`px-2 py-1 rounded text-xs font-medium ${showAllRadars ? 'bg-gray-700 hover:bg-gray-600' : 'bg-blue-600'}`}
+          >
+            {showAllRadars ? 'All' : 'Route'}
+          </button>
+        )}
 
         {/* Fix Headings */}
         <button

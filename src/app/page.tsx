@@ -24,7 +24,7 @@ export default function HomePage() {
   const { places, loadPlaces } = usePlacesStore();
   const [alert, setAlert] = useState<RadarAlert | null>(null);
   const [audioReady, setAudioReady] = useState(false);
-  const { route, routeRadarIds, destinations, setRoute, setRouteRadarIds, setDestinations, clearRoute } = useRouteStore();
+  const { route, routeRadarIds, destinations, showAllRadars, setRoute, setRouteRadarIds, setDestinations, toggleShowAllRadars, clearRoute } = useRouteStore();
   const [rerouting, setRerouting] = useState(false);
   const reroutingRef = useRef(false);
   const lastRerouteRef = useRef(0);
@@ -32,6 +32,11 @@ export default function HomePage() {
   const prevAlertRadarIdRef = useRef<string | null>(null);
 
   const dark = isDark();
+
+  // When a route is active and showAllRadars is off, only show route radars
+  const visibleRadars = (route && routeRadarIds.length > 0 && !showAllRadars)
+    ? radars.filter(r => routeRadarIds.includes(r.id))
+    : radars;
 
   useEffect(() => {
     loadRadars();
@@ -152,7 +157,7 @@ export default function HomePage() {
       {/* Map */}
       <MapView
         position={position}
-        radars={radars}
+        radars={visibleRadars}
         route={route}
         routeRadarIds={routeRadarIds}
         savedPlaces={places}
@@ -250,6 +255,12 @@ export default function HomePage() {
             )}
           </div>
           <button
+            onClick={toggleShowAllRadars}
+            className={`text-xs font-medium px-3 py-1.5 rounded-lg ${showAllRadars ? 'bg-white/20 text-white' : 'bg-white/10 text-blue-400'}`}
+          >
+            {showAllRadars ? 'All' : 'Route'}
+          </button>
+          <button
             onClick={() => { clearRoute(); window.history.replaceState({}, '', '/'); }}
             className="text-xs text-red-400 font-medium px-3 py-1.5 bg-white/10 rounded-lg"
           >
@@ -263,7 +274,7 @@ export default function HomePage() {
         className="fixed z-30 bg-black/70 backdrop-blur-sm text-white px-3 py-2 rounded-xl text-xs"
         style={{ bottom: 'max(16px, env(safe-area-inset-bottom, 16px))', right: 'max(16px, env(safe-area-inset-right, 16px))' }}
       >
-        {radars.filter((r) => r.status === 'ACTIVE').length} radars loaded
+        {visibleRadars.filter((r) => r.status === 'ACTIVE').length} radars{route && !showAllRadars ? ' on route' : ''}
       </div>
     </div>
   );
