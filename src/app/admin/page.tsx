@@ -298,6 +298,40 @@ function AdminPanel() {
                     </div>
                   </div>
 
+                  {/* Heading / Direction compass */}
+                  <div>
+                    <label className="text-xs text-gray-500">Facing Direction ({selected.headingDegrees || 0}°)</label>
+                    <div className="flex items-center gap-2 mt-1">
+                      <input
+                        type="range"
+                        min={0}
+                        max={359}
+                        value={selected.headingDegrees || 0}
+                        onChange={(e) => {
+                          const updated = { ...selected, headingDegrees: parseInt(e.target.value) };
+                          setSelected(updated);
+                          updateRadar(updated);
+                        }}
+                        className="flex-1 accent-blue-600"
+                      />
+                      <div
+                        className="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center flex-shrink-0"
+                        title={`${selected.headingDegrees || 0}°`}
+                      >
+                        <div
+                          style={{ transform: `rotate(${selected.headingDegrees || 0}deg)` }}
+                          className="text-red-500 text-sm"
+                        >▲</div>
+                      </div>
+                    </div>
+                    <div className="flex justify-between text-xs text-gray-400 mt-0.5 px-1">
+                      <button type="button" onClick={() => { const u = { ...selected, headingDegrees: 0 }; setSelected(u); updateRadar(u); }}>N</button>
+                      <button type="button" onClick={() => { const u = { ...selected, headingDegrees: 90 }; setSelected(u); updateRadar(u); }}>E</button>
+                      <button type="button" onClick={() => { const u = { ...selected, headingDegrees: 180 }; setSelected(u); updateRadar(u); }}>S</button>
+                      <button type="button" onClick={() => { const u = { ...selected, headingDegrees: 270 }; setSelected(u); updateRadar(u); }}>W</button>
+                    </div>
+                  </div>
+
                   <div>
                     <label className="text-xs text-gray-500">Status</label>
                     <select
@@ -401,6 +435,7 @@ function AddRadarForm({ onSave, onCancel }: {
   const [direction, setDirection] = useState<RadarDirection>('FRONT_FACING');
   const [emirate, setEmirate] = useState<Emirate>('Dubai');
   const [radarType, setRadarType] = useState<RadarType>('FIXED');
+  const [headingDegrees, setHeadingDegrees] = useState(0);
 
   return (
     <div className="space-y-2">
@@ -446,9 +481,32 @@ function AddRadarForm({ onSave, onCancel }: {
           ))}
         </select>
       </div>
+      {/* Heading slider */}
+      <div>
+        <label className="text-xs text-gray-500">Facing Direction ({headingDegrees}°)</label>
+        <div className="flex items-center gap-2">
+          <input
+            type="range"
+            min={0}
+            max={359}
+            value={headingDegrees}
+            onChange={(e) => setHeadingDegrees(parseInt(e.target.value))}
+            className="flex-1 accent-blue-600"
+          />
+          <div className="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center flex-shrink-0">
+            <div style={{ transform: `rotate(${headingDegrees}deg)` }} className="text-red-500 text-sm">▲</div>
+          </div>
+        </div>
+        <div className="flex justify-between text-xs text-gray-400 mt-0.5 px-1">
+          <button type="button" onClick={() => setHeadingDegrees(0)}>N</button>
+          <button type="button" onClick={() => setHeadingDegrees(90)}>E</button>
+          <button type="button" onClick={() => setHeadingDegrees(180)}>S</button>
+          <button type="button" onClick={() => setHeadingDegrees(270)}>W</button>
+        </div>
+      </div>
       <div className="flex gap-2 pt-1">
         <button
-          onClick={() => onSave({ roadName, speedLimit, direction, emirate, radarType })}
+          onClick={() => onSave({ roadName, speedLimit, direction, emirate, radarType, headingDegrees })}
           className="flex-1 bg-blue-600 text-white py-2.5 rounded-lg text-sm font-medium active:bg-blue-700"
         >Add Radar</button>
         <button

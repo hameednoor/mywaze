@@ -169,17 +169,30 @@ export default function AdminMap({ radars, selectedId, onRadarClick, onMapClick,
       const size = isSelected ? 18 : 14;
       const border = isSelected ? '3px solid #2563EB' : '2px solid white';
 
+      const heading = radar.headingDegrees || 0;
       const el = document.createElement('div');
       el.style.cssText = `
         width: ${size}px; height: ${size}px;
         background: ${color};
         border: ${border};
-        border-radius: ${isFront ? '50%' : '3px'};
+        border-radius: 50%;
         cursor: pointer;
         box-shadow: 0 0 8px ${color}80;
         transition: all 0.2s;
+        position: relative;
       `;
-      el.title = `${radar.roadName || 'Radar'} — ${radar.speedLimit}km/h (${radar.direction})`;
+      // Direction arrow overlay
+      const arrow = document.createElement('div');
+      arrow.style.cssText = `
+        position: absolute; top: -8px; left: 50%; transform: translateX(-50%) rotate(${heading}deg);
+        transform-origin: center ${size / 2 + 8}px;
+        width: 0; height: 0;
+        border-left: 4px solid transparent; border-right: 4px solid transparent;
+        border-bottom: 8px solid white;
+        filter: drop-shadow(0 0 1px rgba(0,0,0,0.5));
+      `;
+      el.appendChild(arrow);
+      el.title = `${radar.roadName || 'Radar'} — ${radar.speedLimit}km/h (${radar.direction}) ${heading}°`;
       el.addEventListener('click', (e) => {
         e.stopPropagation();
         onRadarClickRef.current(radar);
