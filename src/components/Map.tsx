@@ -23,7 +23,6 @@ interface MapProps {
 const RADARS_SOURCE = 'radars-source';
 const RADARS_LAYER = 'radars-layer';
 const RADARS_BORDER_LAYER = 'radars-border-layer';
-const RADARS_ARROW_LAYER = 'radars-arrow-layer';
 const ROUTE_SOURCE = 'route-source';
 const ROUTE_LAYER = 'route-layer';
 const ROUTE_CASING_LAYER = 'route-casing-layer';
@@ -436,20 +435,6 @@ function addMapLayers(map: maplibregl.Map) {
     },
   });
 
-  // Direction arrow on top of radar circles
-  createArrowImage(map, 'radar-arrow', '#FFFFFF');
-  map.addLayer({
-    id: RADARS_ARROW_LAYER,
-    type: 'symbol',
-    source: RADARS_SOURCE,
-    layout: {
-      'icon-image': 'radar-arrow',
-      'icon-size': 0.5,
-      'icon-rotate': ['get', 'heading'],
-      'icon-allow-overlap': true,
-      'icon-ignore-placement': true,
-    },
-  });
 
   // Route radar highlights (bigger, pulsing)
   map.addSource(ROUTE_RADARS_SOURCE, {
@@ -499,37 +484,12 @@ function updateRadarSource(map: maplibregl.Map, radars: Radar[]) {
         direction: r.direction,
         speedLimit: r.speedLimit,
         roadName: r.roadName || 'Radar',
-        heading: r.headingDegrees || 0,
       },
     }));
 
   source.setData({ type: 'FeatureCollection', features });
 }
 
-/** Create a triangle arrow image for direction indicators */
-function createArrowImage(map: maplibregl.Map, name: string, color: string) {
-  if (map.hasImage(name)) return;
-  const size = 32;
-  const canvas = document.createElement('canvas');
-  canvas.width = size;
-  canvas.height = size;
-  const ctx = canvas.getContext('2d')!;
-  // Draw upward-pointing triangle (arrow)
-  ctx.fillStyle = color;
-  ctx.beginPath();
-  ctx.moveTo(size / 2, 4);       // top center
-  ctx.lineTo(size - 6, size - 6); // bottom right
-  ctx.lineTo(6, size - 6);        // bottom left
-  ctx.closePath();
-  ctx.fill();
-  // Add thin outline for visibility
-  ctx.strokeStyle = 'rgba(0,0,0,0.3)';
-  ctx.lineWidth = 1;
-  ctx.stroke();
-
-  const imageData = ctx.getImageData(0, 0, size, size);
-  map.addImage(name, { width: size, height: size, data: new Uint8Array(imageData.data.buffer) });
-}
 
 function updateRouteSource(map: maplibregl.Map, route: RouteData) {
   const source = map.getSource(ROUTE_SOURCE) as maplibregl.GeoJSONSource | undefined;
