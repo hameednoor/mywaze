@@ -157,9 +157,6 @@ export default function NavigatePage() {
     setActiveIndex(null);
   }
 
-  // Last filled waypoint for destination marker on map
-  const lastWaypoint = [...waypoints].reverse().find(w => w.result);
-
   return (
     <div className={`h-[100dvh] flex flex-col overflow-hidden ${dark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
       {/* Top bar */}
@@ -318,7 +315,7 @@ export default function NavigatePage() {
           radars={radars}
           route={route ?? undefined}
           routeRadarIds={routeRadars.map(r => r.id)}
-          destination={lastWaypoint ? { lat: lastWaypoint.result!.lat, lng: lastWaypoint.result!.lon, name: lastWaypoint.query } : undefined}
+          waypoints={waypoints.filter(w => w.result).map((w, i) => ({ lat: w.result!.lat, lng: w.result!.lon, name: w.query, index: i }))}
         />
       </div>
     </div>

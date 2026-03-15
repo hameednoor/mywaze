@@ -15,6 +15,7 @@ interface MapProps {
   route?: RouteData;
   routeRadarIds?: string[];
   destination?: { lat: number; lng: number; name: string };
+  waypoints?: { lat: number; lng: number; name: string; index: number }[];
   savedPlaces?: SavedPlace[];
   onPlaceClick?: (place: SavedPlace) => void;
 }
@@ -32,11 +33,12 @@ const ROUTE_RADARS_BORDER_LAYER = 'route-radars-border-layer';
 const LIGHT_STYLE = 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json';
 const DARK_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
 
-export default function MapView({ position, radars, onMapReady, route, routeRadarIds, destination, savedPlaces, onPlaceClick }: MapProps) {
+export default function MapView({ position, radars, onMapReady, route, routeRadarIds, destination, waypoints, savedPlaces, onPlaceClick }: MapProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const userMarkerRef = useRef<maplibregl.Marker | null>(null);
   const destMarkerRef = useRef<maplibregl.Marker | null>(null);
+  const waypointMarkersRef = useRef<maplibregl.Marker[]>([]);
   const placeMarkersRef = useRef<maplibregl.Marker[]>([]);
   const followUserRef = useRef(true);
   const mapReadyRef = useRef(false);
@@ -217,6 +219,65 @@ export default function MapView({ position, radars, onMapReady, route, routeRada
         .addTo(map);
     }
   }, [destination]);
+
+  // Waypoint markers (numbered stops)
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+
+    // Clear old waypoint markers
+    waypointMarkersRef.current.forEach((m) => m.remove());
+    waypointMarkersRef.current = [];
+
+    if (!waypoints || waypoints.length === 0) return;
+
+    const colors = ['#3B82F6', '#8B5CF6', '#F59E0B'];
+
+    for (const wp of waypoints) {
+      const color = colors[wp.index] || colors[0];
+      const num = wp.index + 1;
+
+      const el = document.createElement('div');
+      el.innerHTML = `
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <div style="
+            width: 36px; height: 36px;
+            background: ${color};
+            border: 3px solid white;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            display: flex; align-items: center; justify-content: center;
+          ">
+            <span style="
+              transform: rotate(45deg);
+              color: white;
+              font-size: 14px;
+              font-weight: bold;
+            ">${num}</span>
+          </div>
+          <div style="
+            background: rgba(0,0,0,0.75);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-top: 4px;
+            white-space: nowrap;
+            max-width: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          ">${wp.name}</div>
+        </div>
+      `;
+
+      const marker = new maplibregl.Marker({ element: el, anchor: 'bottom-left' })
+        .setLngLat([wp.lng, wp.lat])
+        .addTo(map);
+
+      waypointMarkersRef.current.push(marker);
+    }
+  }, [waypoints]);
 
   // Saved places markers
   useEffect(() => {
