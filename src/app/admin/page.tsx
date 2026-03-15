@@ -82,6 +82,7 @@ function AdminPanel() {
   const [panelOpen, setPanelOpen] = useState(false);
   const [showList, setShowList] = useState(false);
   const [addMode, setAddMode] = useState(false);
+  const [draggableId, setDraggableId] = useState<string | null>(null);
   const [fixingHeadings, setFixingHeadings] = useState(false);
   const [fixResult, setFixResult] = useState<string | null>(null);
 
@@ -148,6 +149,7 @@ function AdminPanel() {
     setAdding(false);
     setPanelOpen(false);
     setShowList(false);
+    setDraggableId(null);
   }
 
   function closePanel() {
@@ -155,6 +157,7 @@ function AdminPanel() {
     setSelected(null);
     setAdding(false);
     setShowList(false);
+    setDraggableId(null);
   }
 
   const hasPanel = panelOpen || showList;
@@ -261,6 +264,7 @@ function AdminPanel() {
           radars={filteredRadars}
           selectedId={selected?.id ?? null}
           addMode={addMode}
+          draggableId={draggableId}
           onRadarClick={handleRadarClick}
           onMapClick={handleMapClick}
           onRadarMove={(radar, lat, lng) => {
@@ -280,7 +284,7 @@ function AdminPanel() {
               Edit Radar
             </button>
             <button
-              onClick={() => setSelected(null)}
+              onClick={() => { setSelected(null); setDraggableId(null); }}
               className="px-4 py-2.5 bg-gray-700 text-white rounded-full text-sm shadow-lg active:bg-gray-600"
             >
               Deselect
@@ -336,10 +340,10 @@ function AdminPanel() {
                   <div className="bg-gray-50 rounded-lg px-3 py-2 text-xs text-gray-500">
                     <span>Lat: {selected.latitude.toFixed(6)}, Lng: {selected.longitude.toFixed(6)}</span>
                     <button
-                      onClick={() => setPanelOpen(false)}
+                      onClick={() => { setDraggableId(selected.id); setPanelOpen(false); }}
                       className="block text-blue-500 font-medium mt-0.5 hover:text-blue-700"
                     >
-                      Drag marker to move &rarr;
+                      Enable drag to move &rarr;
                     </button>
                   </div>
 

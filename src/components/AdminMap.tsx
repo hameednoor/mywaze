@@ -11,12 +11,13 @@ interface Props {
   radars: Radar[];
   selectedId: string | null;
   addMode?: boolean;
+  draggableId?: string | null;
   onRadarClick: (radar: Radar) => void;
   onMapClick: (lat: number, lng: number) => void;
   onRadarMove?: (radar: Radar, lat: number, lng: number) => void;
 }
 
-export default function AdminMap({ radars, selectedId, addMode, onRadarClick, onMapClick, onRadarMove }: Props) {
+export default function AdminMap({ radars, selectedId, addMode, draggableId, onRadarClick, onMapClick, onRadarMove }: Props) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const markersRef = useRef<maplibregl.Marker[]>([]);
@@ -271,18 +272,25 @@ export default function AdminMap({ radars, selectedId, addMode, onRadarClick, on
         onRadarClickRef.current(radar);
       });
 
-      const marker = new maplibregl.Marker({ element: el, draggable: true })
+      const isDraggable = radar.id === draggableId;
+      const marker = new maplibregl.Marker({ element: el, draggable: isDraggable })
         .setLngLat([radar.longitude, radar.latitude])
         .addTo(map);
 
       marker.on('dragend', () => {
         const lngLat = marker.getLngLat();
-        onRadarMoveRef.current?.(radar, lngLat.lat, lngLat.lng);
+        const origLngLat = [radar.longitude, radar.latitude];
+        if (confirm(`Move "${radar.roadName || 'Radar'}" to new position?`)) {
+          onRadarMoveRef.current?.(radar, lngLat.lat, lngLat.lng);
+        } else {
+          // Revert to original position
+          marker.setLngLat(origLngLat as [number, number]);
+        }
       });
 
       markersRef.current.push(marker);
     }
-  }, [radars, selectedId]);
+  }, [radars, selectedId, draggableId]);
 
   // Fly to selected radar
   useEffect(() => {
