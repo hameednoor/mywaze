@@ -74,7 +74,7 @@ export default function AdminPage() {
 
 function AdminPanel() {
   const { radars, loadRadars, addRadar, updateRadar, deleteRadar } = useRadarStore();
-  const { route, routeRadarIds, showAllRadars, toggleShowAllRadars } = useRouteStore();
+  const { route, routeRadarIds, showAllRadars, toggleShowAllRadars, clearRoute, loadFromStorage } = useRouteStore();
   const [selected, setSelected] = useState<Radar | null>(null);
   const [adding, setAdding] = useState(false);
   const [newLat, setNewLat] = useState(0);
@@ -91,7 +91,8 @@ function AdminPanel() {
 
   useEffect(() => {
     loadRadars();
-  }, [loadRadars]);
+    loadFromStorage();
+  }, [loadRadars, loadFromStorage]);
 
   const filteredRadars = radars.filter((r) => {
     // Route filter: when route active and not showing all, only show route radars
@@ -226,6 +227,18 @@ function AdminPanel() {
 
         <span className="text-xs text-gray-400 hidden sm:block">{filteredRadars.length}</span>
       </div>
+
+      {/* Route info bar */}
+      {route && (
+        <div className="bg-blue-900 text-white px-3 py-1.5 flex items-center gap-2 flex-shrink-0 z-20 text-xs">
+          <span className="flex-1">
+            Navigating · {route.distanceKm?.toFixed(1)} km · {routeRadarIds.length} radar{routeRadarIds.length !== 1 ? 's' : ''}
+          </span>
+          <button onClick={clearRoute} className="text-red-400 font-medium px-2 py-0.5 bg-white/10 rounded">
+            Cancel
+          </button>
+        </div>
+      )}
 
       {/* Main content */}
       <div className="flex-1 relative overflow-hidden">

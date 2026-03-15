@@ -24,7 +24,7 @@ export default function HomePage() {
   const { places, loadPlaces } = usePlacesStore();
   const [alert, setAlert] = useState<RadarAlert | null>(null);
   const [audioReady, setAudioReady] = useState(false);
-  const { route, routeRadarIds, destinations, showAllRadars, setRoute, setRouteRadarIds, setDestinations, toggleShowAllRadars, clearRoute } = useRouteStore();
+  const { route, routeRadarIds, destinations, showAllRadars, setRoute, setRouteRadarIds, setDestinations, toggleShowAllRadars, clearRoute, loadFromStorage } = useRouteStore();
   const [rerouting, setRerouting] = useState(false);
   const reroutingRef = useRef(false);
   const lastRerouteRef = useRef(0);
@@ -42,14 +42,8 @@ export default function HomePage() {
     loadRadars();
     loadSettings();
     loadPlaces();
-  }, [loadRadars, loadSettings, loadPlaces]);
-
-  // Clean URL params on mount (route now lives in store)
-  useEffect(() => {
-    if (window.location.search) {
-      window.history.replaceState({}, '', '/');
-    }
-  }, []);
+    loadFromStorage();
+  }, [loadRadars, loadSettings, loadPlaces, loadFromStorage]);
 
   // Wake Lock
   useEffect(() => {
@@ -261,10 +255,10 @@ export default function HomePage() {
             {showAllRadars ? 'All' : 'Route'}
           </button>
           <button
-            onClick={() => { clearRoute(); window.history.replaceState({}, '', '/'); }}
+            onClick={() => { clearRoute(); }}
             className="text-xs text-red-400 font-medium px-3 py-1.5 bg-white/10 rounded-lg"
           >
-            End
+            Cancel
           </button>
         </div>
       )}

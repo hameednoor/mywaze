@@ -32,7 +32,9 @@ export default function AdminMap({ radars, selectedId, addMode, onRadarClick, on
   const [userPos, setUserPos] = useState<{ lat: number; lng: number } | null>(null);
 
   const isDark = useSettingsStore((s) => s.isDark());
-  const route = useRouteStore((s) => s.route);
+  const { route, loadFromStorage } = useRouteStore();
+
+  useEffect(() => { loadFromStorage(); }, [loadFromStorage]);
 
   radarsRef.current = radars;
   onRadarClickRef.current = onRadarClick;
