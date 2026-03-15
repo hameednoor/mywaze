@@ -42,6 +42,7 @@ function saveToStorage(state: RouteState) {
 }
 
 function readFromStorage(): Partial<RouteState> | null {
+  if (typeof window === 'undefined') return null;
   try {
     const raw = sessionStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
@@ -49,20 +50,27 @@ function readFromStorage(): Partial<RouteState> | null {
   } catch { return null; }
 }
 
-export const useRouteStore = create<RouteStore>((set, get) => ({
-  route: undefined,
-  routeRadarIds: [],
-  destinations: [],
-  radarVisibility: 'all',
+// Load initial state from sessionStorage immediately
+const saved = readFromStorage();
+const initialState: RouteState = {
+  route: saved?.route ?? undefined,
+  routeRadarIds: saved?.routeRadarIds ?? [],
+  destinations: saved?.destinations ?? [],
+  radarVisibility: saved?.radarVisibility ?? (saved?.route ? 'route' : 'all'),
+};
 
+export const useRouteStore = create<RouteStore>((set, get) => ({
+  ...initialState,
+
+  // Keep for backwards compat but no longer needed on mount
   loadFromStorage: () => {
-    const saved = readFromStorage();
-    if (saved) {
+    const s = readFromStorage();
+    if (s) {
       set({
-        route: saved.route,
-        routeRadarIds: saved.routeRadarIds || [],
-        destinations: saved.destinations || [],
-        radarVisibility: saved.radarVisibility || (saved.route ? 'route' : 'all'),
+        route: s.route,
+        routeRadarIds: s.routeRadarIds || [],
+        destinations: s.destinations || [],
+        radarVisibility: s.radarVisibility || (s.route ? 'route' : 'all'),
       });
     }
   },
@@ -86,7 +94,6 @@ export const useRouteStore = create<RouteStore>((set, get) => ({
   cycleRadarVisibility: () => {
     const hasRoute = !!get().route && get().routeRadarIds.length > 0;
     const current = get().radarVisibility;
-    // Cycle: all → route (if route) → none → all
     let next: RadarVisibility;
     if (current === 'all') {
       next = hasRoute ? 'route' : 'none';

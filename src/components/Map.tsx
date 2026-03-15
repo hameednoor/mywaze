@@ -401,9 +401,9 @@ function addMapLayers(map: maplibregl.Map) {
     type: 'line',
     source: ROUTE_SOURCE,
     paint: {
-      'line-color': '#1E40AF',
-      'line-width': 8,
-      'line-opacity': 0.4,
+      'line-color': '#1D4ED8',
+      'line-width': 10,
+      'line-opacity': 0.6,
     },
     layout: {
       'line-join': 'round',
@@ -416,9 +416,9 @@ function addMapLayers(map: maplibregl.Map) {
     type: 'line',
     source: ROUTE_SOURCE,
     paint: {
-      'line-color': '#3B82F6',
-      'line-width': 5,
-      'line-opacity': 0.9,
+      'line-color': '#60A5FA',
+      'line-width': 6,
+      'line-opacity': 1,
     },
     layout: {
       'line-join': 'round',
@@ -459,9 +459,9 @@ function addMapLayers(map: maplibregl.Map) {
     type: 'circle',
     source: ROUTE_RADARS_SOURCE,
     paint: {
-      'circle-radius': 8,
-      'circle-color': '#FBBF24',
-      'circle-stroke-width': 2,
+      'circle-radius': 9,
+      'circle-color': '#F59E0B',
+      'circle-stroke-width': 3,
       'circle-stroke-color': '#FFFFFF',
     },
   });
