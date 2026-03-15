@@ -40,7 +40,7 @@ export async function POST(request: Request) {
     const approveUrl = `${APP_URL}/api/auth/approve?email=${encodeURIComponent(normalizedEmail)}&action=approve`;
     const denyUrl = `${APP_URL}/api/auth/approve?email=${encodeURIComponent(normalizedEmail)}&action=deny`;
 
-    await resend.emails.send({
+    const emailResult = await resend.emails.send({
       from: 'MyWaze <onboarding@resend.dev>',
       to: OWNER_EMAIL,
       subject: `Access Request: ${name || normalizedEmail}`,
@@ -62,8 +62,14 @@ export async function POST(request: Request) {
       `,
     });
 
+    if (emailResult.error) {
+      console.error('Resend error:', emailResult.error);
+      return NextResponse.json({ success: true, message: 'Request saved but email failed', emailError: emailResult.error });
+    }
+
     return NextResponse.json({ success: true, message: 'Request sent' });
   } catch (err) {
+    console.error('Access request error:', err);
     return NextResponse.json({ error: String(err) }, { status: 500 });
   }
 }
