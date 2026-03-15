@@ -80,6 +80,8 @@ function AdminPanel() {
   const [panelOpen, setPanelOpen] = useState(false);
   const [showList, setShowList] = useState(false);
   const [addMode, setAddMode] = useState(false);
+  const [fixingHeadings, setFixingHeadings] = useState(false);
+  const [fixResult, setFixResult] = useState<string | null>(null);
 
   // Filters
   const [filterEmirate, setFilterEmirate] = useState<string>('');
@@ -183,13 +185,43 @@ function AdminPanel() {
           List
         </button>
 
+        {/* Fix Headings */}
+        <button
+          onClick={async () => {
+            if (fixingHeadings) return;
+            setFixingHeadings(true);
+            setFixResult(null);
+            try {
+              const res = await fetch('/api/fix-headings', { method: 'POST' });
+              const data = await res.json();
+              setFixResult(`Fixed ${data.fixed}/${data.total} headings`);
+              loadRadars(); // reload to show updated arrows
+            } catch {
+              setFixResult('Error fixing headings');
+            }
+            setFixingHeadings(false);
+          }}
+          disabled={fixingHeadings}
+          className={`px-2 py-1 rounded text-xs font-medium ${fixingHeadings ? 'bg-yellow-600 animate-pulse' : 'bg-gray-700 hover:bg-gray-600'}`}
+          title="Fix heading=0 radars using OSRM road data"
+        >
+          {fixingHeadings ? 'Fixing...' : 'Fix ↑'}
+        </button>
+
         <span className="text-xs text-gray-400 hidden sm:block">{filteredRadars.length}</span>
       </div>
 
       {/* Main content */}
       <div className="flex-1 relative overflow-hidden">
+        {/* Fix result toast */}
+        {fixResult && (
+          <div className="absolute top-0 left-0 right-0 z-30 bg-blue-600 text-white text-center py-2 text-sm font-medium cursor-pointer" onClick={() => setFixResult(null)}>
+            {fixResult} (tap to dismiss)
+          </div>
+        )}
+
         {/* Add mode banner */}
-        {addMode && (
+        {addMode && !fixResult && (
           <div className="absolute top-0 left-0 right-0 z-30 bg-green-600 text-white text-center py-2 text-sm font-medium">
             Tap on the map to place a new radar
           </div>
@@ -344,7 +376,7 @@ function AdminPanel() {
                         <div
                           style={{ transform: `rotate(${selected.headingDegrees || 0}deg)` }}
                           className="text-red-500 text-sm"
-                        >▲</div>
+                        >↑</div>
                       </div>
                     </div>
                     <div className="flex justify-between text-xs text-gray-400 mt-0.5 px-1">
@@ -517,7 +549,7 @@ function AddRadarForm({ onSave, onCancel }: {
             className="flex-1 accent-blue-600"
           />
           <div className="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center flex-shrink-0">
-            <div style={{ transform: `rotate(${headingDegrees}deg)` }} className="text-red-500 text-sm">▲</div>
+            <div style={{ transform: `rotate(${headingDegrees}deg)` }} className="text-red-500 text-sm">↑</div>
           </div>
         </div>
         <div className="flex justify-between text-xs text-gray-400 mt-0.5 px-1">
