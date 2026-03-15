@@ -16,6 +16,8 @@ export default function SettingsPage() {
   const [adding, setAdding] = useState(false);
   const [policeUpdating, setPoliceUpdating] = useState(false);
   const [policeResult, setPoliceResult] = useState<string | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [policeDetails, setPoliceDetails] = useState<any>(null);
 
   useEffect(() => {
     settings.loadSettings();
@@ -188,13 +190,16 @@ export default function SettingsPage() {
                 const data = await res.json();
                 if (data.success) {
                   setPoliceResult(
-                    `Done! Found ${data.policeTotal} cameras. ${data.exactMatch} exact matches. ${data.positionsCorrected} positions corrected. ${data.newRadarsAdded} new radars added.`
+                    `Done! Found ${data.policeTotal} cameras. ${data.exactMatch} exact. ${data.positionsCorrected} corrected. ${data.newRadarsAdded} added. ${data.notInPoliceRecords} not in police records.`
                   );
+                  setPoliceDetails(data);
                 } else {
                   setPoliceResult(`Error: ${data.error}`);
+                  setPoliceDetails(null);
                 }
               } catch (err) {
                 setPoliceResult(`Failed: ${String(err)}`);
+                setPoliceDetails(null);
               }
               setPoliceUpdating(false);
             }}
@@ -207,6 +212,52 @@ export default function SettingsPage() {
             <p className={`text-xs mt-2 ${policeResult.startsWith('Done') ? 'text-green-500' : 'text-red-500'}`}>
               {policeResult}
             </p>
+          )}
+          {policeDetails && (
+            <div className="mt-3 space-y-3">
+              {/* Added */}
+              {policeDetails.added?.length > 0 && (
+                <details className={`text-xs ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                  <summary className="cursor-pointer font-semibold text-green-500">
+                    + {policeDetails.added.length} radars added
+                  </summary>
+                  <div className={`mt-1 max-h-40 overflow-y-auto space-y-1 ${isDark ? 'bg-gray-700' : 'bg-gray-50'} rounded-lg p-2`}>
+                    {policeDetails.added.map((r: { lat: number; lon: number; emirate: string }, i: number) => (
+                      <div key={i}>{r.emirate} — {r.lat.toFixed(5)}, {r.lon.toFixed(5)}</div>
+                    ))}
+                  </div>
+                </details>
+              )}
+              {/* Corrected */}
+              {policeDetails.correctedList?.length > 0 && (
+                <details className={`text-xs ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                  <summary className="cursor-pointer font-semibold text-yellow-500">
+                    ~ {policeDetails.correctedList.length} positions corrected
+                  </summary>
+                  <div className={`mt-1 max-h-40 overflow-y-auto space-y-1 ${isDark ? 'bg-gray-700' : 'bg-gray-50'} rounded-lg p-2`}>
+                    {policeDetails.correctedList.map((c: { id: string; road: string; emirate: string; shiftM: number }, i: number) => (
+                      <div key={i}>{c.emirate}{c.road ? ` — ${c.road}` : ''} — moved {c.shiftM}m</div>
+                    ))}
+                  </div>
+                </details>
+              )}
+              {/* Not in police records */}
+              {policeDetails.notInPolice?.length > 0 && (
+                <details className={`text-xs ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                  <summary className="cursor-pointer font-semibold text-red-400">
+                    ? {policeDetails.notInPoliceRecords} radars not in police records
+                  </summary>
+                  <p className={`text-xs mt-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                    These exist in your app but have no matching police record. They may have been removed or are from a different source.
+                  </p>
+                  <div className={`mt-1 max-h-40 overflow-y-auto space-y-1 ${isDark ? 'bg-gray-700' : 'bg-gray-50'} rounded-lg p-2`}>
+                    {policeDetails.notInPolice.map((r: { id: string; latitude: number; longitude: number; road: string; emirate: string }, i: number) => (
+                      <div key={i}>{r.emirate}{r.road ? ` — ${r.road}` : ''} — {r.latitude.toFixed(5)}, {r.longitude.toFixed(5)}</div>
+                    ))}
+                  </div>
+                </details>
+              )}
+            </div>
           )}
         </Section>
 

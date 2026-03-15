@@ -12,6 +12,8 @@ interface DBRadar {
   id: string;
   latitude: number;
   longitude: number;
+  road_name: string;
+  emirate: string;
 }
 
 // Speed limit corridors (same as in refresh-radars)
@@ -125,7 +127,7 @@ export async function POST() {
     while (true) {
       const { data } = await supabase
         .from('radars')
-        .select('id, latitude, longitude')
+        .select('id, latitude, longitude, road_name, emirate')
         .range(from, from + pageSize - 1);
       if (!data || data.length === 0) break;
       existingRadars.push(...(data as DBRadar[]));
@@ -137,9 +139,10 @@ export async function POST() {
     //    - Exact match (<5m): skip (already correct)
     //    - Close match (5-200m): correct position to police record (police = truth)
     //    - No match (>200m): add as new radar
-    const newRadars = [];
-    const corrections: { id: string; latitude: number; longitude: number }[] = [];
+    const newRadars: { lat: number; lon: number; emirate: string; speedLimit: number }[] = [];
+    const corrections: { id: string; oldLat: number; oldLon: number; newLat: number; newLon: number; road: string; emirate: string }[] = [];
     let exactCount = 0;
+    const matchedExistingIds = new Set<string>();
 
     for (const pr of policeRadars) {
       let bestMatch: DBRadar | null = null;
@@ -153,51 +156,66 @@ export async function POST() {
         }
       }
 
-      if (bestDist < 5) {
-        // Exact match — already correct
+      if (bestDist < 5 && bestMatch) {
         exactCount++;
+        matchedExistingIds.add(bestMatch.id);
       } else if (bestDist < 200 && bestMatch) {
-        // Close match — correct position to police record
         corrections.push({
           id: bestMatch.id,
-          latitude: pr.lat,
-          longitude: pr.lon,
+          oldLat: bestMatch.latitude,
+          oldLon: bestMatch.longitude,
+          newLat: pr.lat,
+          newLon: pr.lon,
+          road: bestMatch.road_name || '',
+          emirate: bestMatch.emirate || pr.emirate,
         });
+        matchedExistingIds.add(bestMatch.id);
       } else {
-        // No match — add as new
-        const id: string = `pol_${Date.now()}_${newRadars.length}`;
-        newRadars.push({
-          id,
-          latitude: pr.lat,
-          longitude: pr.lon,
-          road_name: '',
-          emirate: pr.emirate,
-          direction: 'REAR_FACING',
-          speed_limit: pr.speedLimit,
-          radar_type: 'FIXED',
-          status: 'ACTIVE',
-          heading_degrees: 0,
-          last_verified: null,
-          notes: 'police_record',
-        });
+        newRadars.push({ lat: pr.lat, lon: pr.lon, emirate: pr.emirate, speedLimit: pr.speedLimit });
       }
     }
 
-    // 4. Apply corrections (update existing radar positions to match police records)
+    // 4. Find existing radars NOT matched by any police record (potentially removed)
+    const notInPolice = existingRadars
+      .filter(er => !matchedExistingIds.has(er.id))
+      .map(er => ({
+        id: er.id,
+        latitude: er.latitude,
+        longitude: er.longitude,
+        road: er.road_name || '',
+        emirate: er.emirate || '',
+      }));
+
+    // 5. Apply corrections
     let corrected = 0;
     for (const c of corrections) {
       const { error } = await supabase
         .from('radars')
-        .update({ latitude: c.latitude, longitude: c.longitude })
+        .update({ latitude: c.newLat, longitude: c.newLon })
         .eq('id', c.id);
       if (!error) corrected++;
     }
 
-    // 5. Insert new radars in batches
+    // 6. Insert new radars in batches
     let inserted = 0;
     const batchSize = 500;
-    for (let i = 0; i < newRadars.length; i += batchSize) {
-      const batch = newRadars.slice(i, i + batchSize);
+    const toInsert = newRadars.map((r, i) => ({
+      id: `pol_${Date.now()}_${i}` as string,
+      latitude: r.lat,
+      longitude: r.lon,
+      road_name: '',
+      emirate: r.emirate,
+      direction: 'REAR_FACING',
+      speed_limit: r.speedLimit,
+      radar_type: 'FIXED',
+      status: 'ACTIVE',
+      heading_degrees: 0,
+      last_verified: null,
+      notes: 'police_record',
+    }));
+
+    for (let i = 0; i < toInsert.length; i += batchSize) {
+      const batch = toInsert.slice(i, i + batchSize);
       const { error } = await supabase.from('radars').insert(batch);
       if (error) {
         return NextResponse.json({
@@ -219,6 +237,16 @@ export async function POST() {
       exactMatch: exactCount,
       positionsCorrected: corrected,
       newRadarsAdded: inserted,
+      notInPoliceRecords: notInPolice.length,
+      // Detailed change lists
+      added: newRadars.map(r => ({ lat: r.lat, lon: r.lon, emirate: r.emirate })),
+      correctedList: corrections.map(c => ({
+        id: c.id, road: c.road, emirate: c.emirate,
+        oldLat: c.oldLat, oldLon: c.oldLon,
+        newLat: c.newLat, newLon: c.newLon,
+        shiftM: Math.round(haversine(c.oldLat, c.oldLon, c.newLat, c.newLon)),
+      })),
+      notInPolice: notInPolice.slice(0, 100), // Cap at 100 to keep response size manageable
       timestamp: new Date().toISOString(),
     });
   } catch (err) {
