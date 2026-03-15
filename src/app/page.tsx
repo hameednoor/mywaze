@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useCallback, useRef } from 'react';
+import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { useGPS } from '@/lib/useGPS';
 import { useRadarStore } from '@/lib/radarStore';
@@ -26,6 +27,7 @@ export default function HomePage() {
   const [audioReady, setAudioReady] = useState(false);
   const { route, routeRadarIds, destinations, radarVisibility, setRoute, setRouteRadarIds, setDestinations, cycleRadarVisibility, clearRoute, loadFromStorage } = useRouteStore();
   const [rerouting, setRerouting] = useState(false);
+  const [navBarOpen, setNavBarOpen] = useState(false);
   const reroutingRef = useRef(false);
   const lastRerouteRef = useRef(0);
   const wakeLockRef = useRef<WakeLockSentinel | null>(null);
@@ -186,7 +188,7 @@ export default function HomePage() {
         style={{ top: 'max(16px, env(safe-area-inset-top, 16px))', right: 'max(16px, env(safe-area-inset-right, 16px))' }}
       >
         {/* Settings */}
-        <a
+        <Link
           href="/settings"
           className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center active:bg-white transition-colors"
           title="Settings"
@@ -195,10 +197,10 @@ export default function HomePage() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
-        </a>
+        </Link>
 
         {/* Search / Navigate */}
-        <a
+        <Link
           href="/navigate"
           className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center active:bg-white transition-colors"
           title="Search & Navigate"
@@ -206,10 +208,10 @@ export default function HomePage() {
           <svg className="w-5 h-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
-        </a>
+        </Link>
 
         {/* Saved Places */}
-        <a
+        <Link
           href="/places"
           className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center active:bg-white transition-colors"
           title="Saved Places"
@@ -218,10 +220,10 @@ export default function HomePage() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
-        </a>
+        </Link>
 
         {/* Admin */}
-        <a
+        <Link
           href="/admin"
           className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center active:bg-white transition-colors"
           title="Admin"
@@ -229,44 +231,57 @@ export default function HomePage() {
           <svg className="w-5 h-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
           </svg>
-        </a>
+        </Link>
       </div>
 
-      {/* Route info bar (when navigating) */}
+      {/* Route info — small pill, tap to expand */}
       {route && (
-        <div
-          className="fixed left-4 right-4 z-30 bg-black/80 backdrop-blur-sm text-white rounded-2xl px-4 py-3 flex items-center gap-3"
-          style={{ top: 'max(70px, calc(env(safe-area-inset-top, 0px) + 70px))' }}
-        >
-          <div className="flex-1">
-            <p className="text-xs text-gray-300">
-              {rerouting ? 'Rerouting...' : 'Navigating'}
-              {route.distanceKm ? ` · ${route.distanceKm.toFixed(1)} km` : ''}
-              {route.durationMin ? ` · ${Math.round(route.durationMin)} min` : ''}
-            </p>
-            {routeRadarIds.length > 0 && (
-              <p className="text-xs text-red-400 font-medium">
-                {routeRadarIds.length} radar{routeRadarIds.length !== 1 ? 's' : ''} on route
-              </p>
-            )}
-          </div>
-          <button
-            onClick={cycleRadarVisibility}
-            className={`text-xs font-medium px-3 py-1.5 rounded-lg ${
-              radarVisibility === 'all' ? 'bg-white/20 text-white'
-              : radarVisibility === 'route' ? 'bg-blue-500/30 text-blue-300'
-              : 'bg-red-500/30 text-red-300'
-            }`}
-          >
-            {radarVisibility === 'all' ? 'All' : radarVisibility === 'route' ? 'Route' : 'Hidden'}
-          </button>
-          <button
-            onClick={() => { clearRoute(); }}
-            className="text-xs text-red-400 font-medium px-3 py-1.5 bg-white/10 rounded-lg"
-          >
-            Cancel
-          </button>
-        </div>
+        <>
+          {!navBarOpen ? (
+            <button
+              onClick={() => setNavBarOpen(true)}
+              className="fixed z-30 bg-blue-600/90 backdrop-blur-sm text-white px-3 py-1.5 rounded-full text-xs font-medium shadow-lg"
+              style={{ bottom: 'max(16px, env(safe-area-inset-bottom, 16px))', left: 'max(16px, env(safe-area-inset-left, 16px))' }}
+            >
+              {rerouting ? 'Rerouting...' : 'Nav'}
+              {route.distanceKm ? ` · ${route.distanceKm.toFixed(1)}km` : ''}
+            </button>
+          ) : (
+            <div
+              className="fixed left-3 right-3 z-30 bg-black/85 backdrop-blur-sm text-white rounded-2xl px-4 py-3 flex items-center gap-3"
+              style={{ bottom: 'max(56px, calc(env(safe-area-inset-bottom, 0px) + 56px))' }}
+            >
+              <div className="flex-1" onClick={() => setNavBarOpen(false)}>
+                <p className="text-xs text-gray-300">
+                  {rerouting ? 'Rerouting...' : 'Navigating'}
+                  {route.distanceKm ? ` · ${route.distanceKm.toFixed(1)} km` : ''}
+                  {route.durationMin ? ` · ${Math.round(route.durationMin)} min` : ''}
+                </p>
+                {routeRadarIds.length > 0 && (
+                  <p className="text-xs text-red-400 font-medium">
+                    {routeRadarIds.length} radar{routeRadarIds.length !== 1 ? 's' : ''} on route
+                  </p>
+                )}
+              </div>
+              <button
+                onClick={cycleRadarVisibility}
+                className={`text-xs font-medium px-3 py-1.5 rounded-lg ${
+                  radarVisibility === 'all' ? 'bg-white/20 text-white'
+                  : radarVisibility === 'route' ? 'bg-blue-500/30 text-blue-300'
+                  : 'bg-red-500/30 text-red-300'
+                }`}
+              >
+                {radarVisibility === 'all' ? 'All' : radarVisibility === 'route' ? 'Route' : 'Hidden'}
+              </button>
+              <button
+                onClick={() => { clearRoute(); setNavBarOpen(false); }}
+                className="text-xs text-red-400 font-medium px-3 py-1.5 bg-white/10 rounded-lg"
+              >
+                Cancel
+              </button>
+            </div>
+          )}
+        </>
       )}
 
       {/* Radar count badge — tap to toggle visibility */}

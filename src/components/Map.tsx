@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback, useState } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { Radar, GPSPosition } from '@/lib/types';
@@ -42,6 +42,7 @@ export default function MapView({ position, radars, onMapReady, route, routeRada
   const placeMarkersRef = useRef<maplibregl.Marker[]>([]);
   const followUserRef = useRef(true);
   const mapReadyRef = useRef(false);
+  const [mapReady, setMapReady] = useState(false);
   const currentStyleRef = useRef('');
 
   const isDark = useSettingsStore((s) => s.isDark());
@@ -88,6 +89,7 @@ export default function MapView({ position, radars, onMapReady, route, routeRada
     map.on('load', () => {
       addMapLayers(map);
       mapReadyRef.current = true;
+      setMapReady(true);
     });
 
     mapRef.current = map;
@@ -107,12 +109,14 @@ export default function MapView({ position, radars, onMapReady, route, routeRada
 
     currentStyleRef.current = targetStyle;
     mapReadyRef.current = false;
+    setMapReady(false);
 
     map.setStyle(targetStyle);
 
     map.once('style.load', () => {
       addMapLayers(map);
       mapReadyRef.current = true;
+      setMapReady(true);
       // Re-apply radar data
       updateRadarSource(map, radars);
       // Re-apply route
@@ -178,18 +182,18 @@ export default function MapView({ position, radars, onMapReady, route, routeRada
   // Update radar data on the GeoJSON source
   useEffect(() => {
     const map = mapRef.current;
-    if (!map || !mapReadyRef.current) return;
+    if (!map || !mapReady) return;
     updateRadarSource(map, radars);
-  }, [radars]);
+  }, [radars, mapReady]);
 
   // Update route
   useEffect(() => {
     const map = mapRef.current;
-    if (!map || !mapReadyRef.current) return;
+    if (!map || !mapReady) return;
 
     if (route) {
       updateRouteSource(map, route);
-      // Fit bounds to route
+      // Fit bounds to route only on first load
       const coords = route.coordinates;
       if (coords.length > 0) {
         const bounds = new maplibregl.LngLatBounds(coords[0], coords[0]);
@@ -202,14 +206,14 @@ export default function MapView({ position, radars, onMapReady, route, routeRada
       const src = map.getSource(ROUTE_SOURCE) as maplibregl.GeoJSONSource | undefined;
       if (src) src.setData({ type: 'FeatureCollection', features: [] });
     }
-  }, [route]);
+  }, [route, mapReady]);
 
   // Update route radars highlight
   useEffect(() => {
     const map = mapRef.current;
-    if (!map || !mapReadyRef.current) return;
+    if (!map || !mapReady) return;
     updateRouteRadarSource(map, radars, routeRadarIds || []);
-  }, [routeRadarIds, radars]);
+  }, [routeRadarIds, radars, mapReady]);
 
   // Destination marker
   useEffect(() => {

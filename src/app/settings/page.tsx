@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { useSettingsStore } from '@/lib/settingsStore';
 import { useCustomPlacesStore } from '@/lib/customPlacesStore';
 import { useAuthStore } from '@/lib/authStore';
@@ -99,7 +100,7 @@ export default function SettingsPage() {
       <div className={`${isDark ? 'bg-gray-800' : 'bg-gray-900'} text-white px-4 py-3 flex items-center gap-3 sticky top-0 z-20`}
         style={{ paddingTop: 'max(12px, env(safe-area-inset-top, 12px))' }}
       >
-        <a href="/" className="text-blue-400 hover:text-blue-300 text-sm">&larr; Back</a>
+        <Link href="/" className="text-blue-400 hover:text-blue-300 text-sm">&larr; Back</Link>
         <h1 className="text-lg font-bold flex-1">Settings</h1>
       </div>
 

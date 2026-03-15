@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState, useRef, useCallback } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { useRadarStore } from '@/lib/radarStore';
 import { useSettingsStore } from '@/lib/settingsStore';
@@ -18,6 +20,7 @@ interface Waypoint {
 }
 
 export default function NavigatePage() {
+  const router = useRouter();
   const { radars, loadRadars } = useRadarStore();
   const { isDark, loadSettings } = useSettingsStore();
   const { places: customPlaces, loadPlaces: loadCustomPlaces } = useCustomPlacesStore();
@@ -166,7 +169,7 @@ export default function NavigatePage() {
         style={{ paddingTop: 'max(12px, env(safe-area-inset-top, 12px))' }}
       >
         <div className="flex items-center gap-3 mb-3">
-          <a href="/" className="text-blue-400 text-sm">&larr; Map</a>
+          <Link href="/" className="text-blue-400 text-sm">&larr; Map</Link>
           <h1 className="text-lg font-bold flex-1">Route Planner</h1>
           {(route || waypoints.some(w => w.query)) && (
             <button onClick={clearAll} className="text-red-400 text-sm font-medium">Clear</button>
@@ -291,7 +294,7 @@ export default function NavigatePage() {
                 store.setRouteRadarIds(routeRadars.map(r => r.id));
                 store.setDestinations(waypoints.filter(w => w.result).map(w => ({ lat: w.result!.lat, lng: w.result!.lon })));
                 store.setRadarVisibility('route');
-                window.location.href = '/';
+                router.push('/');
               }}
               className="bg-green-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold active:bg-green-700"
             >

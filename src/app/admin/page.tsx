@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
+import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { useRadarStore } from '@/lib/radarStore';
 import { useRouteStore } from '@/lib/routeStore';
@@ -63,7 +64,7 @@ export default function AdminPage() {
           >
             Unlock
           </button>
-          <a href="/" className="block mt-4 text-xs text-blue-400">Back to Map</a>
+          <Link href="/" className="block mt-4 text-xs text-blue-400">Back to Map</Link>
         </div>
       </div>
     );
@@ -167,7 +168,7 @@ function AdminPanel() {
     <div className="h-[100dvh] flex flex-col overflow-hidden">
       {/* Top bar */}
       <div className="bg-gray-900 text-white px-3 py-2 flex items-center gap-2 flex-shrink-0 z-20">
-        <a href="/" className="text-xs text-blue-400 hover:text-blue-300 whitespace-nowrap">&larr; Back</a>
+        <Link href="/" className="text-xs text-blue-400 hover:text-blue-300 whitespace-nowrap">&larr; Back</Link>
         <h1 className="text-sm md:text-lg font-bold flex-1 truncate">Radar Admin</h1>
 
         {/* Filters inline */}
