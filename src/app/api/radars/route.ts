@@ -1,19 +1,30 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 
-// GET /api/radars — fetch all radars
+// GET /api/radars — fetch all radars (paginated to bypass Supabase 1000 row limit)
 export async function GET() {
-  const { data, error } = await supabase
-    .from('radars')
-    .select('*')
-    .order('id');
+  const allRows: Record<string, unknown>[] = [];
+  const pageSize = 1000;
+  let from = 0;
 
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  while (true) {
+    const { data, error } = await supabase
+      .from('radars')
+      .select('*')
+      .order('id')
+      .range(from, from + pageSize - 1);
+
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    if (!data || data.length === 0) break;
+    allRows.push(...data);
+    if (data.length < pageSize) break;
+    from += pageSize;
   }
 
-  // Map DB columns to frontend Radar shape
-  const radars = (data || []).map(dbToRadar);
+  const radars = allRows.map(dbToRadar);
   return NextResponse.json(radars);
 }
 
