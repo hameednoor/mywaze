@@ -188,7 +188,7 @@ export default function SettingsPage() {
                 const data = await res.json();
                 if (data.success) {
                   setPoliceResult(
-                    `Done! Found ${data.policeTotal} cameras. ${data.alreadyMatched} already existed. ${data.newRadarsAdded} new radars added.`
+                    `Done! Found ${data.policeTotal} cameras. ${data.exactMatch} exact matches. ${data.positionsCorrected} positions corrected. ${data.newRadarsAdded} new radars added.`
                   );
                 } else {
                   setPoliceResult(`Error: ${data.error}`);

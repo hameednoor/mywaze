@@ -133,22 +133,38 @@ export async function POST() {
       from += pageSize;
     }
 
-    // 3. Compare: find police radars that don't have a match within 50m
+    // 3. Compare police radars against existing:
+    //    - Exact match (<5m): skip (already correct)
+    //    - Close match (5-200m): correct position to police record (police = truth)
+    //    - No match (>200m): add as new radar
     const newRadars = [];
-    let matchCount = 0;
+    const corrections: { id: string; latitude: number; longitude: number }[] = [];
+    let exactCount = 0;
 
     for (const pr of policeRadars) {
-      let hasMatch = false;
+      let bestMatch: DBRadar | null = null;
+      let bestDist = Infinity;
+
       for (const er of existingRadars) {
         const dist = haversine(pr.lat, pr.lon, er.latitude, er.longitude);
-        if (dist < 50) {
-          hasMatch = true;
-          matchCount++;
-          break;
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestMatch = er;
         }
       }
 
-      if (!hasMatch) {
+      if (bestDist < 5) {
+        // Exact match — already correct
+        exactCount++;
+      } else if (bestDist < 200 && bestMatch) {
+        // Close match — correct position to police record
+        corrections.push({
+          id: bestMatch.id,
+          latitude: pr.lat,
+          longitude: pr.lon,
+        });
+      } else {
+        // No match — add as new
         const id: string = `pol_${Date.now()}_${newRadars.length}`;
         newRadars.push({
           id,
@@ -167,7 +183,17 @@ export async function POST() {
       }
     }
 
-    // 4. Insert new radars in batches
+    // 4. Apply corrections (update existing radar positions to match police records)
+    let corrected = 0;
+    for (const c of corrections) {
+      const { error } = await supabase
+        .from('radars')
+        .update({ latitude: c.latitude, longitude: c.longitude })
+        .eq('id', c.id);
+      if (!error) corrected++;
+    }
+
+    // 5. Insert new radars in batches
     let inserted = 0;
     const batchSize = 500;
     for (let i = 0; i < newRadars.length; i += batchSize) {
@@ -178,7 +204,8 @@ export async function POST() {
           error: error.message,
           policeTotal: policeRadars.length,
           existingCount: existingRadars.length,
-          matched: matchCount,
+          exactMatch: exactCount,
+          corrected,
           inserted,
         }, { status: 500 });
       }
@@ -189,7 +216,8 @@ export async function POST() {
       success: true,
       policeTotal: policeRadars.length,
       existingCount: existingRadars.length,
-      alreadyMatched: matchCount,
+      exactMatch: exactCount,
+      positionsCorrected: corrected,
       newRadarsAdded: inserted,
       timestamp: new Date().toISOString(),
     });
