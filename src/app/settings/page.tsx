@@ -14,6 +14,8 @@ export default function SettingsPage() {
   const [addError, setAddError] = useState('');
   const [addSuccess, setAddSuccess] = useState('');
   const [adding, setAdding] = useState(false);
+  const [policeUpdating, setPoliceUpdating] = useState(false);
+  const [policeResult, setPoliceResult] = useState<string | null>(null);
 
   useEffect(() => {
     settings.loadSettings();
@@ -170,6 +172,42 @@ export default function SettingsPage() {
             onChange={settings.setKeepScreenAwake}
             isDark={isDark}
           />
+        </Section>
+
+        {/* Radar Data Updates */}
+        <Section title="Radar Data" isDark={isDark}>
+          <p className={`text-xs mb-3 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+            Fetch latest speed camera locations from police records database and add any missing radars to your map.
+          </p>
+          <button
+            onClick={async () => {
+              setPoliceUpdating(true);
+              setPoliceResult(null);
+              try {
+                const res = await fetch('/api/update-police-radars', { method: 'POST' });
+                const data = await res.json();
+                if (data.success) {
+                  setPoliceResult(
+                    `Done! Found ${data.policeTotal} cameras. ${data.alreadyMatched} already existed. ${data.newRadarsAdded} new radars added.`
+                  );
+                } else {
+                  setPoliceResult(`Error: ${data.error}`);
+                }
+              } catch (err) {
+                setPoliceResult(`Failed: ${String(err)}`);
+              }
+              setPoliceUpdating(false);
+            }}
+            disabled={policeUpdating}
+            className="w-full py-2.5 bg-blue-600 text-white rounded-xl text-sm font-medium disabled:opacity-40 active:bg-blue-700"
+          >
+            {policeUpdating ? 'Updating... (this takes ~1 minute)' : 'Update from Police Records'}
+          </button>
+          {policeResult && (
+            <p className={`text-xs mt-2 ${policeResult.startsWith('Done') ? 'text-green-500' : 'text-red-500'}`}>
+              {policeResult}
+            </p>
+          )}
         </Section>
 
         {/* Speed Unit */}

@@ -1,0 +1,6778 @@
+[
+  {
+    "id": "police_1",
+    "latitude": 24.47039,
+    "longitude": 54.33667,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_2",
+    "latitude": 24.45703,
+    "longitude": 54.3385,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_3",
+    "latitude": 24.47297,
+    "longitude": 54.341,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_4",
+    "latitude": 24.47822,
+    "longitude": 54.3455,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_5",
+    "latitude": 24.47442,
+    "longitude": 54.34911,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_6",
+    "latitude": 24.45378,
+    "longitude": 54.35231,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_7",
+    "latitude": 24.49075,
+    "longitude": 54.35239,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_8",
+    "latitude": 24.47767,
+    "longitude": 54.35314,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_9",
+    "latitude": 24.45614,
+    "longitude": 54.35519,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_10",
+    "latitude": 24.44442,
+    "longitude": 54.35683,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_11",
+    "latitude": 24.47183,
+    "longitude": 54.36058,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_12",
+    "latitude": 24.45067,
+    "longitude": 54.36122,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_13",
+    "latitude": 24.48983,
+    "longitude": 54.36336,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_14",
+    "latitude": 24.47567,
+    "longitude": 54.36533,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_15",
+    "latitude": 24.44442,
+    "longitude": 54.36636,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_16",
+    "latitude": 24.49292,
+    "longitude": 54.36775,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_17",
+    "latitude": 24.43972,
+    "longitude": 54.3715,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_18",
+    "latitude": 24.4305,
+    "longitude": 54.37225,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_19",
+    "latitude": 24.45278,
+    "longitude": 54.37375,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_20",
+    "latitude": 24.48319,
+    "longitude": 54.37592,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_21",
+    "latitude": 24.47328,
+    "longitude": 54.37622,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_22",
+    "latitude": 24.43503,
+    "longitude": 54.37667,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_23",
+    "latitude": 24.46306,
+    "longitude": 54.37761,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_24",
+    "latitude": 24.50528,
+    "longitude": 54.37922,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_25",
+    "latitude": 24.43653,
+    "longitude": 54.37975,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_26",
+    "latitude": 24.46661,
+    "longitude": 54.38192,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_27",
+    "latitude": 24.44778,
+    "longitude": 54.39433,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_28",
+    "latitude": 24.45036,
+    "longitude": 54.39725,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_29",
+    "latitude": 24.44536,
+    "longitude": 54.40225,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_30",
+    "latitude": 24.43769,
+    "longitude": 54.41611,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_31",
+    "latitude": 24.43042,
+    "longitude": 54.41992,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_32",
+    "latitude": 24.43397,
+    "longitude": 54.43,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_33",
+    "latitude": 24.43497,
+    "longitude": 54.43108,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_34",
+    "latitude": 24.55867,
+    "longitude": 54.69508,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_35",
+    "latitude": 25.09519,
+    "longitude": 55.15222,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_36",
+    "latitude": 25.01639,
+    "longitude": 55.15875,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_37",
+    "latitude": 25.09719,
+    "longitude": 55.18186,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_38",
+    "latitude": 25.13828,
+    "longitude": 55.18906,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_39",
+    "latitude": 25.12819,
+    "longitude": 55.19497,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_40",
+    "latitude": 25.14636,
+    "longitude": 55.196,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_41",
+    "latitude": 25.15958,
+    "longitude": 55.20733,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_42",
+    "latitude": 25.11669,
+    "longitude": 55.21128,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_43",
+    "latitude": 25.15467,
+    "longitude": 55.21597,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_44",
+    "latitude": 25.11225,
+    "longitude": 55.21822,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_45",
+    "latitude": 25.17472,
+    "longitude": 55.21986,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_46",
+    "latitude": 25.16961,
+    "longitude": 55.22764,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_47",
+    "latitude": 25.10261,
+    "longitude": 55.23394,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_48",
+    "latitude": 25.19333,
+    "longitude": 55.23417,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_49",
+    "latitude": 25.18683,
+    "longitude": 55.23975,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_50",
+    "latitude": 25.19817,
+    "longitude": 55.24764,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_51",
+    "latitude": 25.08111,
+    "longitude": 55.24989,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_52",
+    "latitude": 25.20686,
+    "longitude": 55.25367,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_53",
+    "latitude": 25.172,
+    "longitude": 55.25575,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_54",
+    "latitude": 25.22436,
+    "longitude": 55.25814,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_55",
+    "latitude": 25.21,
+    "longitude": 55.26111,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_56",
+    "latitude": 25.20781,
+    "longitude": 55.26522,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_57",
+    "latitude": 25.22731,
+    "longitude": 55.26681,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_58",
+    "latitude": 25.22108,
+    "longitude": 55.26811,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_59",
+    "latitude": 25.239,
+    "longitude": 55.27236,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_60",
+    "latitude": 25.24472,
+    "longitude": 55.27711,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_61",
+    "latitude": 25.24564,
+    "longitude": 55.28467,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_62",
+    "latitude": 25.22897,
+    "longitude": 55.28831,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_63",
+    "latitude": 25.25122,
+    "longitude": 55.29003,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_64",
+    "latitude": 25.23983,
+    "longitude": 55.29489,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_65",
+    "latitude": 25.25308,
+    "longitude": 55.30792,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_66",
+    "latitude": 25.26461,
+    "longitude": 55.31436,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_67",
+    "latitude": 25.24903,
+    "longitude": 55.31583,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_68",
+    "latitude": 25.24589,
+    "longitude": 55.32183,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_69",
+    "latitude": 25.26986,
+    "longitude": 55.34294,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_70",
+    "latitude": 25.25108,
+    "longitude": 55.34592,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_71",
+    "latitude": 25.22986,
+    "longitude": 55.35342,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_72",
+    "latitude": 25.26814,
+    "longitude": 55.35958,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_73",
+    "latitude": 25.28814,
+    "longitude": 55.36661,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_74",
+    "latitude": 25.24122,
+    "longitude": 55.36894,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_75",
+    "latitude": 25.18217,
+    "longitude": 55.37108,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_76",
+    "latitude": 25.2715,
+    "longitude": 55.37178,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_77",
+    "latitude": 25.26211,
+    "longitude": 55.37386,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_78",
+    "latitude": 25.32792,
+    "longitude": 55.37533,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_79",
+    "latitude": 25.2815,
+    "longitude": 55.37806,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_80",
+    "latitude": 25.18142,
+    "longitude": 55.37967,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_81",
+    "latitude": 25.31889,
+    "longitude": 55.37981,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_82",
+    "latitude": 25.29569,
+    "longitude": 55.38831,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_83",
+    "latitude": 25.28542,
+    "longitude": 55.38967,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_84",
+    "latitude": 25.33656,
+    "longitude": 55.39011,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_85",
+    "latitude": 25.35297,
+    "longitude": 55.39167,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_86",
+    "latitude": 25.31067,
+    "longitude": 55.39239,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_87",
+    "latitude": 25.29189,
+    "longitude": 55.39453,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_88",
+    "latitude": 25.35383,
+    "longitude": 55.39475,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_89",
+    "latitude": 25.27092,
+    "longitude": 55.39608,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_90",
+    "latitude": 25.34147,
+    "longitude": 55.39625,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_91",
+    "latitude": 25.28056,
+    "longitude": 55.39658,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_92",
+    "latitude": 25.34689,
+    "longitude": 55.39711,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_93",
+    "latitude": 25.28894,
+    "longitude": 55.40139,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_94",
+    "latitude": 25.32269,
+    "longitude": 55.40303,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_95",
+    "latitude": 25.34264,
+    "longitude": 55.40611,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_96",
+    "latitude": 25.31803,
+    "longitude": 55.41142,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_97",
+    "latitude": 25.33775,
+    "longitude": 55.41556,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_98",
+    "latitude": 25.34883,
+    "longitude": 55.42003,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_99",
+    "latitude": 25.39661,
+    "longitude": 55.43022,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_100",
+    "latitude": 25.35472,
+    "longitude": 55.43461,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_101",
+    "latitude": 25.35458,
+    "longitude": 55.43803,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_102",
+    "latitude": 25.365,
+    "longitude": 55.44761,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_103",
+    "latitude": 25.27047,
+    "longitude": 55.44833,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_104",
+    "latitude": 25.38994,
+    "longitude": 55.46714,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_105",
+    "latitude": 25.41544,
+    "longitude": 55.46867,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_106",
+    "latitude": 25.38558,
+    "longitude": 55.46883,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_107",
+    "latitude": 25.40358,
+    "longitude": 55.47864,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_108",
+    "latitude": 25.427,
+    "longitude": 55.50086,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_109",
+    "latitude": 25.313,
+    "longitude": 55.54275,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_110",
+    "latitude": 25.75467,
+    "longitude": 55.91114,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_111",
+    "latitude": 25.76844,
+    "longitude": 55.94108,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_112",
+    "latitude": 25.78892,
+    "longitude": 55.94272,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_113",
+    "latitude": 25.77342,
+    "longitude": 55.96608,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_114",
+    "latitude": 25.78675,
+    "longitude": 55.96836,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_115",
+    "latitude": 25.79461,
+    "longitude": 55.97258,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_116",
+    "latitude": 25.80072,
+    "longitude": 55.97614,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_117",
+    "latitude": 25.12356,
+    "longitude": 56.30242,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_118",
+    "latitude": 25.13592,
+    "longitude": 56.3235,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_119",
+    "latitude": 25.12219,
+    "longitude": 56.32783,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_120",
+    "latitude": 25.14178,
+    "longitude": 56.33028,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_121",
+    "latitude": 25.15064,
+    "longitude": 56.33989,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_122",
+    "latitude": 25.34167,
+    "longitude": 56.34853,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_123",
+    "latitude": 25.16914,
+    "longitude": 56.35108,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_124",
+    "latitude": 25.101,
+    "longitude": 56.35756,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_125",
+    "latitude": 24.49167,
+    "longitude": 54.37733,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_126",
+    "latitude": 24.48714,
+    "longitude": 54.37736,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_127",
+    "latitude": 24.45808,
+    "longitude": 54.38233,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_128",
+    "latitude": 24.41933,
+    "longitude": 54.51039,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_129",
+    "latitude": 25.23158,
+    "longitude": 55.26894,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_130",
+    "latitude": 25.26008,
+    "longitude": 55.28436,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_131",
+    "latitude": 25.26944,
+    "longitude": 55.29072,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_132",
+    "latitude": 25.27392,
+    "longitude": 55.29808,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_133",
+    "latitude": 25.25625,
+    "longitude": 55.30272,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_134",
+    "latitude": 25.28858,
+    "longitude": 55.36572,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_135",
+    "latitude": 25.23125,
+    "longitude": 55.39022,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_136",
+    "latitude": 25.34808,
+    "longitude": 55.39797,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_137",
+    "latitude": 25.22761,
+    "longitude": 55.40972,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_138",
+    "latitude": 25.36714,
+    "longitude": 55.41256,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_139",
+    "latitude": 25.32272,
+    "longitude": 55.4565,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_140",
+    "latitude": 25.38408,
+    "longitude": 55.46547,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_141",
+    "latitude": 25.52192,
+    "longitude": 55.54244,
+    "emirate": "Umm Al Quwain",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_142",
+    "latitude": 25.50878,
+    "longitude": 55.54708,
+    "emirate": "Umm Al Quwain",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_143",
+    "latitude": 25.773,
+    "longitude": 55.96417,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_144",
+    "latitude": 25.71703,
+    "longitude": 55.97053,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_145",
+    "latitude": 25.33739,
+    "longitude": 56.34861,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_146",
+    "latitude": 24.43578,
+    "longitude": 54.5665,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_147",
+    "latitude": 24.43703,
+    "longitude": 54.57239,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_148",
+    "latitude": 24.29503,
+    "longitude": 54.6295,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_149",
+    "latitude": 24.47047,
+    "longitude": 54.63308,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_150",
+    "latitude": 24.28536,
+    "longitude": 54.64197,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_151",
+    "latitude": 24.52703,
+    "longitude": 54.67653,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_152",
+    "latitude": 24.53622,
+    "longitude": 54.68317,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_153",
+    "latitude": 24.4115,
+    "longitude": 54.68989,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_154",
+    "latitude": 24.59019,
+    "longitude": 54.70294,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_155",
+    "latitude": 24.414,
+    "longitude": 54.71161,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_156",
+    "latitude": 24.61489,
+    "longitude": 54.714,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_157",
+    "latitude": 24.63111,
+    "longitude": 54.72586,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_158",
+    "latitude": 24.24161,
+    "longitude": 54.73169,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_159",
+    "latitude": 24.68042,
+    "longitude": 54.76894,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_160",
+    "latitude": 24.22958,
+    "longitude": 54.77978,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_161",
+    "latitude": 24.7135,
+    "longitude": 54.79814,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_162",
+    "latitude": 24.71289,
+    "longitude": 54.79819,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_163",
+    "latitude": 24.43244,
+    "longitude": 54.82347,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_164",
+    "latitude": 24.75686,
+    "longitude": 54.83936,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_165",
+    "latitude": 24.76236,
+    "longitude": 54.844,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_166",
+    "latitude": 24.44047,
+    "longitude": 54.876,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_167",
+    "latitude": 24.82322,
+    "longitude": 54.87808,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_168",
+    "latitude": 24.21128,
+    "longitude": 54.89058,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_169",
+    "latitude": 24.86706,
+    "longitude": 54.91339,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_170",
+    "latitude": 24.86956,
+    "longitude": 54.91672,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_171",
+    "latitude": 24.43553,
+    "longitude": 54.91967,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_172",
+    "latitude": 24.43458,
+    "longitude": 54.92969,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_173",
+    "latitude": 24.89442,
+    "longitude": 54.93878,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_174",
+    "latitude": 24.90789,
+    "longitude": 54.95217,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_175",
+    "latitude": 24.91536,
+    "longitude": 54.97044,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_176",
+    "latitude": 24.43064,
+    "longitude": 54.97167,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_177",
+    "latitude": 24.92247,
+    "longitude": 54.99092,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_178",
+    "latitude": 24.93447,
+    "longitude": 55.02567,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_179",
+    "latitude": 24.93964,
+    "longitude": 55.04153,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_180",
+    "latitude": 24.88922,
+    "longitude": 55.05633,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_181",
+    "latitude": 24.94956,
+    "longitude": 55.06856,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_182",
+    "latitude": 24.95522,
+    "longitude": 55.07706,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_183",
+    "latitude": 24.97239,
+    "longitude": 55.08769,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_184",
+    "latitude": 24.9975,
+    "longitude": 55.09447,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_185",
+    "latitude": 25.02339,
+    "longitude": 55.09933,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_186",
+    "latitude": 25.03297,
+    "longitude": 55.10467,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_187",
+    "latitude": 25.04814,
+    "longitude": 55.11792,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_188",
+    "latitude": 24.9415,
+    "longitude": 55.126,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_189",
+    "latitude": 24.17186,
+    "longitude": 55.12647,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_190",
+    "latitude": 25.06225,
+    "longitude": 55.13033,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_191",
+    "latitude": 25.07311,
+    "longitude": 55.13989,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_192",
+    "latitude": 24.98997,
+    "longitude": 55.14572,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_193",
+    "latitude": 25.09089,
+    "longitude": 55.15964,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_194",
+    "latitude": 25.03603,
+    "longitude": 55.18028,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_195",
+    "latitude": 25.1345,
+    "longitude": 55.21472,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_196",
+    "latitude": 24.17192,
+    "longitude": 55.21567,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_197",
+    "latitude": 25.14144,
+    "longitude": 55.21889,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_198",
+    "latitude": 25.11025,
+    "longitude": 55.22125,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_199",
+    "latitude": 25.05325,
+    "longitude": 55.22933,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_200",
+    "latitude": 25.16686,
+    "longitude": 55.23703,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_201",
+    "latitude": 25.1735,
+    "longitude": 55.24311,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_202",
+    "latitude": 25.06814,
+    "longitude": 55.24983,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_203",
+    "latitude": 25.1815,
+    "longitude": 55.25078,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_204",
+    "latitude": 25.18667,
+    "longitude": 55.2555,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_205",
+    "latitude": 25.19267,
+    "longitude": 55.26106,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_206",
+    "latitude": 25.20872,
+    "longitude": 55.2735,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_207",
+    "latitude": 25.05861,
+    "longitude": 55.27514,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_208",
+    "latitude": 25.23111,
+    "longitude": 55.29553,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_209",
+    "latitude": 25.23119,
+    "longitude": 55.29664,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_210",
+    "latitude": 25.22714,
+    "longitude": 55.31956,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_211",
+    "latitude": 25.09736,
+    "longitude": 55.33086,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_212",
+    "latitude": 25.16114,
+    "longitude": 55.33133,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_213",
+    "latitude": 24.18278,
+    "longitude": 55.33183,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_214",
+    "latitude": 24.44867,
+    "longitude": 55.34233,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_215",
+    "latitude": 25.14656,
+    "longitude": 55.34272,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_216",
+    "latitude": 24.47447,
+    "longitude": 55.34867,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_217",
+    "latitude": 25.06781,
+    "longitude": 55.35372,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_218",
+    "latitude": 24.43617,
+    "longitude": 55.35803,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_219",
+    "latitude": 25.12803,
+    "longitude": 55.35822,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_220",
+    "latitude": 25.29506,
+    "longitude": 55.36078,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_221",
+    "latitude": 24.413,
+    "longitude": 55.37139,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_222",
+    "latitude": 25.08117,
+    "longitude": 55.38294,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_223",
+    "latitude": 25.14175,
+    "longitude": 55.38361,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_224",
+    "latitude": 24.38858,
+    "longitude": 55.38467,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_225",
+    "latitude": 25.16831,
+    "longitude": 55.39433,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_226",
+    "latitude": 25.18686,
+    "longitude": 55.39692,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_227",
+    "latitude": 25.20047,
+    "longitude": 55.39744,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_228",
+    "latitude": 25.21439,
+    "longitude": 55.40375,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_229",
+    "latitude": 25.22767,
+    "longitude": 55.40419,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_230",
+    "latitude": 25.24497,
+    "longitude": 55.40489,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_231",
+    "latitude": 24.49014,
+    "longitude": 55.4055,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_232",
+    "latitude": 25.09986,
+    "longitude": 55.41006,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_233",
+    "latitude": 25.29264,
+    "longitude": 55.41297,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_234",
+    "latitude": 25.26872,
+    "longitude": 55.41425,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_235",
+    "latitude": 24.49789,
+    "longitude": 55.43361,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_236",
+    "latitude": 25.322,
+    "longitude": 55.45603,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_237",
+    "latitude": 24.21003,
+    "longitude": 55.45678,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_238",
+    "latitude": 25.33775,
+    "longitude": 55.46033,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_239",
+    "latitude": 24.50603,
+    "longitude": 55.46239,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_240",
+    "latitude": 25.345,
+    "longitude": 55.47278,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_241",
+    "latitude": 24.51383,
+    "longitude": 55.49036,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_242",
+    "latitude": 25.32117,
+    "longitude": 55.50364,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_243",
+    "latitude": 24.51983,
+    "longitude": 55.51917,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_244",
+    "latitude": 25.14056,
+    "longitude": 55.52853,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_245",
+    "latitude": 25.3625,
+    "longitude": 55.534,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_246",
+    "latitude": 25.31428,
+    "longitude": 55.54069,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_247",
+    "latitude": 25.47961,
+    "longitude": 55.56533,
+    "emirate": "Umm Al Quwain",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_248",
+    "latitude": 24.2155,
+    "longitude": 55.56678,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_249",
+    "latitude": 25.38753,
+    "longitude": 55.56875,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_250",
+    "latitude": 25.46803,
+    "longitude": 55.59014,
+    "emirate": "Umm Al Quwain",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_251",
+    "latitude": 25.29808,
+    "longitude": 55.60497,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_252",
+    "latitude": 25.45989,
+    "longitude": 55.622,
+    "emirate": "Umm Al Quwain",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_253",
+    "latitude": 25.28603,
+    "longitude": 55.64178,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_254",
+    "latitude": 25.4755,
+    "longitude": 55.65222,
+    "emirate": "Umm Al Quwain",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_255",
+    "latitude": 25.49292,
+    "longitude": 55.68181,
+    "emirate": "Umm Al Quwain",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_256",
+    "latitude": 25.27803,
+    "longitude": 55.68917,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_257",
+    "latitude": 25.51497,
+    "longitude": 55.70803,
+    "emirate": "Umm Al Quwain",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_258",
+    "latitude": 25.55628,
+    "longitude": 55.74636,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_259",
+    "latitude": 25.58286,
+    "longitude": 55.76708,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_260",
+    "latitude": 25.27722,
+    "longitude": 55.77003,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_261",
+    "latitude": 25.60794,
+    "longitude": 55.78972,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_262",
+    "latitude": 25.73653,
+    "longitude": 55.89014,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_263",
+    "latitude": 24.10014,
+    "longitude": 52.94717,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_264",
+    "latitude": 24.06825,
+    "longitude": 53.32883,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_265",
+    "latitude": 24.06775,
+    "longitude": 53.34658,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_266",
+    "latitude": 24.05839,
+    "longitude": 53.4425,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_267",
+    "latitude": 24.05383,
+    "longitude": 53.47225,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_268",
+    "latitude": 24.01364,
+    "longitude": 53.78317,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_269",
+    "latitude": 24.12872,
+    "longitude": 54.17353,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_270",
+    "latitude": 24.13864,
+    "longitude": 54.20436,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_271",
+    "latitude": 24.18264,
+    "longitude": 54.37653,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_272",
+    "latitude": 24.27061,
+    "longitude": 54.502,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_273",
+    "latitude": 24.28175,
+    "longitude": 54.53547,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_274",
+    "latitude": 24.18883,
+    "longitude": 55.01975,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_275",
+    "latitude": 24.17069,
+    "longitude": 55.07164,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_276",
+    "latitude": 25.00589,
+    "longitude": 55.09603,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_277",
+    "latitude": 25.05536,
+    "longitude": 55.12453,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_278",
+    "latitude": 25.06758,
+    "longitude": 55.20253,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_279",
+    "latitude": 25.05897,
+    "longitude": 55.27433,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_280",
+    "latitude": 25.07003,
+    "longitude": 55.29997,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_281",
+    "latitude": 25.07894,
+    "longitude": 55.30983,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_282",
+    "latitude": 25.08328,
+    "longitude": 55.31464,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_283",
+    "latitude": 25.21794,
+    "longitude": 55.32803,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_284",
+    "latitude": 25.09728,
+    "longitude": 55.33017,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_285",
+    "latitude": 25.10689,
+    "longitude": 55.34083,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_286",
+    "latitude": 25.11319,
+    "longitude": 55.35133,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_287",
+    "latitude": 25.11958,
+    "longitude": 55.36414,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_288",
+    "latitude": 25.13089,
+    "longitude": 55.37708,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_289",
+    "latitude": 25.17667,
+    "longitude": 55.39633,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_290",
+    "latitude": 25.18775,
+    "longitude": 55.39689,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_291",
+    "latitude": 25.20119,
+    "longitude": 55.39744,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_292",
+    "latitude": 24.20422,
+    "longitude": 55.39811,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_293",
+    "latitude": 25.21514,
+    "longitude": 55.40386,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_294",
+    "latitude": 25.22836,
+    "longitude": 55.40414,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_295",
+    "latitude": 25.22867,
+    "longitude": 55.40461,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_296",
+    "latitude": 25.27075,
+    "longitude": 55.41597,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_297",
+    "latitude": 24.21539,
+    "longitude": 55.53167,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_298",
+    "latitude": 24.51553,
+    "longitude": 55.53203,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_299",
+    "latitude": 24.21603,
+    "longitude": 55.53275,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_300",
+    "latitude": 25.36944,
+    "longitude": 55.55611,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_301",
+    "latitude": 24.20208,
+    "longitude": 55.57311,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_302",
+    "latitude": 24.20189,
+    "longitude": 55.57358,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_303",
+    "latitude": 24.18397,
+    "longitude": 55.5965,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_304",
+    "latitude": 24.17875,
+    "longitude": 55.60114,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_305",
+    "latitude": 24.18175,
+    "longitude": 55.62639,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_306",
+    "latitude": 24.45992,
+    "longitude": 54.35233,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_307",
+    "latitude": 24.44158,
+    "longitude": 54.39764,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_308",
+    "latitude": 24.44819,
+    "longitude": 54.40975,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_309",
+    "latitude": 24.41814,
+    "longitude": 54.43336,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_310",
+    "latitude": 24.40978,
+    "longitude": 54.46289,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_311",
+    "latitude": 24.41825,
+    "longitude": 54.49519,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_312",
+    "latitude": 24.40053,
+    "longitude": 54.49703,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_313",
+    "latitude": 24.42928,
+    "longitude": 54.54358,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_314",
+    "latitude": 24.38264,
+    "longitude": 54.54544,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_315",
+    "latitude": 24.39333,
+    "longitude": 54.55361,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_316",
+    "latitude": 25.27092,
+    "longitude": 55.29092,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_317",
+    "latitude": 25.12661,
+    "longitude": 55.1825,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_318",
+    "latitude": 25.188,
+    "longitude": 55.25644,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_319",
+    "latitude": 25.22289,
+    "longitude": 55.26425,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_320",
+    "latitude": 25.22047,
+    "longitude": 55.27794,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_321",
+    "latitude": 24.00961,
+    "longitude": 51.77122,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_322",
+    "latitude": 23.94394,
+    "longitude": 51.97297,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_323",
+    "latitude": 23.94428,
+    "longitude": 51.97411,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_324",
+    "latitude": 24.03267,
+    "longitude": 52.43972,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_325",
+    "latitude": 24.03847,
+    "longitude": 52.45797,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_326",
+    "latitude": 24.11722,
+    "longitude": 52.61261,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_327",
+    "latitude": 24.10489,
+    "longitude": 52.64842,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_328",
+    "latitude": 24.09961,
+    "longitude": 52.9705,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_329",
+    "latitude": 24.06653,
+    "longitude": 53.20678,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_330",
+    "latitude": 24.06778,
+    "longitude": 53.3455,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_331",
+    "latitude": 24.05869,
+    "longitude": 53.44144,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_332",
+    "latitude": 24.054,
+    "longitude": 53.47047,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_333",
+    "latitude": 24.05367,
+    "longitude": 53.47172,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_334",
+    "latitude": 23.69294,
+    "longitude": 53.68606,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_335",
+    "latitude": 24.01386,
+    "longitude": 53.78219,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_336",
+    "latitude": 24.12922,
+    "longitude": 54.17358,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_337",
+    "latitude": 24.13908,
+    "longitude": 54.20533,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_338",
+    "latitude": 24.46047,
+    "longitude": 54.35167,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_339",
+    "latitude": 24.48269,
+    "longitude": 54.35331,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_340",
+    "latitude": 24.46808,
+    "longitude": 54.35553,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_341",
+    "latitude": 24.47286,
+    "longitude": 54.36175,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_342",
+    "latitude": 24.45917,
+    "longitude": 54.36311,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_343",
+    "latitude": 24.49208,
+    "longitude": 54.36847,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_344",
+    "latitude": 24.45933,
+    "longitude": 54.37214,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_345",
+    "latitude": 24.47672,
+    "longitude": 54.37225,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_346",
+    "latitude": 24.46714,
+    "longitude": 54.37306,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_347",
+    "latitude": 24.18308,
+    "longitude": 54.37547,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_348",
+    "latitude": 24.47089,
+    "longitude": 54.37614,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_349",
+    "latitude": 24.48403,
+    "longitude": 54.377,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_350",
+    "latitude": 24.46464,
+    "longitude": 54.37906,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_351",
+    "latitude": 24.43528,
+    "longitude": 54.38164,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_352",
+    "latitude": 24.45933,
+    "longitude": 54.38233,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_353",
+    "latitude": 24.44511,
+    "longitude": 54.38558,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_354",
+    "latitude": 24.45278,
+    "longitude": 54.38714,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_355",
+    "latitude": 24.44339,
+    "longitude": 54.38919,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_356",
+    "latitude": 24.47267,
+    "longitude": 54.39231,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_357",
+    "latitude": 24.44747,
+    "longitude": 54.39278,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_358",
+    "latitude": 24.44714,
+    "longitude": 54.40431,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_359",
+    "latitude": 24.44797,
+    "longitude": 54.41,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_360",
+    "latitude": 24.42186,
+    "longitude": 54.4195,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_361",
+    "latitude": 24.42994,
+    "longitude": 54.42608,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_362",
+    "latitude": 24.42856,
+    "longitude": 54.42953,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_363",
+    "latitude": 24.41778,
+    "longitude": 54.43428,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_364",
+    "latitude": 24.43244,
+    "longitude": 54.43669,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_365",
+    "latitude": 24.43933,
+    "longitude": 54.43747,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_366",
+    "latitude": 24.42903,
+    "longitude": 54.44275,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_367",
+    "latitude": 24.41472,
+    "longitude": 54.44453,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_368",
+    "latitude": 24.44194,
+    "longitude": 54.4485,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_369",
+    "latitude": 24.41186,
+    "longitude": 54.46358,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_370",
+    "latitude": 24.40956,
+    "longitude": 54.46361,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_371",
+    "latitude": 24.41825,
+    "longitude": 54.47425,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_372",
+    "latitude": 24.42036,
+    "longitude": 54.4945,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_373",
+    "latitude": 24.40097,
+    "longitude": 54.49511,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_374",
+    "latitude": 24.2695,
+    "longitude": 54.49767,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_375",
+    "latitude": 24.40025,
+    "longitude": 54.49906,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_376",
+    "latitude": 24.41408,
+    "longitude": 54.50394,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_377",
+    "latitude": 24.27233,
+    "longitude": 54.50403,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_378",
+    "latitude": 24.40744,
+    "longitude": 54.51142,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_379",
+    "latitude": 24.42575,
+    "longitude": 54.52825,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_380",
+    "latitude": 24.33772,
+    "longitude": 54.53339,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_381",
+    "latitude": 24.28358,
+    "longitude": 54.53408,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_382",
+    "latitude": 24.38869,
+    "longitude": 54.54008,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_383",
+    "latitude": 24.38314,
+    "longitude": 54.54489,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_384",
+    "latitude": 24.41869,
+    "longitude": 54.54781,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_385",
+    "latitude": 24.38039,
+    "longitude": 54.54969,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_386",
+    "latitude": 24.43606,
+    "longitude": 54.56719,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_387",
+    "latitude": 24.43911,
+    "longitude": 54.57792,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_388",
+    "latitude": 24.43989,
+    "longitude": 54.58206,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_389",
+    "latitude": 24.40572,
+    "longitude": 54.61483,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_390",
+    "latitude": 24.44622,
+    "longitude": 54.62231,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_391",
+    "latitude": 24.32931,
+    "longitude": 54.62611,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_392",
+    "latitude": 24.29489,
+    "longitude": 54.62961,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_393",
+    "latitude": 24.54711,
+    "longitude": 54.63225,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_394",
+    "latitude": 24.43372,
+    "longitude": 54.63328,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_395",
+    "latitude": 24.47278,
+    "longitude": 54.63483,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_396",
+    "latitude": 24.33739,
+    "longitude": 54.63586,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_397",
+    "latitude": 24.33969,
+    "longitude": 54.63669,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_398",
+    "latitude": 24.42028,
+    "longitude": 54.63819,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_399",
+    "latitude": 24.286,
+    "longitude": 54.64136,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_400",
+    "latitude": 24.49733,
+    "longitude": 54.65364,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_401",
+    "latitude": 24.37275,
+    "longitude": 54.65594,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_402",
+    "latitude": 24.38031,
+    "longitude": 54.65931,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_403",
+    "latitude": 24.36931,
+    "longitude": 54.66256,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_404",
+    "latitude": 24.40936,
+    "longitude": 54.66733,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_405",
+    "latitude": 24.5265,
+    "longitude": 54.67586,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_406",
+    "latitude": 24.42881,
+    "longitude": 54.67789,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_407",
+    "latitude": 24.45356,
+    "longitude": 54.67869,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_408",
+    "latitude": 24.49781,
+    "longitude": 54.68069,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_409",
+    "latitude": 24.535,
+    "longitude": 54.68206,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_410",
+    "latitude": 24.51244,
+    "longitude": 54.68667,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_411",
+    "latitude": 24.4115,
+    "longitude": 54.69047,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_412",
+    "latitude": 24.52222,
+    "longitude": 54.69136,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_413",
+    "latitude": 24.53275,
+    "longitude": 54.69303,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_414",
+    "latitude": 24.57522,
+    "longitude": 54.69611,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_415",
+    "latitude": 24.57769,
+    "longitude": 54.69789,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_416",
+    "latitude": 24.58911,
+    "longitude": 54.70144,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_417",
+    "latitude": 24.41347,
+    "longitude": 54.70753,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_418",
+    "latitude": 24.63069,
+    "longitude": 54.72539,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_419",
+    "latitude": 24.24172,
+    "longitude": 54.73208,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_420",
+    "latitude": 24.55511,
+    "longitude": 54.73761,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_421",
+    "latitude": 24.66964,
+    "longitude": 54.76058,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_422",
+    "latitude": 24.41925,
+    "longitude": 54.76428,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_423",
+    "latitude": 24.67944,
+    "longitude": 54.76783,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_424",
+    "latitude": 24.71169,
+    "longitude": 54.79661,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_425",
+    "latitude": 24.22567,
+    "longitude": 54.79981,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_426",
+    "latitude": 24.42589,
+    "longitude": 54.801,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_427",
+    "latitude": 24.43114,
+    "longitude": 54.81894,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_428",
+    "latitude": 24.76061,
+    "longitude": 54.8425,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_429",
+    "latitude": 24.76553,
+    "longitude": 54.84581,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_430",
+    "latitude": 24.21925,
+    "longitude": 54.84817,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_431",
+    "latitude": 24.44058,
+    "longitude": 54.86289,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_432",
+    "latitude": 24.80653,
+    "longitude": 54.86736,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_433",
+    "latitude": 24.44058,
+    "longitude": 54.87122,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_434",
+    "latitude": 24.81981,
+    "longitude": 54.8755,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_435",
+    "latitude": 24.21033,
+    "longitude": 54.89147,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_436",
+    "latitude": 24.86369,
+    "longitude": 54.91086,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_437",
+    "latitude": 24.20064,
+    "longitude": 54.91242,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_438",
+    "latitude": 24.86831,
+    "longitude": 54.91469,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_439",
+    "latitude": 24.86875,
+    "longitude": 54.91517,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_440",
+    "latitude": 24.43653,
+    "longitude": 54.91653,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_441",
+    "latitude": 24.43481,
+    "longitude": 54.92519,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_442",
+    "latitude": 24.89936,
+    "longitude": 54.94203,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_443",
+    "latitude": 24.90761,
+    "longitude": 54.95122,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_444",
+    "latitude": 24.91175,
+    "longitude": 54.96006,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_445",
+    "latitude": 24.91556,
+    "longitude": 54.97111,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_446",
+    "latitude": 24.91833,
+    "longitude": 54.97992,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_447",
+    "latitude": 24.91906,
+    "longitude": 54.98125,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_448",
+    "latitude": 24.429,
+    "longitude": 54.98886,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_449",
+    "latitude": 24.92256,
+    "longitude": 54.99122,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_450",
+    "latitude": 24.92536,
+    "longitude": 54.99953,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_451",
+    "latitude": 24.92564,
+    "longitude": 55.00075,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_452",
+    "latitude": 24.92956,
+    "longitude": 55.01181,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_453",
+    "latitude": 24.18842,
+    "longitude": 55.01731,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_454",
+    "latitude": 24.93189,
+    "longitude": 55.01969,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_455",
+    "latitude": 24.93267,
+    "longitude": 55.02103,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_456",
+    "latitude": 24.93547,
+    "longitude": 55.02906,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_457",
+    "latitude": 24.93617,
+    "longitude": 55.03122,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_458",
+    "latitude": 24.93819,
+    "longitude": 55.03686,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_459",
+    "latitude": 24.94203,
+    "longitude": 55.04494,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_460",
+    "latitude": 24.18019,
+    "longitude": 55.04503,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_461",
+    "latitude": 24.94436,
+    "longitude": 55.05456,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_462",
+    "latitude": 24.888,
+    "longitude": 55.05558,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_463",
+    "latitude": 24.94464,
+    "longitude": 55.05569,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_464",
+    "latitude": 24.88989,
+    "longitude": 55.05739,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_465",
+    "latitude": 24.94872,
+    "longitude": 55.06708,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_466",
+    "latitude": 24.17133,
+    "longitude": 55.06939,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_467",
+    "latitude": 24.95492,
+    "longitude": 55.07661,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_468",
+    "latitude": 24.96278,
+    "longitude": 55.08219,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_469",
+    "latitude": 24.96311,
+    "longitude": 55.08244,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_470",
+    "latitude": 24.981,
+    "longitude": 55.09164,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_471",
+    "latitude": 24.99647,
+    "longitude": 55.09456,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_472",
+    "latitude": 25.00372,
+    "longitude": 55.09567,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_473",
+    "latitude": 25.02261,
+    "longitude": 55.09917,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_474",
+    "latitude": 25.03156,
+    "longitude": 55.10372,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_475",
+    "latitude": 25.03747,
+    "longitude": 55.10872,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_476",
+    "latitude": 25.04917,
+    "longitude": 55.11922,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_477",
+    "latitude": 24.17186,
+    "longitude": 55.12322,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_478",
+    "latitude": 24.94092,
+    "longitude": 55.12425,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_479",
+    "latitude": 24.94331,
+    "longitude": 55.12739,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_480",
+    "latitude": 25.05917,
+    "longitude": 55.12767,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_481",
+    "latitude": 25.06747,
+    "longitude": 55.13506,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_482",
+    "latitude": 25.07525,
+    "longitude": 55.14175,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_483",
+    "latitude": 24.97383,
+    "longitude": 55.14217,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_484",
+    "latitude": 24.98761,
+    "longitude": 55.14483,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_485",
+    "latitude": 24.99103,
+    "longitude": 55.14553,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_486",
+    "latitude": 25.08994,
+    "longitude": 55.15858,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_487",
+    "latitude": 25.10286,
+    "longitude": 55.15978,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_488",
+    "latitude": 25.09803,
+    "longitude": 55.16786,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_489",
+    "latitude": 24.96739,
+    "longitude": 55.16836,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_490",
+    "latitude": 25.11722,
+    "longitude": 55.17333,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_491",
+    "latitude": 24.17903,
+    "longitude": 55.1735,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_492",
+    "latitude": 25.12206,
+    "longitude": 55.17814,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_493",
+    "latitude": 25.10831,
+    "longitude": 55.18156,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_494",
+    "latitude": 25.12797,
+    "longitude": 55.18381,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_495",
+    "latitude": 25.13331,
+    "longitude": 55.18803,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_496",
+    "latitude": 25.11381,
+    "longitude": 55.18889,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_497",
+    "latitude": 25.14978,
+    "longitude": 55.199,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_498",
+    "latitude": 25.11731,
+    "longitude": 55.20322,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_499",
+    "latitude": 25.13983,
+    "longitude": 55.20442,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_500",
+    "latitude": 25.158,
+    "longitude": 55.20608,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_501",
+    "latitude": 25.1445,
+    "longitude": 55.20697,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_502",
+    "latitude": 25.09847,
+    "longitude": 55.20739,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_503",
+    "latitude": 25.16331,
+    "longitude": 55.21042,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_504",
+    "latitude": 25.11608,
+    "longitude": 55.21247,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_505",
+    "latitude": 24.17189,
+    "longitude": 55.21436,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_506",
+    "latitude": 25.17153,
+    "longitude": 55.21736,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_507",
+    "latitude": 25.10961,
+    "longitude": 55.22192,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_508",
+    "latitude": 25.18272,
+    "longitude": 55.22622,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_509",
+    "latitude": 25.18719,
+    "longitude": 55.22967,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_510",
+    "latitude": 25.17497,
+    "longitude": 55.23136,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_511",
+    "latitude": 25.16122,
+    "longitude": 55.23178,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_512",
+    "latitude": 25.16631,
+    "longitude": 55.23675,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_513",
+    "latitude": 25.20058,
+    "longitude": 55.23969,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_514",
+    "latitude": 25.11017,
+    "longitude": 55.23994,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_515",
+    "latitude": 25.18753,
+    "longitude": 55.23994,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_516",
+    "latitude": 25.17403,
+    "longitude": 55.244,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_517",
+    "latitude": 24.98606,
+    "longitude": 55.24508,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_518",
+    "latitude": 25.20789,
+    "longitude": 55.24622,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_519",
+    "latitude": 25.21219,
+    "longitude": 55.24833,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_520",
+    "latitude": 25.05744,
+    "longitude": 55.24922,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_521",
+    "latitude": 24.95136,
+    "longitude": 55.24956,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_522",
+    "latitude": 25.06561,
+    "longitude": 55.24997,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_523",
+    "latitude": 25.20269,
+    "longitude": 55.2505,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_524",
+    "latitude": 25.18228,
+    "longitude": 55.25158,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_525",
+    "latitude": 25.18786,
+    "longitude": 55.25669,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_526",
+    "latitude": 25.05703,
+    "longitude": 55.25892,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_527",
+    "latitude": 25.22575,
+    "longitude": 55.25892,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_528",
+    "latitude": 25.19206,
+    "longitude": 55.26053,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_529",
+    "latitude": 25.23231,
+    "longitude": 55.26381,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_530",
+    "latitude": 25.19864,
+    "longitude": 55.26622,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_531",
+    "latitude": 25.23617,
+    "longitude": 55.26658,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_532",
+    "latitude": 25.19919,
+    "longitude": 55.26692,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_533",
+    "latitude": 25.16889,
+    "longitude": 55.26811,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_534",
+    "latitude": 25.20183,
+    "longitude": 55.26878,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_535",
+    "latitude": 25.24369,
+    "longitude": 55.27203,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_536",
+    "latitude": 25.2075,
+    "longitude": 55.27272,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_537",
+    "latitude": 24.95292,
+    "longitude": 55.27358,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_538",
+    "latitude": 25.05878,
+    "longitude": 55.27358,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_539",
+    "latitude": 25.17511,
+    "longitude": 55.27375,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_540",
+    "latitude": 25.2175,
+    "longitude": 55.27939,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_541",
+    "latitude": 25.25008,
+    "longitude": 55.27975,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_542",
+    "latitude": 25.21817,
+    "longitude": 55.27978,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_543",
+    "latitude": 25.23367,
+    "longitude": 55.28064,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_544",
+    "latitude": 25.18039,
+    "longitude": 55.2815,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_545",
+    "latitude": 25.22147,
+    "longitude": 55.28233,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_546",
+    "latitude": 25.21831,
+    "longitude": 55.28422,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_547",
+    "latitude": 25.19706,
+    "longitude": 55.28478,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_548",
+    "latitude": 25.18522,
+    "longitude": 55.2875,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_549",
+    "latitude": 25.03025,
+    "longitude": 55.28997,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_550",
+    "latitude": 25.18872,
+    "longitude": 55.29067,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_551",
+    "latitude": 25.23103,
+    "longitude": 55.29075,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_552",
+    "latitude": 24.17275,
+    "longitude": 55.29186,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_553",
+    "latitude": 25.25992,
+    "longitude": 55.29372,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_554",
+    "latitude": 25.19656,
+    "longitude": 55.29933,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_555",
+    "latitude": 25.06958,
+    "longitude": 55.2995,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_556",
+    "latitude": 25.21939,
+    "longitude": 55.2995,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_557",
+    "latitude": 25.18197,
+    "longitude": 55.30125,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_558",
+    "latitude": 25.26458,
+    "longitude": 55.30242,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_559",
+    "latitude": 25.25317,
+    "longitude": 55.30347,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_560",
+    "latitude": 25.27653,
+    "longitude": 55.30456,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_561",
+    "latitude": 25.20075,
+    "longitude": 55.30467,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_562",
+    "latitude": 25.18181,
+    "longitude": 55.305,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_563",
+    "latitude": 25.27114,
+    "longitude": 55.30747,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_564",
+    "latitude": 25.21178,
+    "longitude": 55.30825,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_565",
+    "latitude": 25.04922,
+    "longitude": 55.30861,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_566",
+    "latitude": 25.19508,
+    "longitude": 55.30869,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_567",
+    "latitude": 25.07836,
+    "longitude": 55.30931,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_568",
+    "latitude": 25.23228,
+    "longitude": 55.30997,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_569",
+    "latitude": 25.23789,
+    "longitude": 55.31008,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_570",
+    "latitude": 25.27947,
+    "longitude": 55.31092,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_571",
+    "latitude": 25.18669,
+    "longitude": 55.31111,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_572",
+    "latitude": 25.26347,
+    "longitude": 55.31189,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_573",
+    "latitude": 25.23061,
+    "longitude": 55.31283,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_574",
+    "latitude": 25.20542,
+    "longitude": 55.31325,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_575",
+    "latitude": 25.21589,
+    "longitude": 55.31428,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_576",
+    "latitude": 25.23011,
+    "longitude": 55.31444,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_577",
+    "latitude": 25.27683,
+    "longitude": 55.31508,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_578",
+    "latitude": 25.22264,
+    "longitude": 55.31539,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_579",
+    "latitude": 25.08467,
+    "longitude": 55.31633,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_580",
+    "latitude": 24.99058,
+    "longitude": 55.31875,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_581",
+    "latitude": 25.28483,
+    "longitude": 55.31875,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_582",
+    "latitude": 25.27814,
+    "longitude": 55.31908,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_583",
+    "latitude": 25.26294,
+    "longitude": 55.31994,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_584",
+    "latitude": 25.16611,
+    "longitude": 55.32044,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_585",
+    "latitude": 25.28719,
+    "longitude": 55.32175,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_586",
+    "latitude": 25.25286,
+    "longitude": 55.32239,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_587",
+    "latitude": 25.24197,
+    "longitude": 55.32303,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_588",
+    "latitude": 25.25836,
+    "longitude": 55.32303,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_589",
+    "latitude": 25.21519,
+    "longitude": 55.32336,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_590",
+    "latitude": 25.22592,
+    "longitude": 55.32364,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_591",
+    "latitude": 25.26222,
+    "longitude": 55.32639,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_592",
+    "latitude": 25.27853,
+    "longitude": 55.32714,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_593",
+    "latitude": 25.06103,
+    "longitude": 55.32853,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_594",
+    "latitude": 25.22589,
+    "longitude": 55.32853,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_595",
+    "latitude": 25.09686,
+    "longitude": 55.32972,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_596",
+    "latitude": 24.18239,
+    "longitude": 55.33025,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_597",
+    "latitude": 25.16211,
+    "longitude": 55.33028,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_598",
+    "latitude": 25.29489,
+    "longitude": 55.33181,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_599",
+    "latitude": 25.25742,
+    "longitude": 55.33231,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_600",
+    "latitude": 25.29589,
+    "longitude": 55.33244,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_601",
+    "latitude": 25.21958,
+    "longitude": 55.33414,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_602",
+    "latitude": 25.26736,
+    "longitude": 55.33608,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_603",
+    "latitude": 25.24642,
+    "longitude": 55.33767,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_604",
+    "latitude": 25.28972,
+    "longitude": 55.33806,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_605",
+    "latitude": 25.24222,
+    "longitude": 55.33847,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_606",
+    "latitude": 25.22094,
+    "longitude": 55.339,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_607",
+    "latitude": 25.28425,
+    "longitude": 55.34,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_608",
+    "latitude": 25.10642,
+    "longitude": 55.34019,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_609",
+    "latitude": 24.45058,
+    "longitude": 55.34053,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_610",
+    "latitude": 25.23972,
+    "longitude": 55.34242,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_611",
+    "latitude": 25.27442,
+    "longitude": 55.34353,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_612",
+    "latitude": 25.14392,
+    "longitude": 55.345,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_613",
+    "latitude": 25.11108,
+    "longitude": 55.34533,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_614",
+    "latitude": 25.27836,
+    "longitude": 55.34533,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_615",
+    "latitude": 25.01531,
+    "longitude": 55.34808,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_616",
+    "latitude": 25.30058,
+    "longitude": 55.34964,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_617",
+    "latitude": 25.11289,
+    "longitude": 55.35058,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_618",
+    "latitude": 25.23319,
+    "longitude": 55.35083,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_619",
+    "latitude": 24.43653,
+    "longitude": 55.35117,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_620",
+    "latitude": 25.06733,
+    "longitude": 55.3525,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_621",
+    "latitude": 25.24711,
+    "longitude": 55.35308,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_622",
+    "latitude": 25.23475,
+    "longitude": 55.35428,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_623",
+    "latitude": 25.29097,
+    "longitude": 55.35431,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_624",
+    "latitude": 25.26806,
+    "longitude": 55.35728,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_625",
+    "latitude": 25.22694,
+    "longitude": 55.35761,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_626",
+    "latitude": 24.94981,
+    "longitude": 55.35769,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_627",
+    "latitude": 25.12772,
+    "longitude": 55.35839,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_628",
+    "latitude": 25.11825,
+    "longitude": 55.36122,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_629",
+    "latitude": 25.29578,
+    "longitude": 55.36125,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_630",
+    "latitude": 25.30103,
+    "longitude": 55.36444,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_631",
+    "latitude": 25.186,
+    "longitude": 55.36508,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_632",
+    "latitude": 25.26514,
+    "longitude": 55.36856,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_633",
+    "latitude": 25.33447,
+    "longitude": 55.36906,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_634",
+    "latitude": 25.29861,
+    "longitude": 55.36967,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_635",
+    "latitude": 25.07464,
+    "longitude": 55.37247,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_636",
+    "latitude": 25.19633,
+    "longitude": 55.37375,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_637",
+    "latitude": 25.31631,
+    "longitude": 55.37411,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_638",
+    "latitude": 25.29992,
+    "longitude": 55.37556,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_639",
+    "latitude": 25.23319,
+    "longitude": 55.37589,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_640",
+    "latitude": 25.21286,
+    "longitude": 55.37608,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_641",
+    "latitude": 25.13006,
+    "longitude": 55.37642,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_642",
+    "latitude": 25.27358,
+    "longitude": 55.37728,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_643",
+    "latitude": 25.267,
+    "longitude": 55.37739,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_644",
+    "latitude": 25.31019,
+    "longitude": 55.37797,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_645",
+    "latitude": 25.18225,
+    "longitude": 55.37864,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_646",
+    "latitude": 25.27886,
+    "longitude": 55.38036,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_647",
+    "latitude": 25.25542,
+    "longitude": 55.38053,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_648",
+    "latitude": 25.35597,
+    "longitude": 55.38053,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_649",
+    "latitude": 25.09958,
+    "longitude": 55.38139,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_650",
+    "latitude": 25.30103,
+    "longitude": 55.38156,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_651",
+    "latitude": 25.26578,
+    "longitude": 55.38172,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_652",
+    "latitude": 25.14281,
+    "longitude": 55.38344,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_653",
+    "latitude": 24.95106,
+    "longitude": 55.38411,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_654",
+    "latitude": 25.08186,
+    "longitude": 55.38414,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_655",
+    "latitude": 25.21303,
+    "longitude": 55.38422,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_656",
+    "latitude": 25.21294,
+    "longitude": 55.38469,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_657",
+    "latitude": 25.35736,
+    "longitude": 55.38517,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_658",
+    "latitude": 25.31067,
+    "longitude": 55.38586,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_659",
+    "latitude": 25.149,
+    "longitude": 55.38619,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_660",
+    "latitude": 25.24803,
+    "longitude": 55.38672,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_661",
+    "latitude": 25.24983,
+    "longitude": 55.38703,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_662",
+    "latitude": 25.25386,
+    "longitude": 55.38711,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_663",
+    "latitude": 25.15411,
+    "longitude": 55.38853,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_664",
+    "latitude": 25.29561,
+    "longitude": 55.38869,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_665",
+    "latitude": 25.09142,
+    "longitude": 55.38878,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_666",
+    "latitude": 24.37492,
+    "longitude": 55.39033,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_667",
+    "latitude": 24.37961,
+    "longitude": 55.39033,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_668",
+    "latitude": 25.23072,
+    "longitude": 55.39039,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_669",
+    "latitude": 25.16425,
+    "longitude": 55.39239,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_670",
+    "latitude": 23.40417,
+    "longitude": 55.39256,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_671",
+    "latitude": 25.21247,
+    "longitude": 55.3935,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_672",
+    "latitude": 25.22825,
+    "longitude": 55.39392,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_673",
+    "latitude": 25.25792,
+    "longitude": 55.39481,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_674",
+    "latitude": 25.29222,
+    "longitude": 55.39503,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_675",
+    "latitude": 25.25792,
+    "longitude": 55.39517,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_676",
+    "latitude": 25.17742,
+    "longitude": 55.39633,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_677",
+    "latitude": 24.20422,
+    "longitude": 55.39658,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_678",
+    "latitude": 25.27125,
+    "longitude": 55.39683,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_679",
+    "latitude": 25.18739,
+    "longitude": 55.39697,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_680",
+    "latitude": 25.20028,
+    "longitude": 55.39722,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_681",
+    "latitude": 25.20586,
+    "longitude": 55.39889,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_682",
+    "latitude": 25.27575,
+    "longitude": 55.39958,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_683",
+    "latitude": 25.07728,
+    "longitude": 55.40019,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_684",
+    "latitude": 25.23661,
+    "longitude": 55.40061,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_685",
+    "latitude": 25.36733,
+    "longitude": 55.40264,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_686",
+    "latitude": 25.29653,
+    "longitude": 55.40267,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_687",
+    "latitude": 25.15461,
+    "longitude": 55.40267,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_688",
+    "latitude": 25.21333,
+    "longitude": 55.40303,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_689",
+    "latitude": 24.96381,
+    "longitude": 55.40406,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_690",
+    "latitude": 25.24408,
+    "longitude": 55.40406,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_691",
+    "latitude": 25.22761,
+    "longitude": 55.40406,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_692",
+    "latitude": 25.3605,
+    "longitude": 55.40669,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_693",
+    "latitude": 25.38264,
+    "longitude": 55.40731,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_694",
+    "latitude": 25.06794,
+    "longitude": 55.40808,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_695",
+    "latitude": 25.23483,
+    "longitude": 55.40947,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_696",
+    "latitude": 24.34272,
+    "longitude": 55.40953,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_697",
+    "latitude": 25.06664,
+    "longitude": 55.40989,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_698",
+    "latitude": 25.10008,
+    "longitude": 55.41078,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_699",
+    "latitude": 24.33239,
+    "longitude": 55.41092,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_700",
+    "latitude": 25.37525,
+    "longitude": 55.41125,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_701",
+    "latitude": 25.25278,
+    "longitude": 55.41142,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_702",
+    "latitude": 25.15122,
+    "longitude": 55.41239,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_703",
+    "latitude": 25.29258,
+    "longitude": 55.41264,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_704",
+    "latitude": 25.17686,
+    "longitude": 55.41294,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_705",
+    "latitude": 25.26828,
+    "longitude": 55.41333,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_706",
+    "latitude": 25.30128,
+    "longitude": 55.41375,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_707",
+    "latitude": 24.97314,
+    "longitude": 55.41436,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_708",
+    "latitude": 25.25286,
+    "longitude": 55.41533,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_709",
+    "latitude": 25.13042,
+    "longitude": 55.41558,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_710",
+    "latitude": 25.26706,
+    "longitude": 55.41814,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_711",
+    "latitude": 25.38808,
+    "longitude": 55.41917,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_712",
+    "latitude": 25.3095,
+    "longitude": 55.42114,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_713",
+    "latitude": 25.28128,
+    "longitude": 55.42394,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_714",
+    "latitude": 25.17492,
+    "longitude": 55.42414,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_715",
+    "latitude": 25.11186,
+    "longitude": 55.42767,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_716",
+    "latitude": 24.285,
+    "longitude": 55.42911,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_717",
+    "latitude": 25.28847,
+    "longitude": 55.42911,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_718",
+    "latitude": 25.34853,
+    "longitude": 55.42919,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_719",
+    "latitude": 25.34186,
+    "longitude": 55.42981,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_720",
+    "latitude": 25.14047,
+    "longitude": 55.43067,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_721",
+    "latitude": 25.04425,
+    "longitude": 55.43083,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_722",
+    "latitude": 25.34486,
+    "longitude": 55.43258,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_723",
+    "latitude": 24.49839,
+    "longitude": 55.43289,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_724",
+    "latitude": 25.20575,
+    "longitude": 55.43297,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_725",
+    "latitude": 25.35136,
+    "longitude": 55.43442,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_726",
+    "latitude": 25.17294,
+    "longitude": 55.43511,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_727",
+    "latitude": 25.41186,
+    "longitude": 55.43517,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_728",
+    "latitude": 25.04167,
+    "longitude": 55.43581,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_729",
+    "latitude": 25.23306,
+    "longitude": 55.43608,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_730",
+    "latitude": 25.14714,
+    "longitude": 55.43769,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_731",
+    "latitude": 25.37133,
+    "longitude": 55.43803,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_732",
+    "latitude": 25.17217,
+    "longitude": 55.44036,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_733",
+    "latitude": 25.39367,
+    "longitude": 55.44078,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_734",
+    "latitude": 24.99336,
+    "longitude": 55.44525,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_735",
+    "latitude": 25.29622,
+    "longitude": 55.44661,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_736",
+    "latitude": 25.40361,
+    "longitude": 55.44681,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_737",
+    "latitude": 25.02772,
+    "longitude": 55.44697,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_738",
+    "latitude": 25.15431,
+    "longitude": 55.44731,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_739",
+    "latitude": 25.23142,
+    "longitude": 55.44731,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_740",
+    "latitude": 25.3335,
+    "longitude": 55.44783,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_741",
+    "latitude": 25.34814,
+    "longitude": 55.44953,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_742",
+    "latitude": 25.35658,
+    "longitude": 55.44972,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_743",
+    "latitude": 25.36869,
+    "longitude": 55.45161,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_744",
+    "latitude": 25.40361,
+    "longitude": 55.45222,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_745",
+    "latitude": 25.34239,
+    "longitude": 55.45256,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_746",
+    "latitude": 25.13022,
+    "longitude": 55.45367,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_747",
+    "latitude": 25.28397,
+    "longitude": 55.45367,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_748",
+    "latitude": 25.01803,
+    "longitude": 55.45539,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_749",
+    "latitude": 24.21022,
+    "longitude": 55.45553,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_750",
+    "latitude": 25.01647,
+    "longitude": 55.45667,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_751",
+    "latitude": 24.23633,
+    "longitude": 55.45675,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_752",
+    "latitude": 25.37611,
+    "longitude": 55.45744,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_753",
+    "latitude": 25.35842,
+    "longitude": 55.45764,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_754",
+    "latitude": 25.34528,
+    "longitude": 55.45864,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_755",
+    "latitude": 25.31206,
+    "longitude": 55.45881,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_756",
+    "latitude": 25.34,
+    "longitude": 55.4595,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_757",
+    "latitude": 25.38917,
+    "longitude": 55.45992,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_758",
+    "latitude": 25.20661,
+    "longitude": 55.46092,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_759",
+    "latitude": 25.21717,
+    "longitude": 55.46292,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_760",
+    "latitude": 25.18592,
+    "longitude": 55.46383,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_761",
+    "latitude": 25.38389,
+    "longitude": 55.46575,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_762",
+    "latitude": 25.33378,
+    "longitude": 55.46586,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_763",
+    "latitude": 25.32322,
+    "longitude": 55.46653,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_764",
+    "latitude": 24.99989,
+    "longitude": 55.46722,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_765",
+    "latitude": 25.24594,
+    "longitude": 55.46861,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_766",
+    "latitude": 25.16639,
+    "longitude": 55.46917,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_767",
+    "latitude": 25.40233,
+    "longitude": 55.46997,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_768",
+    "latitude": 25.39089,
+    "longitude": 55.47075,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_769",
+    "latitude": 25.00675,
+    "longitude": 55.471,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_770",
+    "latitude": 25.20089,
+    "longitude": 55.47306,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_771",
+    "latitude": 25.19158,
+    "longitude": 55.47306,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_772",
+    "latitude": 25.14536,
+    "longitude": 55.47319,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_773",
+    "latitude": 25.3465,
+    "longitude": 55.47392,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_774",
+    "latitude": 25.00706,
+    "longitude": 55.47478,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_775",
+    "latitude": 25.227,
+    "longitude": 55.47753,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_776",
+    "latitude": 25.27156,
+    "longitude": 55.47856,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_777",
+    "latitude": 25.39383,
+    "longitude": 55.48061,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_778",
+    "latitude": 24.98122,
+    "longitude": 55.48267,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_779",
+    "latitude": 25.31331,
+    "longitude": 55.48267,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_780",
+    "latitude": 25.37692,
+    "longitude": 55.48542,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_781",
+    "latitude": 25.41639,
+    "longitude": 55.48714,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_782",
+    "latitude": 23.95489,
+    "longitude": 55.48886,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_783",
+    "latitude": 25.41258,
+    "longitude": 55.48953,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_784",
+    "latitude": 25.22544,
+    "longitude": 55.48989,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_785",
+    "latitude": 25.16,
+    "longitude": 55.49031,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_786",
+    "latitude": 25.39708,
+    "longitude": 55.49264,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_787",
+    "latitude": 25.28319,
+    "longitude": 55.49367,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_788",
+    "latitude": 25.42256,
+    "longitude": 55.49375,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_789",
+    "latitude": 24.51558,
+    "longitude": 55.49436,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_790",
+    "latitude": 24.96467,
+    "longitude": 55.49436,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_791",
+    "latitude": 24.96164,
+    "longitude": 55.49503,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_792",
+    "latitude": 24.94833,
+    "longitude": 55.50586,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_793",
+    "latitude": 25.39367,
+    "longitude": 55.50603,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_794",
+    "latitude": 25.30078,
+    "longitude": 55.50606,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_795",
+    "latitude": 25.16303,
+    "longitude": 55.50883,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_796",
+    "latitude": 23.88961,
+    "longitude": 55.51047,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_797",
+    "latitude": 25.17714,
+    "longitude": 55.51253,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_798",
+    "latitude": 25.20758,
+    "longitude": 55.51322,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_799",
+    "latitude": 25.31517,
+    "longitude": 55.517,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_800",
+    "latitude": 24.93064,
+    "longitude": 55.51736,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_801",
+    "latitude": 25.19689,
+    "longitude": 55.52278,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_802",
+    "latitude": 25.15189,
+    "longitude": 55.52311,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_803",
+    "latitude": 25.35953,
+    "longitude": 55.52525,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_804",
+    "latitude": 24.91025,
+    "longitude": 55.52644,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_805",
+    "latitude": 25.13947,
+    "longitude": 55.52825,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_806",
+    "latitude": 24.21467,
+    "longitude": 55.52986,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_807",
+    "latitude": 23.97369,
+    "longitude": 55.53039,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_808",
+    "latitude": 25.124,
+    "longitude": 55.53092,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_809",
+    "latitude": 25.36172,
+    "longitude": 55.53281,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_810",
+    "latitude": 24.21661,
+    "longitude": 55.53458,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_811",
+    "latitude": 25.36303,
+    "longitude": 55.53622,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_812",
+    "latitude": 25.11125,
+    "longitude": 55.53675,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_813",
+    "latitude": 25.19578,
+    "longitude": 55.53828,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_814",
+    "latitude": 25.31425,
+    "longitude": 55.54147,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_815",
+    "latitude": 24.88722,
+    "longitude": 55.54397,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_816",
+    "latitude": 25.09183,
+    "longitude": 55.5455,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_817",
+    "latitude": 24.52714,
+    "longitude": 55.54686,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_818",
+    "latitude": 24.88067,
+    "longitude": 55.54825,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_819",
+    "latitude": 25.21114,
+    "longitude": 55.55117,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_820",
+    "latitude": 25.38778,
+    "longitude": 55.55272,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_821",
+    "latitude": 25.49372,
+    "longitude": 55.55486,
+    "emirate": "Umm Al Quwain",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_822",
+    "latitude": 25.36869,
+    "longitude": 55.55564,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_823",
+    "latitude": 25.07628,
+    "longitude": 55.55581,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_824",
+    "latitude": 25.31292,
+    "longitude": 55.55839,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_825",
+    "latitude": 25.36883,
+    "longitude": 55.55922,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_826",
+    "latitude": 25.22778,
+    "longitude": 55.56094,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_827",
+    "latitude": 25.48019,
+    "longitude": 55.56417,
+    "emirate": "Umm Al Quwain",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_828",
+    "latitude": 24.85031,
+    "longitude": 55.56542,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_829",
+    "latitude": 23.70364,
+    "longitude": 55.56678,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_830",
+    "latitude": 23.70678,
+    "longitude": 55.56678,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_831",
+    "latitude": 24.21661,
+    "longitude": 55.56733,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_832",
+    "latitude": 25.06817,
+    "longitude": 55.56958,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_833",
+    "latitude": 25.49867,
+    "longitude": 55.57006,
+    "emirate": "Umm Al Quwain",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_834",
+    "latitude": 25.30803,
+    "longitude": 55.57417,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_835",
+    "latitude": 24.20247,
+    "longitude": 55.57528,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_836",
+    "latitude": 24.82367,
+    "longitude": 55.57717,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_837",
+    "latitude": 25.40514,
+    "longitude": 55.58156,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_838",
+    "latitude": 24.81183,
+    "longitude": 55.58317,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_839",
+    "latitude": 25.04825,
+    "longitude": 55.58478,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_840",
+    "latitude": 24.53581,
+    "longitude": 55.58669,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_841",
+    "latitude": 25.46811,
+    "longitude": 55.58975,
+    "emirate": "Umm Al Quwain",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_842",
+    "latitude": 24.18558,
+    "longitude": 55.59564,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_843",
+    "latitude": 24.18214,
+    "longitude": 55.59778,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_844",
+    "latitude": 24.20228,
+    "longitude": 55.59828,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_845",
+    "latitude": 24.77792,
+    "longitude": 55.59889,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_846",
+    "latitude": 24.17933,
+    "longitude": 55.6025,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_847",
+    "latitude": 25.29711,
+    "longitude": 55.60719,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_848",
+    "latitude": 24.01292,
+    "longitude": 55.60731,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_849",
+    "latitude": 24.69225,
+    "longitude": 55.60747,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_850",
+    "latitude": 24.75361,
+    "longitude": 55.60892,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_851",
+    "latitude": 24.74822,
+    "longitude": 55.61228,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_852",
+    "latitude": 24.74275,
+    "longitude": 55.61353,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_853",
+    "latitude": 24.73506,
+    "longitude": 55.61717,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_854",
+    "latitude": 24.19467,
+    "longitude": 55.62139,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_855",
+    "latitude": 24.53744,
+    "longitude": 55.62139,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_856",
+    "latitude": 25.46111,
+    "longitude": 55.62342,
+    "emirate": "Umm Al Quwain",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_857",
+    "latitude": 24.18114,
+    "longitude": 55.62489,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_858",
+    "latitude": 24.70114,
+    "longitude": 55.62739,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_859",
+    "latitude": 25.37969,
+    "longitude": 55.62997,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_860",
+    "latitude": 25.01433,
+    "longitude": 55.63325,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_861",
+    "latitude": 25.19375,
+    "longitude": 55.63475,
+    "emirate": "Dubai",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_862",
+    "latitude": 24.30047,
+    "longitude": 55.64575,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_863",
+    "latitude": 25.47767,
+    "longitude": 55.64711,
+    "emirate": "Umm Al Quwain",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_864",
+    "latitude": 24.68025,
+    "longitude": 55.65056,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_865",
+    "latitude": 24.22353,
+    "longitude": 55.65242,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_866",
+    "latitude": 25.00308,
+    "longitude": 55.65425,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_867",
+    "latitude": 25.47586,
+    "longitude": 55.65428,
+    "emirate": "Umm Al Quwain",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_868",
+    "latitude": 25.56478,
+    "longitude": 55.65558,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_869",
+    "latitude": 25.58378,
+    "longitude": 55.65714,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_870",
+    "latitude": 24.67339,
+    "longitude": 55.66239,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_871",
+    "latitude": 25.42964,
+    "longitude": 55.66342,
+    "emirate": "Ajman",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_872",
+    "latitude": 24.66308,
+    "longitude": 55.67958,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_873",
+    "latitude": 25.49364,
+    "longitude": 55.68292,
+    "emirate": "Umm Al Quwain",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_874",
+    "latitude": 24.66325,
+    "longitude": 55.68333,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_875",
+    "latitude": 25.60492,
+    "longitude": 55.6835,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_876",
+    "latitude": 24.56189,
+    "longitude": 55.69858,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_877",
+    "latitude": 25.51408,
+    "longitude": 55.70686,
+    "emirate": "Umm Al Quwain",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_878",
+    "latitude": 24.21819,
+    "longitude": 55.70958,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_879",
+    "latitude": 24.15489,
+    "longitude": 55.71167,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_880",
+    "latitude": 24.11478,
+    "longitude": 55.71511,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_881",
+    "latitude": 24.22989,
+    "longitude": 55.71536,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_882",
+    "latitude": 24.17478,
+    "longitude": 55.72111,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_883",
+    "latitude": 25.63278,
+    "longitude": 55.72167,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_884",
+    "latitude": 24.62719,
+    "longitude": 55.72197,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_885",
+    "latitude": 24.61939,
+    "longitude": 55.72489,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_886",
+    "latitude": 24.33458,
+    "longitude": 55.72814,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_887",
+    "latitude": 24.22317,
+    "longitude": 55.73028,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_888",
+    "latitude": 25.27911,
+    "longitude": 55.7305,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_889",
+    "latitude": 24.59333,
+    "longitude": 55.73672,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_890",
+    "latitude": 24.30689,
+    "longitude": 55.73972,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_891",
+    "latitude": 24.29858,
+    "longitude": 55.74067,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_892",
+    "latitude": 24.27122,
+    "longitude": 55.74144,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_893",
+    "latitude": 24.15475,
+    "longitude": 55.74514,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_894",
+    "latitude": 24.57522,
+    "longitude": 55.74575,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_895",
+    "latitude": 25.55581,
+    "longitude": 55.74586,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_896",
+    "latitude": 24.55992,
+    "longitude": 55.75139,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_897",
+    "latitude": 24.55267,
+    "longitude": 55.75433,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_898",
+    "latitude": 24.26078,
+    "longitude": 55.75483,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_899",
+    "latitude": 24.53683,
+    "longitude": 55.75836,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_900",
+    "latitude": 24.12106,
+    "longitude": 55.76111,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_901",
+    "latitude": 24.51978,
+    "longitude": 55.76283,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_902",
+    "latitude": 24.52058,
+    "longitude": 55.7635,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_903",
+    "latitude": 24.27919,
+    "longitude": 55.76381,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_904",
+    "latitude": 24.50028,
+    "longitude": 55.76806,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_905",
+    "latitude": 24.33536,
+    "longitude": 55.76833,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_906",
+    "latitude": 25.27731,
+    "longitude": 55.77111,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_907",
+    "latitude": 24.47894,
+    "longitude": 55.77528,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_908",
+    "latitude": 24.46378,
+    "longitude": 55.78058,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_909",
+    "latitude": 24.45167,
+    "longitude": 55.78353,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_910",
+    "latitude": 25.607,
+    "longitude": 55.78908,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_911",
+    "latitude": 24.427,
+    "longitude": 55.78925,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_912",
+    "latitude": 24.30211,
+    "longitude": 55.79167,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_913",
+    "latitude": 24.40675,
+    "longitude": 55.79492,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_914",
+    "latitude": 24.40189,
+    "longitude": 55.79603,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_915",
+    "latitude": 24.20689,
+    "longitude": 55.79614,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_916",
+    "latitude": 24.39722,
+    "longitude": 55.79656,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_917",
+    "latitude": 24.16867,
+    "longitude": 55.80058,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_918",
+    "latitude": 24.35711,
+    "longitude": 55.80403,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_919",
+    "latitude": 24.33147,
+    "longitude": 55.81019,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_920",
+    "latitude": 24.13358,
+    "longitude": 55.81811,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_921",
+    "latitude": 24.08283,
+    "longitude": 55.83253,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_922",
+    "latitude": 24.90325,
+    "longitude": 55.83425,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_923",
+    "latitude": 24.03642,
+    "longitude": 55.84761,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_924",
+    "latitude": 24.89703,
+    "longitude": 55.85914,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_925",
+    "latitude": 24.96583,
+    "longitude": 55.86547,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_926",
+    "latitude": 25.68206,
+    "longitude": 55.88367,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_927",
+    "latitude": 25.73619,
+    "longitude": 55.88917,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_928",
+    "latitude": 25.28786,
+    "longitude": 55.89878,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_929",
+    "latitude": 24.87375,
+    "longitude": 55.90761,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_930",
+    "latitude": 25.75336,
+    "longitude": 55.90978,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_931",
+    "latitude": 25.74919,
+    "longitude": 55.92231,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_932",
+    "latitude": 25.77239,
+    "longitude": 55.92458,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_933",
+    "latitude": 25.77253,
+    "longitude": 55.92572,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_934",
+    "latitude": 25.28478,
+    "longitude": 55.92611,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_935",
+    "latitude": 24.86486,
+    "longitude": 55.93158,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_936",
+    "latitude": 25.74386,
+    "longitude": 55.93236,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_937",
+    "latitude": 25.78581,
+    "longitude": 55.93367,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_938",
+    "latitude": 25.28289,
+    "longitude": 55.93397,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_939",
+    "latitude": 25.73992,
+    "longitude": 55.94169,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_940",
+    "latitude": 25.78856,
+    "longitude": 55.94439,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_941",
+    "latitude": 24.86253,
+    "longitude": 55.95647,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_942",
+    "latitude": 25.71764,
+    "longitude": 55.96675,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_943",
+    "latitude": 25.76433,
+    "longitude": 55.97019,
+    "emirate": "Ras Al Khaimah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_944",
+    "latitude": 24.85886,
+    "longitude": 55.97842,
+    "emirate": "Abu Dhabi",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_945",
+    "latitude": 25.28769,
+    "longitude": 55.98111,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_946",
+    "latitude": 25.2885,
+    "longitude": 55.99919,
+    "emirate": "Sharjah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_947",
+    "latitude": 25.32542,
+    "longitude": 56.01378,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_948",
+    "latitude": 25.34867,
+    "longitude": 56.02358,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_949",
+    "latitude": 25.30214,
+    "longitude": 56.04556,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_950",
+    "latitude": 25.29886,
+    "longitude": 56.06564,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_951",
+    "latitude": 24.83783,
+    "longitude": 56.07989,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_952",
+    "latitude": 24.83736,
+    "longitude": 56.08392,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_953",
+    "latitude": 24.83464,
+    "longitude": 56.09369,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_954",
+    "latitude": 24.83178,
+    "longitude": 56.10658,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_955",
+    "latitude": 24.82097,
+    "longitude": 56.12322,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_956",
+    "latitude": 25.29492,
+    "longitude": 56.12322,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_957",
+    "latitude": 25.30447,
+    "longitude": 56.14872,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_958",
+    "latitude": 25.20292,
+    "longitude": 56.22289,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_959",
+    "latitude": 25.179,
+    "longitude": 56.23481,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_960",
+    "latitude": 25.12208,
+    "longitude": 56.32894,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_961",
+    "latitude": 25.12383,
+    "longitude": 56.3355,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_962",
+    "latitude": 25.1515,
+    "longitude": 56.34064,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_963",
+    "latitude": 25.156,
+    "longitude": 56.34569,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_964",
+    "latitude": 25.34889,
+    "longitude": 56.34792,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_965",
+    "latitude": 25.04836,
+    "longitude": 56.35378,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_966",
+    "latitude": 25.05886,
+    "longitude": 56.35472,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_967",
+    "latitude": 25.08603,
+    "longitude": 56.35819,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  },
+  {
+    "id": "police_968",
+    "latitude": 25.11825,
+    "longitude": 56.31592,
+    "emirate": "Fujairah",
+    "speedLimit": 0
+  }
+]
