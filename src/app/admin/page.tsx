@@ -344,9 +344,9 @@ function AdminPanel() {
                     <span>Lat: {selected.latitude.toFixed(6)}, Lng: {selected.longitude.toFixed(6)}</span>
                     <button
                       onClick={() => { setDraggableId(selected.id); setPanelOpen(false); }}
-                      className="block text-blue-500 font-medium mt-0.5 hover:text-blue-700"
+                      className="block w-full mt-1.5 py-2 bg-blue-50 text-blue-600 font-medium text-sm rounded-lg border border-blue-200 active:bg-blue-100"
                     >
-                      Enable drag to move &rarr;
+                      Enable drag to move
                     </button>
                   </div>
 
